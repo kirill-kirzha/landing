@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 import type { SectionProps } from "@/types";
 import { cn } from "@/lib/utils";
+import { EASE, DURATION, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
@@ -43,8 +44,8 @@ export function WhyTeamsSection({ className }: SectionProps) {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          viewport={VIEWPORT}
+          transition={{ duration: DURATION.normal, ease: EASE }}
           className="mx-auto max-w-3xl text-center"
         >
           <Badge>Why teams prefer us</Badge>
@@ -70,16 +71,18 @@ export function WhyTeamsSection({ className }: SectionProps) {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          viewport={VIEWPORT}
+          transition={{ duration: DURATION.slow, delay: 0.1 }}
           className="mx-auto mt-16 max-w-5xl"
         >
           {/* Desktop: 2-col with hover */}
           <div className="hidden lg:grid lg:grid-cols-[280px_1fr] lg:gap-12">
-            <div className="space-y-1">
+            <div className="space-y-1" role="tablist" aria-label="Capabilities">
               {capabilities.map((cap, idx) => (
                 <button
                   key={cap.title}
+                  role="tab"
+                  aria-selected={idx === activeCapability}
                   onMouseEnter={() => setActiveCapability(idx)}
                   onClick={() => setActiveCapability(idx)}
                   className={cn(
@@ -94,7 +97,7 @@ export function WhyTeamsSection({ className }: SectionProps) {
               ))}
             </div>
 
-            <div className="flex items-center pl-8">
+            <div className="flex items-center pl-8" role="tabpanel">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeCapability}
@@ -103,9 +106,7 @@ export function WhyTeamsSection({ className }: SectionProps) {
                   exit={{ opacity: 0, x: -10 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <h3 className="type-heading">
-                    {capabilities[activeCapability].title}
-                  </h3>
+                  <h3 className="type-heading">{capabilities[activeCapability].title}</h3>
                   <p className="type-body mt-6 text-muted-foreground">
                     {capabilities[activeCapability].description}
                   </p>
@@ -114,15 +115,14 @@ export function WhyTeamsSection({ className }: SectionProps) {
             </div>
           </div>
 
-          {/* Mobile: accordion-style list */}
+          {/* Mobile: accordion */}
           <div className="space-y-0 lg:hidden">
             {capabilities.map((cap, idx) => (
               <button
                 key={cap.title}
                 onClick={() => setActiveCapability(idx === activeCapability ? -1 : idx)}
-                className={cn(
-                  "block w-full border-b border-border/15 py-5 text-left",
-                )}
+                aria-expanded={idx === activeCapability}
+                className="block w-full border-b border-border/15 py-5 text-left"
               >
                 <p className={cn(
                   "type-body-sm transition-colors duration-200",
@@ -152,7 +152,7 @@ export function WhyTeamsSection({ className }: SectionProps) {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: DURATION.normal, delay: 0.2 }}
           className="mt-16 text-center"
         >
           <Btn href="/contact" size="lg">

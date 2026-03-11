@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 import type { SectionProps } from "@/types";
+import { EASE, DURATION, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
@@ -17,8 +18,8 @@ export function TryAleriaSection({ className }: SectionProps) {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          viewport={VIEWPORT}
+          transition={{ duration: DURATION.normal, ease: EASE }}
           className="text-center"
         >
           <Badge>Try before you book</Badge>
@@ -32,8 +33,8 @@ export function TryAleriaSection({ className }: SectionProps) {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+          viewport={VIEWPORT}
+          transition={{ duration: DURATION.normal, ease: EASE, delay: 0.1 }}
           className="mx-auto mt-12 max-w-5xl"
         >
           <MediaFrame label="Product Demo" ratio="video" className="rounded-3xl" />
@@ -43,7 +44,7 @@ export function TryAleriaSection({ className }: SectionProps) {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: DURATION.normal, delay: 0.2 }}
           className="mt-8 text-center"
         >
           <Btn href="/try" size="lg">

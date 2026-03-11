@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 
 import type { SectionProps } from "@/types";
+import { EASE, DURATION, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
@@ -31,11 +32,11 @@ function ProductCard({
       <div className="mt-6">
         <Badge>{badge}</Badge>
         <h3 className="type-heading mt-6">{title}</h3>
-        <p className="type-body-sm mt-6 text-muted-foreground/70">{description}</p>
+        <p className="type-body-sm mt-6 text-tertiary">{description}</p>
 
         <ul className="mt-5 space-y-2">
           {features.map((f) => (
-            <li key={f} className="type-body-sm text-muted-foreground/60">{f}</li>
+            <li key={f} className="type-body-sm text-quaternary">{f}</li>
           ))}
         </ul>
 
@@ -66,8 +67,8 @@ export function MoreProductsSection({ className }: SectionProps) {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          viewport={VIEWPORT}
+          transition={{ duration: DURATION.normal, ease: EASE }}
           className="mx-auto max-w-3xl text-center"
         >
           <Badge>More</Badge>
@@ -79,8 +80,8 @@ export function MoreProductsSection({ className }: SectionProps) {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          viewport={VIEWPORT}
+          transition={{ duration: DURATION.normal, ease: EASE }}
           className="mt-16 grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-12"
         >
           <ProductCard

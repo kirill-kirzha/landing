@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 
 import type { SectionProps } from "@/types";
+import { fadeUp, stagger, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
@@ -36,10 +37,10 @@ export function EcosystemSection({ className }: SectionProps) {
     <Section className={className}>
       <Container>
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT}
+          variants={fadeUp}
           className="mx-auto max-w-3xl text-center"
         >
           <Badge>Ecosystem</Badge>
@@ -55,23 +56,17 @@ export function EcosystemSection({ className }: SectionProps) {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.12 } },
-          }}
+          viewport={VIEWPORT}
+          variants={stagger(0.12)}
           className="mx-auto mt-20 max-w-5xl"
         >
           {pillars.map((pillar) => (
             <motion.div
               key={pillar.number}
-              variants={{
-                hidden: { opacity: 0, y: 16 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-              }}
+              variants={fadeUp}
               className="grid grid-cols-1 gap-4 border-t border-border/20 py-10 sm:grid-cols-[60px_140px_1fr] sm:gap-6 sm:py-12"
             >
-              <p className="type-display text-muted-foreground/10 max-sm:hidden">
+              <p className="type-display text-muted-foreground/10 max-sm:hidden" aria-hidden="true">
                 {pillar.number}
               </p>
               <div>
@@ -80,7 +75,7 @@ export function EcosystemSection({ className }: SectionProps) {
                   {pillar.subtitle}
                 </p>
               </div>
-              <p className="type-body-sm text-muted-foreground/60 sm:pt-1">
+              <p className="type-body-sm text-quaternary sm:pt-1">
                 {pillar.description}
               </p>
             </motion.div>

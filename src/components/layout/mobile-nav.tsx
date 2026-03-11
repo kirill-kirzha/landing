@@ -4,6 +4,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { siteConfig } from "@/config/site";
+import { EASE } from "@/lib/motion";
 import { Btn } from "@/components/marketing/button";
 
 interface MobileNavProps {
@@ -15,14 +16,15 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
   return (
     <AnimatePresence>
       {open && (
-        <motion.div
+        <motion.nav
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
-          transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.3, ease: EASE }}
           className="overflow-hidden border-t border-border/30 lg:hidden"
+          aria-label="Mobile navigation"
         >
-          <nav className="flex flex-col gap-1 px-6 py-4">
+          <div className="flex flex-col gap-1 px-5 py-4 sm:px-6">
             {siteConfig.nav.main.map((item) => (
               <Link
                 key={item.href}
@@ -34,7 +36,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
               </Link>
             ))}
 
-            <div className="my-3 h-px bg-border/20" />
+            <div className="my-3 h-px bg-border/20" aria-hidden="true" />
 
             <div className="flex flex-col gap-2 pt-1">
               <Btn
@@ -53,8 +55,8 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                 {siteConfig.nav.cta.primary.label}
               </Btn>
             </div>
-          </nav>
-        </motion.div>
+          </div>
+        </motion.nav>
       )}
     </AnimatePresence>
   );

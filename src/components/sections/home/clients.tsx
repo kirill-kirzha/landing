@@ -44,7 +44,7 @@ function MarqueeRow({
 }) {
   const doubled = [...items, ...items];
   return (
-    <div className="relative overflow-hidden py-3">
+    <div className="relative overflow-hidden py-3" role="marquee" aria-label="Client logos">
       <div
         className={cn(
           "flex w-max items-center gap-10",
@@ -66,20 +66,20 @@ function MarqueeRow({
 
 export function ClientsSection({ className }: SectionProps) {
   return (
-    <section className={cn("py-12 sm:py-16", className)}>
+    <section className={cn("py-12 sm:py-16", className)} aria-label="Clients">
       <motion.p
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="type-label mb-6 text-center text-muted-foreground/40"
+        className="type-label mb-6 text-center text-quaternary"
       >
         Trusted by industry leaders
       </motion.p>
 
       <div className="relative">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-background to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-background to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-background to-transparent" aria-hidden="true" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-background to-transparent" aria-hidden="true" />
         <MarqueeRow items={row1} />
         <MarqueeRow items={row2} reverse />
       </div>

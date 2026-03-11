@@ -18,10 +18,18 @@ Full reference: `DESIGN-SYSTEM.md` at repo root.
 
 ### Color Palette
 - **Light mode first**. Dark mode only via `.dark` class on specific sections.
-- Background: Warm Paper (`#FAF9F5`) — `bg-background`
-- Text: Espresso (`#14110e`) — `text-foreground`
-- Contrast sections: Desert Sand Light (`#f5edda`) — `bg-muted`
-- Brand accents: Mint (`#00f07b`) — `text-brand-mint` / Sand (`#f8e8c6`) — `text-brand-sand`
+- Background: Warm Paper — `bg-background`
+- Text: Espresso — `text-foreground`
+- Contrast sections: Desert Sand Light — `bg-muted`
+- Brand accents: Mint — `text-brand-mint` / Sand — `text-brand-sand`
+
+### Text Hierarchy (4 tiers)
+- **Primary**: `text-foreground` — headings, strong text
+- **Secondary**: `text-muted-foreground` — body text, descriptions
+- **Tertiary**: `text-tertiary` — feature details, list descriptions
+- **Quaternary**: `text-quaternary` — meta text, footer links, subtle labels
+- Do NOT use opacity modifiers on text colors for readable text. Use the semantic tiers.
+- Exception: decorative/non-essential elements (e.g. large watermark numbers) may use opacity.
 
 ### Brand Gradient Effects
 - `.gradient-desert-mint` — solid gradient fill
@@ -33,7 +41,7 @@ Full reference: `DESIGN-SYSTEM.md` at repo root.
 
 ### Typography
 - Headings (h1, h2): **Playfair Display** (serif) — applied globally in CSS
-- Body: **Manrope** — `font-sans`
+- Body: **Manrope** — `font-sans` (variable: `--font-manrope`)
 - Monospace: **Geist Mono** — `font-mono`
 - ALWAYS use `.type-*` classes. NEVER combine manual font-size + font-weight + tracking.
 - Available: `type-display`, `type-title`, `type-heading`, `type-body`, `type-body-sm`, `type-label`, `type-metric`
@@ -52,18 +60,31 @@ Full reference: `DESIGN-SYSTEM.md` at repo root.
 
 ## Styling
 - All colors from CSS custom properties in `globals.css`.
-- Use Tailwind tokens (`text-foreground`, `bg-muted`, `border-border/30`).
+- Use Tailwind tokens (`text-foreground`, `bg-muted`, `text-tertiary`, `text-quaternary`).
 - Never hardcode colors in components.
 - Exception: radial gradients for ambient effects may use oklch inline.
+
+## Animations
+- Import constants from `src/lib/motion.ts`: `EASE`, `DURATION`, `VIEWPORT`, `fadeUp`, `fadeIn`, `stagger`.
+- NEVER hardcode ease arrays or duration values inline. Always use the centralized constants.
+- Framer Motion `whileInView` for scroll-triggered.
+- Lists use `variants` + `stagger()` function.
+
+## Accessibility
+- All decorative elements must have `aria-hidden="true"`.
+- Toggle buttons must have `aria-expanded`.
+- Navigation landmarks must have `aria-label`.
+- All interactive elements must use `.focus-ring` class.
+- App is wrapped in `<MotionConfig reducedMotion="user">` via `Providers`.
 
 ## Components
 
 ### Marketing primitives (`components/marketing/`)
-- `Btn` — Polymorphic button/link. Variants: `primary`, `secondary`, `outline_gradient`, `ghost`.
+- `Btn` — Polymorphic button/link. Variants: `primary`, `secondary`, `outline_gradient`, `ghost`. Uses `.focus-ring`.
 - `Section` — Section wrapper. Props: `background` (`default`/`muted`/`dark`), `spacing`, `divider`.
-- `Container` — Max-width wrapper. Props: `size` (`default`/`narrow`/`wide`/`full`).
+- `Container` — Max-width wrapper. Responsive padding: `px-5 sm:px-6 lg:px-8`.
 - `Badge` — Section label. Auto `type-label` styling.
-- `LinkArrow` — Text link with animated arrow.
+- `LinkArrow` — Text link with animated arrow. Uses `.focus-ring`.
 - `MediaFrame` — Video/image placeholder.
 
 ### Sections (`components/sections/{page}/`)
@@ -72,16 +93,9 @@ Full reference: `DESIGN-SYSTEM.md` at repo root.
 - Use `Section` + `Container` wrappers.
 
 ### Layout (`components/layout/`)
-- `header.tsx` — transparent blur + `.line-gradient` separator
+- `header.tsx` — transparent blur + `.line-gradient` separator. Height: `var(--header-height)`.
 - `footer.tsx`, `mobile-nav.tsx`
 - Logo: `/public/logo.svg` (light) and `/public/logo-dark.svg` (dark sections)
-
-## Animations
-- Framer Motion `whileInView` for scroll-triggered.
-- Ease: `[0.4, 0, 0.2, 1]`
-- Duration: `0.5` (standard), `0.6` (hero/cta)
-- Viewport: `{ once: true, margin: "-80px" }`
-- Lists: `variants` + `staggerChildren: 0.08-0.12`
 
 ## What NOT to do
 - Do NOT combine manual font-size + font-weight + tracking. Use `.type-*` classes.
@@ -90,10 +104,14 @@ Full reference: `DESIGN-SYSTEM.md` at repo root.
 - Do NOT add icon-in-a-box patterns. Use typography and whitespace.
 - Do NOT add `"use client"` unless the component uses hooks or event handlers.
 - Do NOT create hooks or utilities unless used by 2+ files.
+- Do NOT hardcode ease/duration values. Import from `@/lib/motion`.
+- Do NOT use opacity modifiers for text hierarchy. Use `text-tertiary` / `text-quaternary`.
 
 ## Key Files
 - Design system: `DESIGN-SYSTEM.md`
 - CSS tokens + type scale + effects: `src/app/globals.css`
+- Animation constants: `src/lib/motion.ts`
 - Fonts: `src/lib/fonts.ts`
+- Providers (MotionConfig): `src/components/providers.tsx`
 - Site config: `src/config/site.ts`
 - Types: `src/types/index.ts`

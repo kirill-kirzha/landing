@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 import type { SectionProps } from "@/types";
 import { cn } from "@/lib/utils";
+import { fadeIn, stagger, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
@@ -41,7 +42,7 @@ export function CaseStudiesSection({ className }: SectionProps) {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={VIEWPORT}
           transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
           className="mx-auto max-w-3xl text-center"
         >
@@ -54,21 +55,12 @@ export function CaseStudiesSection({ className }: SectionProps) {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.08 } },
-          }}
+          viewport={VIEWPORT}
+          variants={stagger(0.08)}
           className="mt-16"
         >
           {caseStudies.map((study, idx) => (
-            <motion.div
-              key={study.client}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1, transition: { duration: 0.5 } },
-              }}
-            >
+            <motion.div key={study.client} variants={fadeIn}>
               <Link
                 href={study.href}
                 className={cn(
@@ -77,9 +69,9 @@ export function CaseStudiesSection({ className }: SectionProps) {
                 )}
               >
                 <h3 className="type-heading">{study.client}</h3>
-                <p className="type-label text-muted-foreground/50">{study.meta}</p>
-                <p className="type-body-sm text-muted-foreground/70">{study.description}</p>
-                <ArrowRight className="hidden size-4 text-muted-foreground/30 transition-transform duration-150 group-hover:translate-x-1 sm:block" />
+                <p className="type-label text-quaternary">{study.meta}</p>
+                <p className="type-body-sm text-tertiary">{study.description}</p>
+                <ArrowRight className="hidden size-4 text-muted-foreground/30 transition-transform duration-150 group-hover:translate-x-1 sm:block" aria-hidden="true" />
               </Link>
             </motion.div>
           ))}

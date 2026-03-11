@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 import { siteConfig } from "@/config/site";
+import { DURATION, EASE } from "@/lib/motion";
 import { Btn } from "@/components/marketing/button";
 import { MobileNav } from "@/components/layout/mobile-nav";
 
@@ -17,13 +18,14 @@ export function Header() {
     <motion.header
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+      transition={{ duration: DURATION.normal, ease: EASE }}
       className="fixed top-0 z-50 w-full bg-background/60 backdrop-blur-2xl backdrop-saturate-150"
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+      <div className="mx-auto flex h-[var(--header-height)] max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
         <Link
           href="/"
           className="transition-opacity duration-150 hover:opacity-70"
+          aria-label={`${siteConfig.name} — Home`}
         >
           <Image
             src="/logo.svg"
@@ -43,7 +45,7 @@ export function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-8 lg:flex" aria-label="Main navigation">
           {siteConfig.nav.main.map((item) => (
             <Link
               key={item.href}
@@ -76,13 +78,14 @@ export function Header() {
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="flex size-10 items-center justify-center rounded-full text-muted-foreground transition-colors duration-150 hover:text-foreground lg:hidden"
-          aria-label="Toggle menu"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
       </div>
 
-      <div className="line-gradient" />
+      <div className="line-gradient" aria-hidden="true" />
 
       <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} />
     </motion.header>

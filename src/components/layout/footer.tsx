@@ -8,8 +8,8 @@ const footerLinks = {
     title: "Solutions",
     links: [
       { label: "Sources", href: "/solutions/sources" },
-      { label: "AI OS \u2014 Agents", href: "/solutions/ai-os" },
-      { label: "AI OS \u2014 Flows", href: "/solutions/flows" },
+      { label: "AI OS — Agents", href: "/solutions/ai-os" },
+      { label: "AI OS — Flows", href: "/solutions/flows" },
       { label: "Dashboard AI", href: "/solutions/dashboard-ai" },
       { label: "Video AI", href: "/solutions/video-ai" },
     ],
@@ -44,8 +44,8 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border/20">
-      <div className="mx-auto max-w-7xl px-6 py-16">
+    <footer className="border-t border-border/20" role="contentinfo">
+      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {Object.values(footerLinks).map((section) => (
             <div key={section.title}>
@@ -55,7 +55,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-muted-foreground/60 transition-colors duration-150 hover:text-foreground"
+                      className="text-sm text-quaternary transition-colors duration-150 hover:text-foreground"
                     >
                       {link.label}
                     </Link>
@@ -66,7 +66,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="my-10 h-px bg-border/15" />
+        <div className="my-10 h-px bg-border/15" aria-hidden="true" />
 
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <div className="flex items-center gap-4">
@@ -77,11 +77,11 @@ export function Footer() {
               height={19}
               className="opacity-40"
             />
-            <p className="text-sm text-muted-foreground/50">
+            <p className="text-sm text-quaternary">
               &copy; {currentYear} {siteConfig.name}. All rights reserved.
             </p>
           </div>
-          <p className="text-sm text-muted-foreground/50">
+          <p className="text-sm text-quaternary">
             Abu Dhabi, United Arab Emirates
           </p>
         </div>

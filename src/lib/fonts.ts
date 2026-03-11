@@ -1,7 +1,7 @@
 import { Manrope, Geist_Mono, Playfair_Display } from "next/font/google";
 
 export const manrope = Manrope({
-  variable: "--font-geist-sans",
+  variable: "--font-manrope",
   subsets: ["latin"],
   display: "swap",
 });

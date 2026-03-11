@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 
 import { manrope, geistMono, playfair } from "@/lib/fonts";
 import { siteConfig } from "@/config/site";
+import { Providers } from "@/components/providers";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 
@@ -15,14 +16,8 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    "AI",
-    "Artificial Intelligence",
-    "Sovereign AI",
-    "AI Factory",
-    "Enterprise AI",
-    "UAE",
-    "Data Intelligence",
-    "Operational Intelligence",
+    "AI", "Artificial Intelligence", "Sovereign AI", "AI Factory",
+    "Enterprise AI", "UAE", "Data Intelligence", "Operational Intelligence",
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
@@ -62,13 +57,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${manrope.variable} ${geistMono.variable} ${playfair.variable} min-h-dvh font-sans antialiased`}
+        className={`${manrope.variable} ${geistMono.variable} ${playfair.variable} min-h-dvh font-sans`}
       >
-        <div className="relative flex min-h-dvh flex-col">
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
+        <Providers>
+          <a href="#main-content" className="skip-link">
+            Skip to content
+          </a>
+          <div className="relative flex min-h-dvh flex-col">
+            <Header />
+            <main id="main-content" className="flex-1">{children}</main>
+            <Footer />
+          </div>
+        </Providers>
       </body>
     </html>
   );

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import type { SectionProps } from "@/types";
 import { cn } from "@/lib/utils";
+import { fadeUp, fadeIn, stagger, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
@@ -31,10 +32,10 @@ export function AiFactorySection({ className }: SectionProps) {
     <Section background="muted" divider="both" className={className}>
       <Container>
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT}
+          variants={fadeUp}
           className="mx-auto max-w-3xl text-center"
         >
           <Badge>AI Factory</Badge>
@@ -49,20 +50,14 @@ export function AiFactorySection({ className }: SectionProps) {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.08 } },
-          }}
+          viewport={VIEWPORT}
+          variants={stagger(0.08)}
           className="mx-auto mt-20 max-w-4xl"
         >
           {pillars.map((pillar, idx) => (
             <motion.div
               key={pillar.title}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1, transition: { duration: 0.5 } },
-              }}
+              variants={fadeIn}
               className={cn(
                 "py-8",
                 idx < pillars.length - 1 && "border-b border-border/20",
@@ -70,7 +65,7 @@ export function AiFactorySection({ className }: SectionProps) {
             >
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-[200px_1fr] sm:gap-12">
                 <p className="type-body-sm font-medium">{pillar.title}</p>
-                <p className="type-body-sm text-muted-foreground/70">
+                <p className="type-body-sm text-tertiary">
                   {pillar.description}
                 </p>
               </div>

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 
 import type { SectionProps } from "@/types";
+import { EASE, DURATION, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
@@ -17,8 +18,8 @@ export function FlowsSection({ className }: SectionProps) {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+            viewport={VIEWPORT}
+            transition={{ duration: DURATION.normal, ease: EASE }}
           >
             <Badge>AI OS — Flows</Badge>
 
@@ -34,21 +35,21 @@ export function FlowsSection({ className }: SectionProps) {
             <div className="mt-10 space-y-6">
               <div>
                 <p className="type-body-sm font-medium">Atomic nodes</p>
-                <p className="type-body-sm mt-1 text-muted-foreground/70">
+                <p className="type-body-sm mt-1 text-tertiary">
                   Data lookups, document processing, LLM steps, write-back and
                   adaptive Agent nodes for complex reasoning.
                 </p>
               </div>
               <div>
                 <p className="type-body-sm font-medium">Production-grade</p>
-                <p className="type-body-sm mt-1 text-muted-foreground/70">
+                <p className="type-body-sm mt-1 text-tertiary">
                   Every run traced, every version saved, every output
                   schema-validated JSON.
                 </p>
               </div>
               <div>
                 <p className="type-body-sm font-medium">Proven at scale</p>
-                <p className="type-body-sm mt-1 text-muted-foreground/70">
+                <p className="type-body-sm mt-1 text-tertiary">
                   Powers ALDAR X (16 connected sources) and Pivot (investment
                   due diligence, end-to-end).
                 </p>
@@ -63,8 +64,8 @@ export function FlowsSection({ className }: SectionProps) {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+            viewport={VIEWPORT}
+            transition={{ duration: DURATION.normal, ease: EASE, delay: 0.1 }}
             className="lg:sticky lg:top-24"
           >
             <MediaFrame label="Flows Demo" />

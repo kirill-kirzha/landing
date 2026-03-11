@@ -14,12 +14,12 @@ export function LinkArrow({ href, className, children }: LinkArrowProps) {
     <Link
       href={href}
       className={cn(
-        "group inline-flex items-center gap-1.5 text-sm font-medium transition-opacity duration-150 hover:opacity-70",
+        "group inline-flex items-center gap-1.5 rounded-sm text-sm font-medium transition-opacity duration-150 hover:opacity-70 focus-ring",
         className,
       )}
     >
       {children}
-      <ArrowRight className="size-3.5 transition-transform duration-150 group-hover:translate-x-0.5" />
+      <ArrowRight className="size-3.5 transition-transform duration-150 group-hover:translate-x-0.5" aria-hidden="true" />
     </Link>
   );
 }

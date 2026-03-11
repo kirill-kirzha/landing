@@ -5,32 +5,39 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-serif);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
   --color-brand-sand: var(--brand-sand);
   --color-brand-mint: var(--brand-mint);
+  --color-tertiary: var(--tertiary);
+  --color-quaternary: var(--quaternary);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-serif);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) * 1.4);
   --radius-2xl: calc(var(--radius) * 1.8);
+  --shadow-xs: 0 1px 2px oklch(0 0 0 / 0.04);
+  --shadow-sm: 0 2px 4px -1px oklch(0 0 0 / 0.06);
+  --shadow-md: 0 4px 12px -2px oklch(0 0 0 / 0.08);
+  --shadow-lg: 0 8px 24px -4px oklch(0 0 0 / 0.10);
+  --shadow-xl: 0 20px 48px -8px oklch(0 0 0 / 0.14);
 }
 
 :root {
@@ -55,6 +62,17 @@
   --input: oklch(0.90 0.005 80);
   --ring: oklch(0.48 0.01 60);
   --radius: 0.625rem;
+  --tertiary: oklch(0.52 0.008 65);
+  --quaternary: oklch(0.64 0.006 70);
+  --header-height: 4rem;
+  --z-header: 50;
+  --z-overlay: 40;
+  --z-modal: 60;
+  --z-tooltip: 70;
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dark {
@@ -78,6 +96,8 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 12%);
   --ring: oklch(0.5 0 0);
+  --tertiary: oklch(0.48 0.008 75);
+  --quaternary: oklch(0.38 0.006 70);
 }
 
 @layer base {
@@ -88,10 +108,20 @@
     @apply bg-background text-foreground;
   }
   html {
-    @apply scroll-smooth font-sans antialiased;
+    @apply scroll-smooth font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   h1, h2 {
     font-family: var(--font-serif), Georgia, serif;
+    text-wrap: balance;
+  }
+  h1, h2, h3 {
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern", "liga", "calt";
+  }
+  p {
+    text-wrap: pretty;
   }
 }
 
@@ -102,42 +132,36 @@
     letter-spacing: 0.01em;
     line-height: 1.12;
   }
-
   .type-title {
     font-size: clamp(1.75rem, 1.2rem + 2.5vw, 3.25rem);
     font-weight: 700;
     letter-spacing: 0.01em;
     line-height: 1.15;
   }
-
   .type-heading {
     font-size: clamp(1.125rem, 1rem + 0.5vw, 1.5rem);
     font-weight: 600;
     letter-spacing: -0.01em;
     line-height: 1.25;
   }
-
   .type-body {
     font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
     font-weight: 400;
     letter-spacing: 0.01em;
     line-height: 1.65;
   }
-
   .type-body-sm {
     font-size: 0.875rem;
     font-weight: 400;
     letter-spacing: 0.01em;
     line-height: 1.65;
   }
-
   .type-label {
     font-size: clamp(0.75rem, 0.7rem + 0.15vw, 0.875rem);
     font-weight: 500;
     letter-spacing: 0.06em;
     text-transform: uppercase;
   }
-
   .type-metric {
     font-family: var(--font-serif), Georgia, serif;
     font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem);
@@ -145,26 +169,29 @@
     letter-spacing: 0.01em;
     line-height: 1;
   }
+  .focus-ring {
+    @apply focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none;
+  }
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:shadow-lg;
+  }
 }
 
 .gradient-desert-mint {
   background: linear-gradient(135deg, var(--brand-mint), var(--brand-sand));
 }
-
 .text-gradient-desert-mint {
   background: linear-gradient(135deg, var(--brand-mint), var(--brand-sand));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
 .border-gradient {
   border: 1px solid transparent;
   background:
     linear-gradient(var(--background), var(--background)) padding-box,
     linear-gradient(135deg, var(--brand-mint), var(--brand-sand)) border-box;
 }
-
 .border-gradient-glow {
   border: 1px solid transparent;
   background:
@@ -180,17 +207,14 @@
   backdrop-filter: blur(12px) saturate(1.4);
   -webkit-backdrop-filter: blur(12px) saturate(1.4);
 }
-
 .btn-primary-gradient {
   border: 1.5px solid transparent;
   background:
     linear-gradient(var(--foreground), var(--foreground)) padding-box,
     linear-gradient(135deg, var(--brand-mint), var(--brand-sand)) border-box;
   color: var(--background);
-  box-shadow:
-    inset 0 1px 0 oklch(1 0 0 / 0.06);
+  box-shadow: inset 0 1px 0 oklch(1 0 0 / 0.06);
 }
-
 .line-gradient {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--brand-mint), var(--brand-sand), transparent);
@@ -199,4 +223,13 @@
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

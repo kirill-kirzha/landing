@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 
 import type { SectionProps } from "@/types";
+import { EASE, DURATION, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
@@ -17,8 +18,8 @@ export function AgenticWorkforceSection({ className }: SectionProps) {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+            viewport={VIEWPORT}
+            transition={{ duration: DURATION.normal, ease: EASE }}
             className="order-2 lg:order-1 lg:sticky lg:top-24"
           >
             <MediaFrame label="AI Employees" />
@@ -27,8 +28,8 @@ export function AgenticWorkforceSection({ className }: SectionProps) {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+            viewport={VIEWPORT}
+            transition={{ duration: DURATION.normal, ease: EASE }}
             className="order-1 lg:order-2"
           >
             <Badge>AI OS — Agentic Workforce</Badge>
@@ -46,21 +47,21 @@ export function AgenticWorkforceSection({ className }: SectionProps) {
             <div className="mt-10 space-y-6">
               <div>
                 <p className="type-body-sm font-medium">Role-based templates</p>
-                <p className="type-body-sm mt-1 text-muted-foreground/70">
+                <p className="type-body-sm mt-1 text-tertiary">
                   Legal, HR, Finance Ops, Procurement, Compliance, Sales Ops —
                   each with defined skills, scope and guardrails.
                 </p>
               </div>
               <div>
                 <p className="type-body-sm font-medium">Background execution</p>
-                <p className="type-body-sm mt-1 text-muted-foreground/70">
+                <p className="type-body-sm mt-1 text-tertiary">
                   Unlimited file handling and live database access. No session
                   required.
                 </p>
               </div>
               <div>
                 <p className="type-body-sm font-medium">Reusable across your organization</p>
-                <p className="type-body-sm mt-1 text-muted-foreground/70">
+                <p className="type-body-sm mt-1 text-tertiary">
                   Built once, reused endlessly. Consistent outputs at scale.
                 </p>
               </div>

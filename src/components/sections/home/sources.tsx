@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 
 import type { SectionProps } from "@/types";
+import { EASE, DURATION, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
@@ -16,8 +17,8 @@ export function SourcesSection({ className }: SectionProps) {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          viewport={VIEWPORT}
+          transition={{ duration: DURATION.normal, ease: EASE }}
           className="mx-auto max-w-3xl text-center"
         >
           <Badge>Sources — Big Data Fusion</Badge>
@@ -34,8 +35,8 @@ export function SourcesSection({ className }: SectionProps) {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+          viewport={VIEWPORT}
+          transition={{ duration: DURATION.normal, ease: EASE, delay: 0.1 }}
           className="mt-14"
         >
           <MediaFrame label="Sources Demo" ratio="wide" className="rounded-3xl" />
@@ -45,7 +46,7 @@ export function SourcesSection({ className }: SectionProps) {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: DURATION.normal, delay: 0.2 }}
           className="mt-12"
         >
           <div className="mx-auto flex max-w-3xl flex-col items-center justify-center gap-8 sm:flex-row sm:gap-16">
@@ -65,13 +66,13 @@ export function SourcesSection({ className }: SectionProps) {
 
           <div className="mx-auto mt-12 max-w-2xl">
             <ul className="space-y-3">
-              <li className="type-body-sm text-muted-foreground/70">
+              <li className="type-body-sm text-tertiary">
                 SAP, Oracle, Salesforce, Postgres, MySQL, Azure, AWS, Excel and more
               </li>
-              <li className="type-body-sm text-muted-foreground/70">
+              <li className="type-body-sm text-tertiary">
                 Billions of records processed in seconds
               </li>
-              <li className="type-body-sm text-muted-foreground/70">
+              <li className="type-body-sm text-tertiary">
                 Full lineage, access control and governance from day one
               </li>
             </ul>
