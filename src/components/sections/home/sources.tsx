@@ -8,14 +8,6 @@ import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
 import { LinkArrow } from "@/components/marketing/link-arrow";
 import { MediaFrame } from "@/components/marketing/media-frame";
-import { Metrics } from "@/components/marketing/metrics";
-
-const metrics = [
-  { value: "145\u00d7", label: "Faster than Talend" },
-  { value: "8\u00d7", label: "Infra reduction" },
-  { value: "20+", label: "Connectors" },
-] as const;
-
 export function SourcesSection({ className }: SectionProps) {
   return (
     <Section className={className}>
@@ -39,7 +31,22 @@ export function SourcesSection({ className }: SectionProps) {
               datalake.
             </p>
 
-            <Metrics items={metrics} className="mt-10" />
+            <div className="mt-10 flex gap-12">
+              <div>
+                <p className="text-gradient-desert-mint text-3xl font-semibold tracking-tight">
+                  145&times;
+                </p>
+                <p className="mt-1 text-sm text-muted-foreground">Faster than Talend</p>
+              </div>
+              <div>
+                <p className="text-3xl font-semibold tracking-tight">8&times;</p>
+                <p className="mt-1 text-sm text-muted-foreground">Infra reduction</p>
+              </div>
+              <div>
+                <p className="text-3xl font-semibold tracking-tight">20+</p>
+                <p className="mt-1 text-sm text-muted-foreground">Connectors</p>
+              </div>
+            </div>
 
             <ul className="mt-10 space-y-3 text-sm leading-relaxed text-muted-foreground/70">
               <li>SAP, Oracle, Salesforce, Postgres, MySQL, Azure, AWS, Excel and more</li>

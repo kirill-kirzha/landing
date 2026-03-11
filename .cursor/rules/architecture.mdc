@@ -13,54 +13,70 @@ alwaysApply: true
 - Lucide React for icons
 - Deployment: Vercel
 
+## Design System
+Full reference: `DESIGN-SYSTEM.md` at repo root.
+
+### Color Palette
+- **Light mode first**. Dark mode only via `.dark` class on specific sections.
+- Background: Warm Paper (`#FAF9F5`) — `bg-background`
+- Text: Espresso (`#14110e`) — `text-foreground`
+- Contrast sections: Desert Sand Light (`#f5edda`) — `bg-muted`
+- Brand accents: Mint (`#00f07b`) — `text-brand-mint` / Sand (`#f8e8c6`) — `text-brand-sand`
+- Gradient: `gradient-desert-mint` or `text-gradient-desert-mint` — use max 2-3 per page
+
+### Typography
+- Headings (h1, h2): **Source Serif 4** (serif) — applied globally in CSS
+- Body: **Geist Sans** — `font-sans`
+- Never override heading font on individual elements. The CSS handles it.
+
 ## File rules
 - Max 150 lines per file. Split if larger.
 - No barrel exports (index.ts re-exports). Import directly.
 - No unused imports, variables, or files. Run `npm run lint` before finishing.
 
 ## Styling
-- All colors and radii come from CSS custom properties in `globals.css`.
-- Use Tailwind utilities that reference these tokens (`text-foreground`, `bg-muted`, `border-border/30`).
-- Never hardcode color values (no `#fff`, `rgb()`, `oklch()` inline in components).
-- Use opacity modifiers on tokens for subtle variants: `text-muted-foreground/70`, `border-border/15`.
+- All colors come from CSS custom properties in `globals.css`.
+- Use Tailwind utilities that reference tokens (`text-foreground`, `bg-muted`, `border-border/30`).
+- Never hardcode color values in components (no `#fff`, `rgb()`, inline `oklch()`).
+- Exception: radial gradients for ambient effects may use oklch inline.
+- Use opacity modifiers for subtle variants: `text-muted-foreground/70`, `border-border/15`.
 
 ## Components
 
 ### Marketing primitives (`components/marketing/`)
-These are the building blocks for all marketing pages:
-- `Btn` — Polymorphic button/link. Use `href` for links, omit for buttons.
-- `Section` — Section wrapper. Use `background`, `spacing`, `divider` props.
-- `Container` — Max-width wrapper. Use `size` prop.
-- `Badge` — Section label. Just text, no borders/pills.
-- `LinkArrow` — Text link with animated arrow icon.
-- `MediaFrame` — Placeholder for video/image content.
-- `Metrics` — Display key numbers inline.
+- `Btn` — Polymorphic button/link. Variants: `primary`, `secondary`, `ghost`. Sizes: `sm`, `default`, `lg`.
+- `Section` — Section wrapper. Props: `background` (`default`/`muted`/`dark`), `spacing`, `divider`.
+- `Container` — Max-width wrapper. Props: `size` (`default`/`narrow`/`wide`/`full`).
+- `Badge` — Section label. Plain text, no borders.
+- `LinkArrow` — Text link with animated arrow.
+- `MediaFrame` — Video/image placeholder.
 
 ### Sections (`components/sections/{page}/`)
-- One file per section, named by content (e.g., `hero.tsx`, `sources.tsx`).
+- One file per section, named by content.
 - Each section receives `{ className?: string }` via `SectionProps`.
-- Use `Section` + `Container` wrappers, not raw `<section>` + `<div>`.
+- Use `Section` + `Container` wrappers.
 
 ### Layout (`components/layout/`)
 - `header.tsx`, `footer.tsx`, `mobile-nav.tsx`
-- Use `Btn` from marketing, not Shadcn Button.
+- Logo: `/public/logo.svg` (light) and `/public/logo-dark.svg` (dark sections)
 
 ## Animations
-- Use Framer Motion `motion.div` with `whileInView` for scroll-triggered animations.
-- Consistent ease: `[0.4, 0, 0.2, 1]`
-- Consistent duration: `0.5` (standard), `0.6` (hero/cta)
-- Always `viewport={{ once: true, margin: "-80px" }}`
-- Use `variants` + `staggerChildren` for lists, not individual `delay` values.
+- Framer Motion `whileInView` for scroll-triggered.
+- Ease: `[0.4, 0, 0.2, 1]`
+- Duration: `0.5` (standard), `0.6` (hero/cta)
+- Viewport: `{{ once: true, margin: "-80px" }}`
+- Lists: `variants` + `staggerChildren: 0.08–0.12`
 
 ## What NOT to do
-- Do NOT import from `@/components/ui/` on marketing pages (that directory is reserved for future app UI).
 - Do NOT use Shadcn components on marketing pages.
-- Do NOT add icon-in-a-box patterns (bordered square with icon inside). Use typography and whitespace.
+- Do NOT add icon-in-a-box patterns. Use typography and whitespace.
 - Do NOT add `"use client"` unless the component uses hooks or event handlers.
 - Do NOT create hooks or utilities unless they're used by 2+ files.
+- Do NOT use the gradient on buttons, section backgrounds, or more than 3 elements per page.
 
-## Configuration
-- Site config (nav, URLs, metadata): `config/site.ts`
-- Fonts: `lib/fonts.ts`
-- CSS tokens: `app/globals.css`
-- Types: `types/index.ts`
+## Key Files
+- Design system reference: `DESIGN-SYSTEM.md`
+- CSS tokens: `src/app/globals.css`
+- Fonts: `src/lib/fonts.ts`
+- Site config: `src/config/site.ts`
+- Types: `src/types/index.ts`

@@ -11,7 +11,7 @@ export function HeroSection() {
   return (
     <section className="relative flex min-h-dvh items-center justify-center overflow-hidden">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.12),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,oklch(0.93_0.015_82/0.5),transparent)]" />
         <div className="absolute right-0 bottom-0 left-0 h-px bg-gradient-to-r from-transparent via-border/40 to-transparent" />
       </div>
 
@@ -31,7 +31,8 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.1, ease }}
           className="mx-auto max-w-4xl text-5xl leading-[1.08] font-semibold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
         >
-          Your Sovereign
+          Your{" "}
+          <span className="text-gradient-desert-mint">Sovereign</span>
           <br />
           AI Factory
         </motion.h1>

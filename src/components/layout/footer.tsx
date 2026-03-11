@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import { siteConfig } from "@/config/site";
 
@@ -68,9 +69,18 @@ export function Footer() {
         <div className="my-10 h-px bg-border/15" />
 
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-sm text-muted-foreground/50">
-            &copy; {currentYear} {siteConfig.name}. All rights reserved.
-          </p>
+          <div className="flex items-center gap-4">
+            <Image
+              src="/logo.svg"
+              alt={siteConfig.name}
+              width={80}
+              height={19}
+              className="opacity-40"
+            />
+            <p className="text-sm text-muted-foreground/50">
+              &copy; {currentYear} {siteConfig.name}. All rights reserved.
+            </p>
+          </div>
           <p className="text-sm text-muted-foreground/50">
             Abu Dhabi, United Arab Emirates
           </p>

@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 interface SectionProps {
-  background?: "default" | "muted";
+  background?: "default" | "muted" | "dark";
   spacing?: "default" | "lg" | "none";
   divider?: "top" | "bottom" | "both" | "none";
   className?: string;
@@ -15,13 +15,16 @@ export function Section({
   className,
   children,
 }: SectionProps) {
+  const isDark = background === "dark";
+
   return (
     <section
       className={cn(
         "relative overflow-hidden",
         spacing === "default" && "py-28 sm:py-36",
         spacing === "lg" && "py-36 sm:py-44",
-        background === "muted" && "bg-muted/15",
+        background === "muted" && "bg-muted",
+        isDark && "dark bg-[oklch(0.11_0.008_55)] text-[oklch(0.95_0.004_90)]",
         className,
       )}
     >

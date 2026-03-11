@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 
-import { geistSans, geistMono } from "@/lib/fonts";
+import { geistSans, geistMono, sourceSerif } from "@/lib/fonts";
 import { siteConfig } from "@/config/site";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
@@ -49,10 +49,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
-  ],
+  themeColor: "#faf9f5",
   width: "device-width",
   initialScale: 1,
 };
@@ -63,9 +60,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-dvh antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${sourceSerif.variable} min-h-dvh font-sans antialiased`}
       >
         <div className="relative flex min-h-dvh flex-col">
           <Header />
