@@ -71,6 +71,48 @@ All text/background combinations pass **WCAG AAA** (7:1 minimum):
 - `.text-gradient-desert-mint` : max 1 per page, on a key metric or keyword
 - Never use gradient as full section background
 
+### Honeycomb Background (`HoneycombBg`)
+
+A decorative SVG hex grid component used as section background. Creates a premium filigrane effect with the brand gradient.
+
+**Import:**
+```tsx
+import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
+```
+
+**Usage:**
+```tsx
+<section className="relative overflow-hidden">
+  <HoneycombBg placement="bottom-right" />
+  {/* section content */}
+</section>
+```
+
+**Requirements:** The parent must have `relative` and `overflow-hidden`. The `Section` component already has both.
+
+**Props:**
+
+| Prop | Type | Description |
+|---|---|---|
+| `placement` | `"top-left" \| "top-right" \| "center-right" \| "center-left" \| "bottom-right" \| "bottom-left" \| "bottom-center"` | Where the honeycomb appears |
+| `className` | `string?` | Additional CSS classes |
+
+**How it works:**
+- SVG hex grid (18x16 cells, 28px each) with brand gradient strokes (mint-to-sand)
+- Each cell has a seeded random stroke opacity (0.3-1.0) based on distance from the placement anchor
+- ~10% of cells near the anchor get a translucent gradient fill (frosted glass)
+- Radial CSS mask creates a "smoke reveal" effect — visible near the anchor, fading to invisible
+- IntersectionObserver triggers a 2s fade-in when the section enters the viewport
+- CSS `honeycomb-pulse` animation loops at 8s (opacity 0.7-1.0)
+- Mobile: scales to 75% from the anchor corner
+- `pointer-events-none` and `aria-hidden="true"` — purely decorative
+
+**Usage rules:**
+- Max 3 per page, always with different placements
+- Never use the same placement twice on the same page
+- Works on all backgrounds (Warm Paper, Desert Sand, Espresso)
+- Current homepage placements: Hero (bottom-right), AI Factory (center-left), Closing CTA (top-left)
+
 ---
 
 ## 3. Typography
