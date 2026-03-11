@@ -29,7 +29,7 @@ export function TryAleriaSection({ className }: SectionProps) {
 
       <Container>
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={VIEWPORT}
           transition={{ duration: DURATION.normal, ease: EASE, delay: 0.1 }}

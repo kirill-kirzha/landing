@@ -10,6 +10,7 @@ import { SectionHeader } from "@/components/marketing/section-header";
 import { LinkArrow } from "@/components/marketing/link-arrow";
 import { MediaFrame } from "@/components/marketing/media-frame";
 import { Metric, MetricRow } from "@/components/marketing/metric";
+import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
 
 const features = [
   "SAP, Oracle, Salesforce, Postgres, MySQL, Azure, AWS, Excel and more",
@@ -20,6 +21,7 @@ const features = [
 export function SourcesSection({ className }: SectionProps) {
   return (
     <Section className={className}>
+      <HoneycombBg placement="top-center" intensity="medium" />
       <Container>
         <SectionHeader
           badge="Sources — Big Data Fusion"
@@ -33,7 +35,7 @@ export function SourcesSection({ className }: SectionProps) {
         />
 
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={VIEWPORT}
           transition={{ duration: DURATION.normal, delay: 0.1 }}

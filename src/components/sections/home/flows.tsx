@@ -44,7 +44,7 @@ export function FlowsSection({ className }: SectionProps) {
         />
 
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={VIEWPORT}
           transition={{ duration: DURATION.normal, delay: 0.1 }}

@@ -83,7 +83,7 @@ import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
 **Usage:**
 ```tsx
 <section className="relative overflow-hidden">
-  <HoneycombBg placement="bottom-right" />
+  <HoneycombBg placement="bottom-right" intensity="strong" />
   {/* section content */}
 </section>
 ```
@@ -92,26 +92,44 @@ import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
 
 **Props:**
 
-| Prop | Type | Description |
-|---|---|---|
-| `placement` | `"top-left" \| "top-right" \| "center-right" \| "center-left" \| "bottom-right" \| "bottom-left" \| "bottom-center"` | Where the honeycomb appears |
-| `className` | `string?` | Additional CSS classes |
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `placement` | `"top-left" \| "top-right" \| "center-right" \| "center-left" \| "bottom-right" \| "bottom-left" \| "bottom-center"` | — | Where the honeycomb anchors |
+| `intensity` | `"subtle" \| "medium" \| "strong"` | `"medium"` | Visual weight: opacity + fill density |
+| `className` | `string?` | — | Additional CSS classes |
+
+**Intensity levels:**
+
+| Level | Max opacity | Fill density | Use case |
+|---|---|---|---|
+| `subtle` | 0.45 | 8% of cells | Supporting sections, muted backgrounds |
+| `medium` | 0.72 | 13% of cells | Standard use, closing CTAs |
+| `strong` | 0.88 | 19% of cells | Hero, hero-equivalent full-bleed sections |
 
 **How it works:**
-- SVG hex grid (18x16 cells, 28px each) with brand gradient strokes (mint-to-sand)
-- Each cell has a seeded random stroke opacity (0.3-1.0) based on distance from the placement anchor
-- ~10% of cells near the anchor get a translucent gradient fill (frosted glass)
-- Radial CSS mask creates a "smoke reveal" effect — visible near the anchor, fading to invisible
-- IntersectionObserver triggers a 2s fade-in when the section enters the viewport
-- CSS `honeycomb-pulse` animation loops at 8s (opacity 0.7-1.0)
-- Mobile: scales to 75% from the anchor corner
+- SVG hex grid (20×18 cells, 30px each) with placement-aware brand gradient strokes (mint→sand)
+- Gradient direction adapts per placement (anchor → opposite corner) for a natural directional feel
+- Cell stroke opacity uses a power-curve falloff (softer than linear) for a more organic fade
+- Selected cells near the anchor get a mint-heavy gradient fill for a "glowing cell" accent
+- Radial CSS mask creates the "emerge from corner" effect — opaque at anchor, gone at 75% radius
+- `IntersectionObserver` with `rootMargin: "100px"` triggers a 2.5s ease-out fade-in
+- CSS `honeycomb-pulse` animation breathes at 8s (0.7–1.0 of container opacity)
+- Colors use CSS custom properties (`--brand-mint`, `--brand-sand`) via SVG `<style>` block
 - `pointer-events-none` and `aria-hidden="true"` — purely decorative
 
 **Usage rules:**
-- Max 3 per page, always with different placements
-- Never use the same placement twice on the same page
-- Works on all backgrounds (Warm Paper, Desert Sand, Espresso)
-- Current homepage placements: Hero (bottom-right), AI Factory (center-left), Closing CTA (top-left)
+- Max 5 per page, always with different placements — never repeat the same on a single page
+- Intensity hierarchy: one `strong` (hero/above-fold moment), one or two `medium` (dark sections or CTA), rest `subtle`
+- Works on all backgrounds — on dark sections, CSS custom properties auto-swap to dark-mode brand colors
+- `IntersectionObserver` fires once then disconnects — element stays visible after first entry, never re-fades on scroll
+- Current homepage placements:
+
+| Section | Placement | Intensity |
+|---|---|---|
+| Hero | `bottom-right` | `strong` |
+| Sources | `top-center` | `medium` |
+| Why Teams | `top-right` | `subtle` |
+| Closing CTA | `bottom-center` | `medium` |
 
 ---
 

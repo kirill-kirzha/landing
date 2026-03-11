@@ -96,7 +96,7 @@ Headless, interaction-focused components. No `"use client"` unless hooks are use
 - `Metric` / `MetricRow` — Large metric numbers. `Metric` props: `value`, `label`, `highlight`. `MetricRow` wraps in responsive flex.
 - `ProductCard` — Product showcase: MediaFrame + badge + title + features + LinkArrow.
 - `CaseStudyCard` — Case study card: logo placeholder + client + meta + description + arrow CTA.
-- `HoneycombBg` — Decorative SVG hex grid background. Props: `placement` (7 positions). Client component (IntersectionObserver). Parent must have `relative overflow-hidden`. Max 3 per page, always different placements. See DESIGN-SYSTEM.md for full docs.
+- `HoneycombBg` — Decorative SVG hex grid background. Props: `placement` (8 positions incl. `top-center`), `intensity` (`subtle`/`medium`/`strong`, default `medium`). Client component (IntersectionObserver fires once). Parent must have `relative overflow-hidden`. Max 5 per page, every placement must be unique. Intensity hierarchy: one `strong` per page, rest `subtle`/`medium`. See DESIGN-SYSTEM.md for full docs.
 
 ### Sections (`components/sections/{page}/`)
 - One file per section, named by content. Sub-components split into `{section}-{part}.tsx`.
@@ -119,7 +119,7 @@ Headless, interaction-focused components. No `"use client"` unless hooks are use
 - Do NOT create hooks or utilities unless used by 2+ files.
 - Do NOT hardcode ease/duration values. Import from `@/lib/motion`.
 - Do NOT use opacity modifiers for text hierarchy. Use `text-tertiary` / `text-quaternary`.
-- Do NOT use more than 3 HoneycombBg per page, and never the same placement twice.
+- Do NOT use more than 5 HoneycombBg per page, and never the same placement twice. Use at most one `strong` per page.
 
 ## Key Files
 - Design system: `DESIGN-SYSTEM.md`

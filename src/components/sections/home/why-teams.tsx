@@ -11,6 +11,7 @@ import { Badge } from "@/components/marketing/badge";
 import { Btn } from "@/components/marketing/button";
 import { TextRotator } from "@/components/ui/text-rotator";
 import { BentoGrid } from "@/components/sections/home/why-teams-grid";
+import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
 
 const industries = [
   "Finance",
@@ -24,9 +25,10 @@ const industries = [
 export function WhyTeamsSection({ className }: SectionProps) {
   return (
     <Section className={className}>
+      <HoneycombBg placement="top-right" intensity="subtle" />
       <Container>
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={VIEWPORT}
           transition={{ duration: DURATION.normal }}

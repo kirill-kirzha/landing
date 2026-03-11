@@ -220,13 +220,9 @@
   background: linear-gradient(90deg, transparent, var(--brand-mint), var(--brand-sand), transparent);
 }
 
-.honeycomb-pulse {
-  animation: honeycomb-pulse 8s ease-in-out infinite;
-}
-
-@keyframes honeycomb-pulse {
-  0%, 100% { opacity: 0.7; }
-  50% { opacity: 1; }
+@keyframes hc-fill {
+  0%, 25%, 75%, 100% { fill-opacity: 0; }
+  40%, 60%           { fill-opacity: var(--hc-fp, 0); }
 }
 
 @keyframes marquee {

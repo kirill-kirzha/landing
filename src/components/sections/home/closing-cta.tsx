@@ -13,7 +13,7 @@ export function ClosingCtaSection({ className }: SectionProps) {
   return (
     <section
       className={cn(
-        "relative flex min-h-[60vh] items-center justify-center py-28 sm:py-36",
+        "relative flex min-h-[60vh] items-center justify-center overflow-hidden py-28 sm:py-36",
         className,
       )}
     >
@@ -21,10 +21,10 @@ export function ClosingCtaSection({ className }: SectionProps) {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_110%,oklch(0.93_0.015_82/0.4),transparent)]"
         aria-hidden="true"
       />
-      <HoneycombBg placement="top-left" />
+      <HoneycombBg placement="bottom-center" intensity="medium" />
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 8 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={VIEWPORT}
         transition={{ duration: DURATION.slow, ease: EASE }}
