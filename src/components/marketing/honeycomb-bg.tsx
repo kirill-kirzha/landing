@@ -97,13 +97,13 @@ export function HoneycombBg({
             strokeWidth={hex.strokeWidth}
             strokeOpacity={hex.strokeOpacity}
             fill={hex.fillPeak > 0 ? `url(#${fillGradId})` : "none"}
-            fillOpacity={0}
+            fillOpacity={hex.fillPeak}
             style={
               hex.fillPeak > 0
-                ? ({
-                    "--hc-fp": hex.fillPeak,
+                ? {
+                    opacity: 0,
                     animation: `hc-fill ${hex.animDuration.toFixed(1)}s ease-in-out ${hex.animDelay.toFixed(1)}s infinite`,
-                  } as React.CSSProperties)
+                  }
                 : undefined
             }
           />
