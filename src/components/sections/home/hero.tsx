@@ -53,7 +53,7 @@ export function HeroSection() {
         >
           <Btn href="/contact" size="lg">
             Let&apos;s Talk
-            <ArrowRight className="size-4" />
+            <ArrowRight className="size-4" aria-hidden="true" />
           </Btn>
           <Btn href="/try" variant="outline_gradient" size="lg">
             Try Aleria

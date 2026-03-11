@@ -1,15 +1,13 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 
 import type { SectionProps } from "@/types";
-import { cn } from "@/lib/utils";
 import { fadeIn, stagger, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
-import { Badge } from "@/components/marketing/badge";
+import { SectionHeader } from "@/components/marketing/section-header";
+import { CaseStudyCard } from "@/components/marketing/case-study-card";
 
 const caseStudies = [
   {
@@ -37,42 +35,28 @@ const caseStudies = [
 
 export function CaseStudiesSection({ className }: SectionProps) {
   return (
-    <Section background="muted" divider="both" className={className}>
+    <Section className={className}>
       <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={VIEWPORT}
-          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-          className="mx-auto max-w-3xl text-center"
-        >
-          <Badge>Deployed</Badge>
-          <h2 className="type-title mt-6">
-            Producing <span className="font-normal">intelligence</span> in production today
-          </h2>
-        </motion.div>
+        <SectionHeader
+          badge="Deployed"
+          title={
+            <>
+              Producing <span className="font-normal">intelligence</span> in
+              production today
+            </>
+          }
+        />
 
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={VIEWPORT}
-          variants={stagger(0.08)}
-          className="mt-16"
+          variants={stagger(0.1)}
+          className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3"
         >
-          {caseStudies.map((study, idx) => (
+          {caseStudies.map((study) => (
             <motion.div key={study.client} variants={fadeIn}>
-              <Link
-                href={study.href}
-                className={cn(
-                  "group grid grid-cols-1 gap-3 py-8 transition-opacity duration-150 hover:opacity-70 sm:grid-cols-[140px_200px_1fr_auto] sm:items-center sm:gap-8",
-                  idx < caseStudies.length - 1 && "border-b border-border/15",
-                )}
-              >
-                <h3 className="type-heading">{study.client}</h3>
-                <p className="type-label text-quaternary">{study.meta}</p>
-                <p className="type-body-sm text-tertiary">{study.description}</p>
-                <ArrowRight className="hidden size-4 text-muted-foreground/30 transition-transform duration-150 group-hover:translate-x-1 sm:block" aria-hidden="true" />
-              </Link>
+              <CaseStudyCard {...study} />
             </motion.div>
           ))}
         </motion.div>

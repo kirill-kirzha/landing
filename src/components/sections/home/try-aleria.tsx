@@ -7,7 +7,7 @@ import type { SectionProps } from "@/types";
 import { EASE, DURATION, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
-import { Badge } from "@/components/marketing/badge";
+import { SectionHeader } from "@/components/marketing/section-header";
 import { Btn } from "@/components/marketing/button";
 import { MediaFrame } from "@/components/marketing/media-frame";
 
@@ -15,18 +15,16 @@ export function TryAleriaSection({ className }: SectionProps) {
   return (
     <Section background="muted" divider="both" className={className}>
       <Container size="narrow">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={VIEWPORT}
-          transition={{ duration: DURATION.normal, ease: EASE }}
-          className="text-center"
-        >
-          <Badge>Try before you book</Badge>
-          <h2 className="type-title mt-6">
-            See how Aleria <span className="font-normal">transforms</span> data into operational intelligence
-          </h2>
-        </motion.div>
+        <SectionHeader
+          badge="Try before you book"
+          title={
+            <>
+              See how Aleria{" "}
+              <span className="font-normal">transforms</span> data into
+              operational intelligence
+            </>
+          }
+        />
       </Container>
 
       <Container>
@@ -37,7 +35,11 @@ export function TryAleriaSection({ className }: SectionProps) {
           transition={{ duration: DURATION.normal, ease: EASE, delay: 0.1 }}
           className="mx-auto mt-12 max-w-5xl"
         >
-          <MediaFrame label="Product Demo" ratio="video" className="rounded-3xl" />
+          <MediaFrame
+            label="Product Demo"
+            ratio="video"
+            className="rounded-3xl"
+          />
         </motion.div>
 
         <motion.div
@@ -49,7 +51,7 @@ export function TryAleriaSection({ className }: SectionProps) {
         >
           <Btn href="/try" size="lg">
             Sign Up & Try for Free
-            <ArrowRight className="size-4" />
+            <ArrowRight className="size-4" aria-hidden="true" />
           </Btn>
         </motion.div>
       </Container>

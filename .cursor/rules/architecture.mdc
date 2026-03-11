@@ -72,6 +72,7 @@ Full reference: `DESIGN-SYSTEM.md` at repo root.
 
 ## Accessibility
 - All decorative elements must have `aria-hidden="true"`.
+- Icons inside buttons/links (ArrowRight, Menu, X, Play, ChevronDown) must have `aria-hidden="true"`.
 - Toggle buttons must have `aria-expanded`.
 - Navigation landmarks must have `aria-label`.
 - All interactive elements must use `.focus-ring` class.
@@ -79,18 +80,29 @@ Full reference: `DESIGN-SYSTEM.md` at repo root.
 
 ## Components
 
+### UI primitives (`components/ui/`)
+Headless, interaction-focused components. No `"use client"` unless hooks are used.
+- `Marquee` — CSS-only infinite scroll. Props: `speed`, `reverse`, `pauseOnHover`. Server component.
+- `TextRotator` — Animated word cycling with AnimatePresence. Props: `words`, `interval`. Client component.
+
 ### Marketing primitives (`components/marketing/`)
 - `Btn` — Polymorphic button/link. Variants: `primary`, `secondary`, `outline_gradient`, `ghost`. Uses `.focus-ring`.
 - `Section` — Section wrapper. Props: `background` (`default`/`muted`/`dark`), `spacing`, `divider`.
 - `Container` — Max-width wrapper. Responsive padding: `px-5 sm:px-6 lg:px-8`.
 - `Badge` — Section label. Auto `type-label` styling.
 - `LinkArrow` — Text link with animated arrow. Uses `.focus-ring`.
-- `MediaFrame` — Video/image placeholder.
+- `MediaFrame` — Media display: image (`src`), video (`videoSrc`), or grid-pattern placeholder. Props: `ratio` (`video`/`square`/`wide`), `label`.
+- `SectionHeader` — Badge + title + description with `fadeUp` animation. Props: `badge`, `title` (ReactNode), `description`, `align`, `size` (`default`/`lg`).
+- `Metric` / `MetricRow` — Large metric numbers. `Metric` props: `value`, `label`, `highlight`. `MetricRow` wraps in responsive flex.
+- `ProductCard` — Product showcase: MediaFrame + badge + title + features + LinkArrow.
+- `CaseStudyCard` — Case study card: logo placeholder + client + meta + description + arrow CTA.
 
 ### Sections (`components/sections/{page}/`)
-- One file per section, named by content.
+- One file per section, named by content. Sub-components split into `{section}-{part}.tsx`.
 - Each section receives `{ className?: string }` via `SectionProps`.
-- Use `Section` + `Container` wrappers.
+- Standard section pattern: `SectionHeader` → `MediaFrame` (wide) → feature cards grid → `LinkArrow` CTA.
+- Dark accent cards: use `.dark` class on the element to auto-invert all semantic tokens.
+- Bento grid pattern: mix `col-span-2`, `row-span-2`, and accent cells for visual hierarchy.
 
 ### Layout (`components/layout/`)
 - `header.tsx` — transparent blur + `.line-gradient` separator. Height: `var(--header-height)`.

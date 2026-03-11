@@ -6,7 +6,7 @@ import type { SectionProps } from "@/types";
 import { fadeUp, stagger, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
-import { Badge } from "@/components/marketing/badge";
+import { SectionHeader } from "@/components/marketing/section-header";
 
 const pillars = [
   {
@@ -36,46 +36,40 @@ export function EcosystemSection({ className }: SectionProps) {
   return (
     <Section className={className}>
       <Container>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={VIEWPORT}
-          variants={fadeUp}
-          className="mx-auto max-w-3xl text-center"
-        >
-          <Badge>Ecosystem</Badge>
-          <h2 className="type-title mt-6">
-            One <span className="font-normal">sovereign</span> ecosystem
-          </h2>
-          <p className="type-body mt-6 text-muted-foreground">
-            Solutions, Infrastructure and Orchestration working together to
-            deliver operational intelligence at scale.
-          </p>
-        </motion.div>
+        <SectionHeader
+          badge="Ecosystem"
+          title={
+            <>
+              One <span className="font-normal">sovereign</span> ecosystem
+            </>
+          }
+          description="Solutions, Infrastructure and Orchestration working together to deliver operational intelligence at scale."
+        />
 
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={VIEWPORT}
           variants={stagger(0.12)}
-          className="mx-auto mt-20 max-w-5xl"
+          className="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-5 md:grid-cols-3"
         >
           {pillars.map((pillar) => (
             <motion.div
               key={pillar.number}
               variants={fadeUp}
-              className="grid grid-cols-1 gap-4 border-t border-border/20 py-10 sm:grid-cols-[60px_140px_1fr] sm:gap-6 sm:py-12"
+              className="rounded-2xl border border-border/20 p-6 transition-all duration-300 hover:border-border/50 hover:shadow-sm sm:p-8"
             >
-              <p className="type-display text-muted-foreground/10 max-sm:hidden" aria-hidden="true">
+              <p
+                className="type-display leading-none text-muted-foreground/10"
+                aria-hidden="true"
+              >
                 {pillar.number}
               </p>
-              <div>
-                <h3 className="type-heading">{pillar.title}</h3>
-                <p className="type-label mt-1 text-muted-foreground">
-                  {pillar.subtitle}
-                </p>
-              </div>
-              <p className="type-body-sm text-quaternary sm:pt-1">
+              <h3 className="type-heading mt-4">{pillar.title}</h3>
+              <p className="type-label mt-1 text-muted-foreground">
+                {pillar.subtitle}
+              </p>
+              <p className="type-body-sm mt-4 text-tertiary">
                 {pillar.description}
               </p>
             </motion.div>

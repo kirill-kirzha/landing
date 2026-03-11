@@ -3,11 +3,10 @@
 import { motion } from "framer-motion";
 
 import type { SectionProps } from "@/types";
-import { cn } from "@/lib/utils";
-import { fadeUp, fadeIn, stagger, VIEWPORT } from "@/lib/motion";
+import { fadeUp, stagger, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
-import { Badge } from "@/components/marketing/badge";
+import { SectionHeader } from "@/components/marketing/section-header";
 
 const pillars = [
   {
@@ -31,44 +30,34 @@ export function AiFactorySection({ className }: SectionProps) {
   return (
     <Section background="muted" divider="both" className={className}>
       <Container>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={VIEWPORT}
-          variants={fadeUp}
-          className="mx-auto max-w-3xl text-center"
-        >
-          <Badge>AI Factory</Badge>
-          <h2 className="type-display mt-6">
-            Your data <span className="font-normal">never</span> leaves.
-          </h2>
-          <p className="type-body mt-6 text-muted-foreground">
-            Your AI, your rules.
-          </p>
-        </motion.div>
+        <SectionHeader
+          badge="AI Factory"
+          title={
+            <>
+              Your data <span className="font-normal">never</span> leaves.
+            </>
+          }
+          description="Your AI, your rules."
+          size="lg"
+        />
 
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={VIEWPORT}
-          variants={stagger(0.08)}
-          className="mx-auto mt-20 max-w-4xl"
+          variants={stagger(0.1)}
+          className="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-5 md:grid-cols-3"
         >
-          {pillars.map((pillar, idx) => (
+          {pillars.map((pillar) => (
             <motion.div
               key={pillar.title}
-              variants={fadeIn}
-              className={cn(
-                "py-8",
-                idx < pillars.length - 1 && "border-b border-border/20",
-              )}
+              variants={fadeUp}
+              className="rounded-2xl border border-border/20 bg-background/60 p-6 transition-all duration-300 hover:border-border/50 hover:shadow-sm sm:p-8"
             >
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-[200px_1fr] sm:gap-12">
-                <p className="type-body-sm font-medium">{pillar.title}</p>
-                <p className="type-body-sm text-tertiary">
-                  {pillar.description}
-                </p>
-              </div>
+              <h3 className="type-body-sm font-medium">{pillar.title}</h3>
+              <p className="type-body-sm mt-3 text-tertiary">
+                {pillar.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>

@@ -6,47 +6,8 @@ import type { SectionProps } from "@/types";
 import { EASE, DURATION, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
-import { Badge } from "@/components/marketing/badge";
-import { LinkArrow } from "@/components/marketing/link-arrow";
-import { MediaFrame } from "@/components/marketing/media-frame";
-
-function ProductCard({
-  badge,
-  title,
-  description,
-  features,
-  href,
-  mediaLabel,
-}: {
-  badge: string;
-  title: string;
-  description: string;
-  features: readonly string[];
-  href: string;
-  mediaLabel: string;
-}) {
-  return (
-    <div>
-      <MediaFrame label={mediaLabel} ratio="video" className="rounded-xl" />
-
-      <div className="mt-6">
-        <Badge>{badge}</Badge>
-        <h3 className="type-heading mt-6">{title}</h3>
-        <p className="type-body-sm mt-6 text-tertiary">{description}</p>
-
-        <ul className="mt-5 space-y-2">
-          {features.map((f) => (
-            <li key={f} className="type-body-sm text-quaternary">{f}</li>
-          ))}
-        </ul>
-
-        <div className="mt-5">
-          <LinkArrow href={href}>Discover</LinkArrow>
-        </div>
-      </div>
-    </div>
-  );
-}
+import { SectionHeader } from "@/components/marketing/section-header";
+import { ProductCard } from "@/components/marketing/product-card";
 
 const dashboardFeatures = [
   "Real-time KPIs with drill-down by region, product line, customer segment",
@@ -63,19 +24,20 @@ const videoFeatures = [
 export function MoreProductsSection({ className }: SectionProps) {
   return (
     <Section background="dark" divider="both" className={className}>
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,oklch(0.84_0.08_155/0.06),transparent)]"
+        aria-hidden="true"
+      />
       <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={VIEWPORT}
-          transition={{ duration: DURATION.normal, ease: EASE }}
-          className="mx-auto max-w-3xl text-center"
-        >
-          <Badge>More</Badge>
-          <h2 className="type-title mt-6">
-            <span className="font-normal">Intelligence</span> layers for every operation
-          </h2>
-        </motion.div>
+        <SectionHeader
+          badge="More"
+          title={
+            <>
+              <span className="font-normal">Intelligence</span> layers for
+              every operation
+            </>
+          }
+        />
 
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -90,7 +52,6 @@ export function MoreProductsSection({ className }: SectionProps) {
             description="A decision-making surface for boards and C-suite that connects directly to your governed data."
             features={dashboardFeatures}
             href="/solutions/dashboard-ai"
-            mediaLabel="Dashboard AI"
           />
           <ProductCard
             badge="Video AI"
@@ -98,7 +59,6 @@ export function MoreProductsSection({ className }: SectionProps) {
             description="Thousands of simultaneous video streams with AI that detects, tracks and alerts."
             features={videoFeatures}
             href="/solutions/video-ai"
-            mediaLabel="Video AI"
           />
         </motion.div>
       </Container>

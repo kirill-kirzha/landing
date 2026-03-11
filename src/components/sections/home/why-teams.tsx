@@ -1,43 +1,27 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 import type { SectionProps } from "@/types";
-import { cn } from "@/lib/utils";
-import { EASE, DURATION, VIEWPORT } from "@/lib/motion";
+import { stagger, DURATION, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
 import { Btn } from "@/components/marketing/button";
+import { TextRotator } from "@/components/ui/text-rotator";
+import { BentoGrid } from "@/components/sections/home/why-teams-grid";
 
-const industries = ["Finance", "Real Estate", "Government", "Energy", "Telecom", "Healthcare"] as const;
-
-const capabilities = [
-  { title: "Universal database connection", description: "Connect to any database — legacy SQL, cloud storage, obscure API endpoints." },
-  { title: "Clean data pipelines", description: "400+ connectors transforming messy inputs into structured, AI-ready pipelines." },
-  { title: "Unmatched performance", description: "145\u00d7 faster than Talend Studio with 8\u00d7 infrastructure reduction." },
-  { title: "Unified intelligence", description: "All knowledge consolidated in one governed environment." },
-  { title: "Visual intelligence", description: "Live video feeds turned into real-time operational intelligence." },
-  { title: "Dynamic visualization", description: "Dashboards that adapt to your questions with drill-down granularity." },
-  { title: "One sovereign ecosystem", description: "A complete, integrated platform — not disconnected tools." },
-  { title: "Orchestrated AI agents", description: "End-to-end task chains from data ingestion to finished output." },
-  { title: "Fully configurable", description: "Adapt every workflow to your organization's unique processes." },
-  { title: "Sovereignty by design", description: "Your data stays under your control, always." },
+const industries = [
+  "Finance",
+  "Real Estate",
+  "Government",
+  "Energy",
+  "Telecom",
+  "Healthcare",
 ] as const;
 
 export function WhyTeamsSection({ className }: SectionProps) {
-  const [industryIndex, setIndustryIndex] = useState(0);
-  const [activeCapability, setActiveCapability] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndustryIndex((prev) => (prev + 1) % industries.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <Section className={className}>
       <Container>
@@ -45,107 +29,27 @@ export function WhyTeamsSection({ className }: SectionProps) {
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={VIEWPORT}
-          transition={{ duration: DURATION.normal, ease: EASE }}
+          transition={{ duration: DURATION.normal }}
           className="mx-auto max-w-3xl text-center"
         >
           <Badge>Why teams prefer us</Badge>
           <h2 className="type-title mt-6">
-            <span className="font-normal text-muted-foreground">Trusted by </span>
-            <span className="relative inline-block min-w-[140px] text-left sm:min-w-[160px]">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={industries[industryIndex]}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.25 }}
-                  className="inline-block"
-                >
-                  {industries[industryIndex]}
-                </motion.span>
-              </AnimatePresence>
-            </span>
+            <span className="font-normal">Trusted</span> by{" "}
+            <TextRotator
+              words={industries}
+              className="min-w-[120px] text-left sm:min-w-[150px]"
+            />
           </h2>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={VIEWPORT}
-          transition={{ duration: DURATION.slow, delay: 0.1 }}
-          className="mx-auto mt-16 max-w-5xl"
+          variants={stagger(0.04)}
+          className="mt-16"
         >
-          {/* Desktop: 2-col with hover */}
-          <div className="hidden lg:grid lg:grid-cols-[280px_1fr] lg:gap-12">
-            <div className="space-y-1" role="tablist" aria-label="Capabilities">
-              {capabilities.map((cap, idx) => (
-                <button
-                  key={cap.title}
-                  role="tab"
-                  aria-selected={idx === activeCapability}
-                  onMouseEnter={() => setActiveCapability(idx)}
-                  onClick={() => setActiveCapability(idx)}
-                  className={cn(
-                    "type-body-sm block w-full rounded-lg px-4 py-2.5 text-left transition-all duration-200",
-                    idx === activeCapability
-                      ? "bg-muted font-medium text-foreground"
-                      : "text-muted-foreground/60 hover:text-muted-foreground",
-                  )}
-                >
-                  {cap.title}
-                </button>
-              ))}
-            </div>
-
-            <div className="flex items-center pl-8" role="tabpanel">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeCapability}
-                  initial={{ opacity: 0, x: 10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -10 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <h3 className="type-heading">{capabilities[activeCapability].title}</h3>
-                  <p className="type-body mt-6 text-muted-foreground">
-                    {capabilities[activeCapability].description}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
-
-          {/* Mobile: accordion */}
-          <div className="space-y-0 lg:hidden">
-            {capabilities.map((cap, idx) => (
-              <button
-                key={cap.title}
-                onClick={() => setActiveCapability(idx === activeCapability ? -1 : idx)}
-                aria-expanded={idx === activeCapability}
-                className="block w-full border-b border-border/15 py-5 text-left"
-              >
-                <p className={cn(
-                  "type-body-sm transition-colors duration-200",
-                  idx === activeCapability ? "font-medium text-foreground" : "text-muted-foreground",
-                )}>
-                  {cap.title}
-                </p>
-                <AnimatePresence>
-                  {idx === activeCapability && (
-                    <motion.p
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="type-body-sm mt-3 overflow-hidden text-muted-foreground"
-                    >
-                      {cap.description}
-                    </motion.p>
-                  )}
-                </AnimatePresence>
-              </button>
-            ))}
-          </div>
+          <BentoGrid />
         </motion.div>
 
         <motion.div
@@ -153,11 +57,11 @@ export function WhyTeamsSection({ className }: SectionProps) {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: DURATION.normal, delay: 0.2 }}
-          className="mt-16 text-center"
+          className="mt-14 text-center"
         >
           <Btn href="/contact" size="lg">
             See it in Action
-            <ArrowRight className="size-4" />
+            <ArrowRight className="size-4" aria-hidden="true" />
           </Btn>
         </motion.div>
       </Container>
