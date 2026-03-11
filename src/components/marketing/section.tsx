@@ -21,8 +21,8 @@ export function Section({
     <section
       className={cn(
         "relative overflow-hidden",
-        spacing === "default" && "py-28 sm:py-36",
-        spacing === "lg" && "py-36 sm:py-44",
+        spacing === "default" && "py-24 sm:py-32 lg:py-40",
+        spacing === "lg" && "py-32 sm:py-40 lg:py-48",
         background === "muted" && "bg-muted",
         isDark && "dark bg-[oklch(0.11_0.008_55)] text-[oklch(0.95_0.004_90)]",
         className,

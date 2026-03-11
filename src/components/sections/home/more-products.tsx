@@ -30,8 +30,8 @@ function ProductCard({
 
       <div className="mt-6">
         <Badge>{badge}</Badge>
-        <h3 className="type-heading mt-2">{title}</h3>
-        <p className="type-body-sm mt-2 text-muted-foreground/70">{description}</p>
+        <h3 className="type-heading mt-6">{title}</h3>
+        <p className="type-body-sm mt-6 text-muted-foreground/70">{description}</p>
 
         <ul className="mt-5 space-y-2">
           {features.map((f) => (
@@ -68,11 +68,11 @@ export function MoreProductsSection({ className }: SectionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-          className="mx-auto max-w-2xl text-center"
+          className="mx-auto max-w-3xl text-center"
         >
           <Badge>More</Badge>
-          <h2 className="type-title mt-4">
-            Intelligence layers for every operation
+          <h2 className="type-title mt-6">
+            <span className="font-normal">Intelligence</span> layers for every operation
           </h2>
         </motion.div>
 

@@ -18,13 +18,13 @@ export function SourcesSection({ className }: SectionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-          className="mx-auto max-w-2xl text-center"
+          className="mx-auto max-w-3xl text-center"
         >
           <Badge>Sources — Big Data Fusion</Badge>
-          <h2 className="type-title mt-4">
-            Every data source, unified, governed, AI-ready
+          <h2 className="type-title mt-6">
+            Every data source, <span className="font-normal">unified</span>, governed, AI-ready
           </h2>
-          <p className="type-body mt-5 text-muted-foreground">
+          <p className="type-body mt-6 text-muted-foreground">
             Aleria&apos;s proprietary ETL platform extracts, transforms and
             loads massive volumes of data from any source into a centralized
             datalake.
@@ -48,7 +48,7 @@ export function SourcesSection({ className }: SectionProps) {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-12"
         >
-          <div className="mx-auto flex max-w-3xl items-center justify-center gap-16">
+          <div className="mx-auto flex max-w-3xl flex-col items-center justify-center gap-8 sm:flex-row sm:gap-16">
             <div className="text-center">
               <p className="type-metric text-gradient-desert-mint">145&times;</p>
               <p className="type-body-sm mt-1 text-muted-foreground">Faster than Talend</p>

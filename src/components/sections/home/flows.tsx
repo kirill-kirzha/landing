@@ -13,7 +13,7 @@ export function FlowsSection({ className }: SectionProps) {
   return (
     <Section className={className}>
       <Container>
-        <div className="grid items-start gap-16 lg:grid-cols-2 lg:gap-24">
+        <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -22,11 +22,11 @@ export function FlowsSection({ className }: SectionProps) {
           >
             <Badge>AI OS — Flows</Badge>
 
-            <h2 className="type-title mt-4">
-              Business logic that runs the same way every time
+            <h2 className="type-title mt-6">
+              <span className="font-normal">Business</span> logic that runs the same way every time
             </h2>
 
-            <p className="type-body mt-5 text-muted-foreground">
+            <p className="type-body mt-6 text-muted-foreground">
               A visual canvas for building production-grade AI workflows —
               observable, versioned and safe at enterprise scale.
             </p>

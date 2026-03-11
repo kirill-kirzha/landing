@@ -43,11 +43,11 @@ export function CaseStudiesSection({ className }: SectionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-          className="mx-auto max-w-2xl text-center"
+          className="mx-auto max-w-3xl text-center"
         >
           <Badge>Deployed</Badge>
-          <h2 className="type-title mt-4">
-            Producing intelligence in production today
+          <h2 className="type-title mt-6">
+            Producing <span className="font-normal">intelligence</span> in production today
           </h2>
         </motion.div>
 

@@ -35,13 +35,13 @@ export function AiFactorySection({ className }: SectionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-          className="mx-auto max-w-2xl text-center"
+          className="mx-auto max-w-3xl text-center"
         >
           <Badge>AI Factory</Badge>
-          <h2 className="type-display mt-4">
-            Your data never leaves.
+          <h2 className="type-display mt-6">
+            Your data <span className="font-normal">never</span> leaves.
           </h2>
-          <p className="type-body mt-3 text-muted-foreground">
+          <p className="type-body mt-6 text-muted-foreground">
             Your AI, your rules.
           </p>
         </motion.div>

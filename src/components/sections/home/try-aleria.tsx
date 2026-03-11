@@ -22,8 +22,8 @@ export function TryAleriaSection({ className }: SectionProps) {
           className="text-center"
         >
           <Badge>Try before you book</Badge>
-          <h2 className="type-title mt-4">
-            See how Aleria transforms data into operational intelligence
+          <h2 className="type-title mt-6">
+            See how Aleria <span className="font-normal">transforms</span> data into operational intelligence
           </h2>
         </motion.div>
       </Container>

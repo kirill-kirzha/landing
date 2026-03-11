@@ -13,7 +13,7 @@ export function AgenticWorkforceSection({ className }: SectionProps) {
   return (
     <Section background="muted" divider="both" className={className}>
       <Container>
-        <div className="grid items-start gap-16 lg:grid-cols-2 lg:gap-24">
+        <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -33,11 +33,11 @@ export function AgenticWorkforceSection({ className }: SectionProps) {
           >
             <Badge>AI OS — Agentic Workforce</Badge>
 
-            <h2 className="type-title mt-4">
-              AI Employees that execute, not just answer
+            <h2 className="type-title mt-6">
+              AI Employees that <span className="font-normal">execute</span>, not just answer
             </h2>
 
-            <p className="type-body mt-5 text-muted-foreground">
+            <p className="type-body mt-6 text-muted-foreground">
               Role-based AI Employees that operate autonomously — opening files,
               running code, querying databases and producing finished outputs.
               Not a chatbot. A virtual colleague.

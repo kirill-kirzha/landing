@@ -45,12 +45,12 @@ export function WhyTeamsSection({ className }: SectionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-          className="mx-auto max-w-2xl text-center"
+          className="mx-auto max-w-3xl text-center"
         >
           <Badge>Why teams prefer us</Badge>
-          <h2 className="type-title mt-4">
-            <span className="text-muted-foreground">Trusted by </span>
-            <span className="relative inline-block min-w-[160px] text-left">
+          <h2 className="type-title mt-6">
+            <span className="font-normal text-muted-foreground">Trusted by </span>
+            <span className="relative inline-block min-w-[140px] text-left sm:min-w-[160px]">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={industries[industryIndex]}
@@ -74,7 +74,8 @@ export function WhyTeamsSection({ className }: SectionProps) {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mx-auto mt-16 max-w-5xl"
         >
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[280px_1fr]">
+          {/* Desktop: 2-col with hover */}
+          <div className="hidden lg:grid lg:grid-cols-[280px_1fr] lg:gap-12">
             <div className="space-y-1">
               {capabilities.map((cap, idx) => (
                 <button
@@ -93,7 +94,7 @@ export function WhyTeamsSection({ className }: SectionProps) {
               ))}
             </div>
 
-            <div className="flex items-center lg:pl-8">
+            <div className="flex items-center pl-8">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeCapability}
@@ -105,12 +106,45 @@ export function WhyTeamsSection({ className }: SectionProps) {
                   <h3 className="type-heading">
                     {capabilities[activeCapability].title}
                   </h3>
-                  <p className="type-body mt-4 text-muted-foreground">
+                  <p className="type-body mt-6 text-muted-foreground">
                     {capabilities[activeCapability].description}
                   </p>
                 </motion.div>
               </AnimatePresence>
             </div>
+          </div>
+
+          {/* Mobile: accordion-style list */}
+          <div className="space-y-0 lg:hidden">
+            {capabilities.map((cap, idx) => (
+              <button
+                key={cap.title}
+                onClick={() => setActiveCapability(idx === activeCapability ? -1 : idx)}
+                className={cn(
+                  "block w-full border-b border-border/15 py-5 text-left",
+                )}
+              >
+                <p className={cn(
+                  "type-body-sm transition-colors duration-200",
+                  idx === activeCapability ? "font-medium text-foreground" : "text-muted-foreground",
+                )}>
+                  {cap.title}
+                </p>
+                <AnimatePresence>
+                  {idx === activeCapability && (
+                    <motion.p
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="type-body-sm mt-3 overflow-hidden text-muted-foreground"
+                    >
+                      {cap.description}
+                    </motion.p>
+                  )}
+                </AnimatePresence>
+              </button>
+            ))}
           </div>
         </motion.div>
 

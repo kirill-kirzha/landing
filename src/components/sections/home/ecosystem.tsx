@@ -40,13 +40,13 @@ export function EcosystemSection({ className }: SectionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-          className="mx-auto max-w-2xl text-center"
+          className="mx-auto max-w-3xl text-center"
         >
           <Badge>Ecosystem</Badge>
-          <h2 className="type-title mt-4">
+          <h2 className="type-title mt-6">
             One <span className="font-normal">sovereign</span> ecosystem
           </h2>
-          <p className="type-body mt-5 text-muted-foreground">
+          <p className="type-body mt-6 text-muted-foreground">
             Solutions, Infrastructure and Orchestration working together to
             deliver operational intelligence at scale.
           </p>
@@ -69,9 +69,9 @@ export function EcosystemSection({ className }: SectionProps) {
                 hidden: { opacity: 0, y: 16 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
               }}
-              className="grid grid-cols-1 gap-6 border-t border-border/20 py-12 sm:grid-cols-[80px_160px_1fr]"
+              className="grid grid-cols-1 gap-4 border-t border-border/20 py-10 sm:grid-cols-[60px_140px_1fr] sm:gap-6 sm:py-12"
             >
-              <p className="type-display text-muted-foreground/10">
+              <p className="type-display text-muted-foreground/10 max-sm:hidden">
                 {pillar.number}
               </p>
               <div>

@@ -25,7 +25,7 @@ export function ClosingCtaSection({ className }: SectionProps) {
         </p>
         <div className="gradient-desert-mint mx-auto mt-8 h-px w-24 rounded-full" />
         <h2 className="type-display mt-8">
-          Build Your AI Factory.
+          Build Your <span className="font-normal">AI</span> Factory.
         </h2>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Btn href="/contact" size="lg">

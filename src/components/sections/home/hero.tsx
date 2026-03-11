@@ -40,7 +40,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease }}
-          className="type-body text-pretty mx-auto mt-8 max-w-lg text-muted-foreground"
+          className="type-body text-pretty mx-auto mt-8 max-w-[36rem] text-muted-foreground"
         >
           Build and operate sovereign AI systems that transform your data into
           operational intelligence.
@@ -50,7 +50,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease }}
-          className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
+          className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
           <Btn href="/contact" size="lg">
             Let&apos;s Talk

@@ -45,7 +45,7 @@
   --secondary: oklch(0.95 0.004 90);
   --secondary-foreground: oklch(0.11 0.008 55);
   --muted: oklch(0.94 0.025 82);
-  --muted-foreground: oklch(0.48 0.01 60);
+  --muted-foreground: oklch(0.35 0.01 60);
   --brand-sand: oklch(0.93 0.05 85);
   --brand-mint: oklch(0.84 0.2 155);
   --accent: oklch(0.95 0.004 90);
@@ -119,22 +119,23 @@
 
   .type-body {
     font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 0.01em;
-    line-height: 1.7;
+    line-height: 1.65;
   }
 
   .type-body-sm {
     font-size: 0.875rem;
     font-weight: 400;
     letter-spacing: 0.01em;
-    line-height: 1.7;
+    line-height: 1.65;
   }
 
   .type-label {
-    font-size: 0.875rem;
-    font-weight: 400;
-    letter-spacing: 0.04em;
+    font-size: clamp(0.75rem, 0.7rem + 0.15vw, 0.875rem);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 
   .type-metric {
