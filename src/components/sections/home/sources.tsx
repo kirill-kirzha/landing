@@ -3,25 +3,39 @@
 import { motion } from "framer-motion";
 
 import type { SectionProps } from "@/types";
-import { DURATION, VIEWPORT } from "@/lib/motion";
+import { cn } from "@/lib/utils";
+import { EASE, DURATION, VIEWPORT, fadeUp, stagger } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { LinkArrow } from "@/components/marketing/link-arrow";
 import { MediaFrame } from "@/components/marketing/media-frame";
-import { Metric, MetricRow } from "@/components/marketing/metric";
 import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
 
-const features = [
-  "SAP, Oracle, Salesforce, Postgres, MySQL, Azure, AWS, Excel and more",
-  "Billions of records processed in seconds",
-  "Full lineage, access control and governance from day one",
+const stats = [
+  {
+    value: "145×",
+    label: "Faster than Talend",
+    description: "Billions of records processed in seconds",
+  },
+  {
+    value: "8×",
+    label: "Infra reduction",
+    description:
+      "Full lineage, access control and governance from day one",
+  },
+  {
+    value: "20+",
+    label: "Connectors",
+    description:
+      "SAP, Oracle, Salesforce, Postgres, MySQL, Azure, AWS, Excel and more",
+  },
 ] as const;
 
 export function SourcesSection({ className }: SectionProps) {
   return (
     <Section className={className}>
-      <HoneycombBg placement="top-center" intensity="medium" />
+      <HoneycombBg placement="top-center" intensity="subtle" />
       <Container>
         <SectionHeader
           badge="Sources — Big Data Fusion"
@@ -35,10 +49,10 @@ export function SourcesSection({ className }: SectionProps) {
         />
 
         <motion.div
-          initial={{ opacity: 0, y: 8 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={VIEWPORT}
-          transition={{ duration: DURATION.normal, delay: 0.1 }}
+          transition={{ duration: DURATION.normal, delay: 0.1, ease: EASE }}
           className="mt-14"
         >
           <MediaFrame
@@ -49,37 +63,40 @@ export function SourcesSection({ className }: SectionProps) {
         </motion.div>
 
         <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={stagger(0.12)}
+          className="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-10 md:grid-cols-3 md:gap-8"
+        >
+          {stats.map((stat, i) => (
+            <motion.div key={stat.value} variants={fadeUp}>
+              <p
+                className={cn(
+                  "type-metric",
+                  i === 0 && "text-gradient-desert-mint",
+                )}
+              >
+                {stat.value}
+              </p>
+              <p className="type-label mt-2 text-muted-foreground">
+                {stat.label}
+              </p>
+              <p className="type-body-sm mt-3 text-tertiary">
+                {stat.description}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: DURATION.normal, delay: 0.2 }}
-          className="mt-12"
+          viewport={{ once: true }}
+          transition={{ duration: DURATION.normal, delay: 0.3, ease: EASE }}
+          className="mt-12 text-center"
         >
-          <MetricRow>
-            <Metric value="145×" label="Faster than Talend" highlight />
-            <Metric value="8×" label="Infra reduction" />
-            <Metric value="20+" label="Connectors" />
-          </MetricRow>
-
-          <div className="mx-auto mt-12 max-w-2xl">
-            <ul className="space-y-3">
-              {features.map((f) => (
-                <li key={f} className="type-body-sm flex items-start gap-3 text-tertiary">
-                  <span
-                    className="mt-[7px] block size-1.5 shrink-0 rounded-full bg-brand-mint/40"
-                    aria-hidden="true"
-                  />
-                  {f}
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-8 text-center">
-              <LinkArrow href="/solutions/sources">
-                Discover Sources
-              </LinkArrow>
-            </div>
-          </div>
+          <LinkArrow href="/solutions/sources">Discover Sources</LinkArrow>
         </motion.div>
       </Container>
     </Section>
