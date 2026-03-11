@@ -4,9 +4,11 @@ import { cn } from "@/lib/utils";
 
 const variants = {
   primary:
-    "bg-foreground text-background hover:opacity-90",
+    "btn-primary-gradient hover:opacity-90",
   secondary:
     "border border-border bg-transparent hover:bg-muted",
+  outline_gradient:
+    "border-gradient-glow hover:opacity-90",
   ghost:
     "bg-transparent text-muted-foreground hover:text-foreground",
 } as const;

@@ -56,7 +56,7 @@ export function HeroSection() {
             Let&apos;s Talk
             <ArrowRight className="size-4" />
           </Btn>
-          <Btn href="/try" variant="ghost" size="lg">
+          <Btn href="/try" variant="outline_gradient" size="lg">
             Try Aleria
           </Btn>
         </motion.div>

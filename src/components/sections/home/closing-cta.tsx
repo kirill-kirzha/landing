@@ -32,7 +32,7 @@ export function ClosingCtaSection({ className }: SectionProps) {
             See It in Action
             <ArrowRight className="size-4" />
           </Btn>
-          <Btn href="/contact" variant="ghost" size="lg">
+          <Btn href="/contact" variant="outline_gradient" size="lg">
             Request a Demo
           </Btn>
         </div>

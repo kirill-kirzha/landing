@@ -22,40 +22,47 @@ Full reference: `DESIGN-SYSTEM.md` at repo root.
 - Text: Espresso (`#14110e`) — `text-foreground`
 - Contrast sections: Desert Sand Light (`#f5edda`) — `bg-muted`
 - Brand accents: Mint (`#00f07b`) — `text-brand-mint` / Sand (`#f8e8c6`) — `text-brand-sand`
-- Gradient: `gradient-desert-mint` or `text-gradient-desert-mint` — use max 2-3 per page
+
+### Brand Gradient Effects
+- `.gradient-desert-mint` — solid gradient fill
+- `.text-gradient-desert-mint` — gradient text (max 1 per page)
+- `.line-gradient` — 1px horizontal separator (header, dividers)
+- `.border-gradient` — gradient border on elements
+- `.border-gradient-glow` — gradient border + frosted glass + glow (CTA outline)
+- `.btn-primary-gradient` — Espresso fill + gradient border (CTA primary)
 
 ### Typography
 - Headings (h1, h2): **Playfair Display** (serif) — applied globally in CSS
 - Body: **Manrope** — `font-sans`
 - Monospace: **Geist Mono** — `font-mono`
-- ALWAYS use `.type-*` classes for text styling. NEVER combine manual font-size + font-weight + tracking + line-height.
-- Available classes: `type-display`, `type-title`, `type-heading`, `type-body`, `type-body-sm`, `type-label`, `type-metric`
-- Bold/light contrast (`.font-normal` on a keyword) is ONLY for `.type-display` hero titles
+- ALWAYS use `.type-*` classes. NEVER combine manual font-size + font-weight + tracking.
+- Available: `type-display`, `type-title`, `type-heading`, `type-body`, `type-body-sm`, `type-label`, `type-metric`
+- `.type-label` includes auto uppercase + medium weight + wide tracking
 
 ### Bold/Light Rule
-- The light word must be a significant/signature word, never a conjunction or article
-- Never put the light word at the end of the line
+- Applied on ALL h1 and h2 titles (type-display and type-title)
+- The light word (`font-normal`) must be a significant/signature word
+- Never a conjunction, article, or last word of the line
 - Maximum 1 light word per title
 
 ## File rules
 - Max 150 lines per file. Split if larger.
-- No barrel exports (index.ts re-exports). Import directly.
+- No barrel exports. Import directly.
 - No unused imports, variables, or files. Run `npm run lint` before finishing.
 
 ## Styling
-- All colors come from CSS custom properties in `globals.css`.
-- Use Tailwind utilities that reference tokens (`text-foreground`, `bg-muted`, `border-border/30`).
-- Never hardcode color values in components (no `#fff`, `rgb()`, inline `oklch()`).
+- All colors from CSS custom properties in `globals.css`.
+- Use Tailwind tokens (`text-foreground`, `bg-muted`, `border-border/30`).
+- Never hardcode colors in components.
 - Exception: radial gradients for ambient effects may use oklch inline.
-- Use opacity modifiers for subtle variants: `text-muted-foreground/70`, `border-border/15`.
 
 ## Components
 
 ### Marketing primitives (`components/marketing/`)
-- `Btn` — Polymorphic button/link. Variants: `primary`, `secondary`, `ghost`. Sizes: `sm`, `default`, `lg`.
+- `Btn` — Polymorphic button/link. Variants: `primary`, `secondary`, `outline_gradient`, `ghost`.
 - `Section` — Section wrapper. Props: `background` (`default`/`muted`/`dark`), `spacing`, `divider`.
 - `Container` — Max-width wrapper. Props: `size` (`default`/`narrow`/`wide`/`full`).
-- `Badge` — Section label. Uses `type-label` by default.
+- `Badge` — Section label. Auto `type-label` styling.
 - `LinkArrow` — Text link with animated arrow.
 - `MediaFrame` — Video/image placeholder.
 
@@ -65,7 +72,8 @@ Full reference: `DESIGN-SYSTEM.md` at repo root.
 - Use `Section` + `Container` wrappers.
 
 ### Layout (`components/layout/`)
-- `header.tsx`, `footer.tsx`, `mobile-nav.tsx`
+- `header.tsx` — transparent blur + `.line-gradient` separator
+- `footer.tsx`, `mobile-nav.tsx`
 - Logo: `/public/logo.svg` (light) and `/public/logo-dark.svg` (dark sections)
 
 ## Animations
@@ -76,17 +84,16 @@ Full reference: `DESIGN-SYSTEM.md` at repo root.
 - Lists: `variants` + `staggerChildren: 0.08-0.12`
 
 ## What NOT to do
-- Do NOT use Shadcn components on marketing pages.
 - Do NOT combine manual font-size + font-weight + tracking. Use `.type-*` classes.
+- Do NOT use gradient as section background fill.
+- Do NOT use `.text-gradient-desert-mint` on more than 1 element per page.
 - Do NOT add icon-in-a-box patterns. Use typography and whitespace.
 - Do NOT add `"use client"` unless the component uses hooks or event handlers.
-- Do NOT create hooks or utilities unless they're used by 2+ files.
-- Do NOT use the gradient on buttons, section backgrounds, or more than 3 elements per page.
-- Do NOT put the bold/light contrast on any title other than `.type-display`.
+- Do NOT create hooks or utilities unless used by 2+ files.
 
 ## Key Files
-- Design system reference: `DESIGN-SYSTEM.md`
-- CSS tokens + type scale: `src/app/globals.css`
+- Design system: `DESIGN-SYSTEM.md`
+- CSS tokens + type scale + effects: `src/app/globals.css`
 - Fonts: `src/lib/fonts.ts`
 - Site config: `src/config/site.ts`
 - Types: `src/types/index.ts`
