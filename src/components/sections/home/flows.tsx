@@ -22,33 +22,33 @@ export function FlowsSection({ className }: SectionProps) {
           >
             <Badge>AI OS — Flows</Badge>
 
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight lg:text-4xl">
+            <h2 className="type-title mt-4">
               Business logic that runs the same way every time
             </h2>
 
-            <p className="text-pretty mt-5 leading-relaxed text-muted-foreground">
+            <p className="type-body mt-5 text-muted-foreground">
               A visual canvas for building production-grade AI workflows —
               observable, versioned and safe at enterprise scale.
             </p>
 
             <div className="mt-10 space-y-6">
               <div>
-                <p className="text-sm font-medium">Atomic nodes</p>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground/70">
+                <p className="type-body-sm font-medium">Atomic nodes</p>
+                <p className="type-body-sm mt-1 text-muted-foreground/70">
                   Data lookups, document processing, LLM steps, write-back and
                   adaptive Agent nodes for complex reasoning.
                 </p>
               </div>
               <div>
-                <p className="text-sm font-medium">Production-grade</p>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground/70">
+                <p className="type-body-sm font-medium">Production-grade</p>
+                <p className="type-body-sm mt-1 text-muted-foreground/70">
                   Every run traced, every version saved, every output
                   schema-validated JSON.
                 </p>
               </div>
               <div>
-                <p className="text-sm font-medium">Proven at scale</p>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground/70">
+                <p className="type-body-sm font-medium">Proven at scale</p>
+                <p className="type-body-sm mt-1 text-muted-foreground/70">
                   Powers ALDAR X (16 connected sources) and Pivot (investment
                   due diligence, end-to-end).
                 </p>

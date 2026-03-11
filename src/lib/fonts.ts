@@ -1,6 +1,6 @@
-import { Geist, Geist_Mono, Source_Serif_4 } from "next/font/google";
+import { Manrope, Geist_Mono, Playfair_Display } from "next/font/google";
 
-export const geistSans = Geist({
+export const manrope = Manrope({
   variable: "--font-geist-sans",
   subsets: ["latin"],
   display: "swap",
@@ -12,9 +12,10 @@ export const geistMono = Geist_Mono({
   display: "swap",
 });
 
-export const sourceSerif = Source_Serif_4({
+export const playfair = Playfair_Display({
   variable: "--font-serif",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
+  style: ["normal", "italic"],
 });

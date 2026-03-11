@@ -43,10 +43,10 @@ export function EcosystemSection({ className }: SectionProps) {
           className="mx-auto max-w-2xl text-center"
         >
           <Badge>Ecosystem</Badge>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+          <h2 className="type-title mt-4">
             One sovereign ecosystem. Three pillars.
           </h2>
-          <p className="text-pretty mt-5 text-lg leading-relaxed text-muted-foreground">
+          <p className="type-body mt-5 text-muted-foreground">
             Solutions, Infrastructure and Orchestration working together to
             deliver operational intelligence at scale.
           </p>
@@ -74,13 +74,11 @@ export function EcosystemSection({ className }: SectionProps) {
               <p className="font-mono text-xs text-muted-foreground/30">
                 {pillar.number}
               </p>
-              <h3 className="mt-4 text-2xl font-semibold tracking-tight">
-                {pillar.title}
-              </h3>
-              <p className="mt-1 text-sm text-muted-foreground">
+              <h3 className="type-heading mt-4">{pillar.title}</h3>
+              <p className="type-label mt-1 text-muted-foreground">
                 {pillar.subtitle}
               </p>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground/60">
+              <p className="type-body-sm mt-4 text-muted-foreground/60">
                 {pillar.description}
               </p>
             </motion.div>

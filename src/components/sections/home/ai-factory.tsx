@@ -38,10 +38,10 @@ export function AiFactorySection({ className }: SectionProps) {
           className="mx-auto max-w-2xl text-center"
         >
           <Badge>AI Factory</Badge>
-          <h2 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+          <h2 className="type-display mt-4">
             Your data never leaves.
           </h2>
-          <p className="mt-3 text-xl text-muted-foreground">
+          <p className="type-body mt-3 text-muted-foreground">
             Your AI, your rules.
           </p>
         </motion.div>
@@ -69,8 +69,8 @@ export function AiFactorySection({ className }: SectionProps) {
               )}
             >
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-[200px_1fr] sm:gap-12">
-                <p className="text-sm font-medium">{pillar.title}</p>
-                <p className="text-sm leading-relaxed text-muted-foreground/70">
+                <p className="type-body-sm font-medium">{pillar.title}</p>
+                <p className="type-body-sm text-muted-foreground/70">
                   {pillar.description}
                 </p>
               </div>

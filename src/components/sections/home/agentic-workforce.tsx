@@ -33,11 +33,11 @@ export function AgenticWorkforceSection({ className }: SectionProps) {
           >
             <Badge>AI OS — Agentic Workforce</Badge>
 
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight lg:text-4xl">
+            <h2 className="type-title mt-4">
               AI Employees that execute, not just answer
             </h2>
 
-            <p className="text-pretty mt-5 leading-relaxed text-muted-foreground">
+            <p className="type-body mt-5 text-muted-foreground">
               Role-based AI Employees that operate autonomously — opening files,
               running code, querying databases and producing finished outputs.
               Not a chatbot. A virtual colleague.
@@ -45,22 +45,22 @@ export function AgenticWorkforceSection({ className }: SectionProps) {
 
             <div className="mt-10 space-y-6">
               <div>
-                <p className="text-sm font-medium">Role-based templates</p>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground/70">
+                <p className="type-body-sm font-medium">Role-based templates</p>
+                <p className="type-body-sm mt-1 text-muted-foreground/70">
                   Legal, HR, Finance Ops, Procurement, Compliance, Sales Ops —
                   each with defined skills, scope and guardrails.
                 </p>
               </div>
               <div>
-                <p className="text-sm font-medium">Background execution</p>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground/70">
+                <p className="type-body-sm font-medium">Background execution</p>
+                <p className="type-body-sm mt-1 text-muted-foreground/70">
                   Unlimited file handling and live database access. No session
                   required.
                 </p>
               </div>
               <div>
-                <p className="text-sm font-medium">Reusable across your organization</p>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground/70">
+                <p className="type-body-sm font-medium">Reusable across your organization</p>
+                <p className="type-body-sm mt-1 text-muted-foreground/70">
                   Built once, reused endlessly. Consistent outputs at scale.
                 </p>
               </div>

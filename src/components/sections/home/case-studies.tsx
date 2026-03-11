@@ -46,7 +46,7 @@ export function CaseStudiesSection({ className }: SectionProps) {
           className="mx-auto max-w-2xl text-center"
         >
           <Badge>Deployed</Badge>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+          <h2 className="type-title mt-4">
             Producing intelligence in production today
           </h2>
         </motion.div>
@@ -76,9 +76,9 @@ export function CaseStudiesSection({ className }: SectionProps) {
                   idx < caseStudies.length - 1 && "border-b border-border/15",
                 )}
               >
-                <h3 className="text-lg font-semibold tracking-tight">{study.client}</h3>
-                <p className="text-sm text-muted-foreground/50">{study.meta}</p>
-                <p className="text-sm leading-relaxed text-muted-foreground/70">{study.description}</p>
+                <h3 className="type-heading">{study.client}</h3>
+                <p className="type-label text-muted-foreground/50">{study.meta}</p>
+                <p className="type-body-sm text-muted-foreground/70">{study.description}</p>
                 <ArrowRight className="hidden size-4 text-muted-foreground/30 transition-transform duration-150 group-hover:translate-x-1 sm:block" />
               </Link>
             </motion.div>

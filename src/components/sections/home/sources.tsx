@@ -8,6 +8,7 @@ import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
 import { LinkArrow } from "@/components/marketing/link-arrow";
 import { MediaFrame } from "@/components/marketing/media-frame";
+
 export function SourcesSection({ className }: SectionProps) {
   return (
     <Section className={className}>
@@ -21,11 +22,11 @@ export function SourcesSection({ className }: SectionProps) {
           >
             <Badge>Sources</Badge>
 
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight lg:text-4xl">
+            <h2 className="type-title mt-4">
               Every data source, unified, governed, AI-ready
             </h2>
 
-            <p className="text-pretty mt-5 leading-relaxed text-muted-foreground">
+            <p className="type-body mt-5 text-muted-foreground">
               Aleria&apos;s proprietary ETL platform extracts, transforms and
               loads massive volumes of data from any source into a centralized
               datalake.
@@ -33,25 +34,23 @@ export function SourcesSection({ className }: SectionProps) {
 
             <div className="mt-10 flex gap-12">
               <div>
-                <p className="text-gradient-desert-mint text-3xl font-semibold tracking-tight">
-                  145&times;
-                </p>
-                <p className="mt-1 text-sm text-muted-foreground">Faster than Talend</p>
+                <p className="type-metric text-gradient-desert-mint">145&times;</p>
+                <p className="type-body-sm mt-1 text-muted-foreground">Faster than Talend</p>
               </div>
               <div>
-                <p className="text-3xl font-semibold tracking-tight">8&times;</p>
-                <p className="mt-1 text-sm text-muted-foreground">Infra reduction</p>
+                <p className="type-metric">8&times;</p>
+                <p className="type-body-sm mt-1 text-muted-foreground">Infra reduction</p>
               </div>
               <div>
-                <p className="text-3xl font-semibold tracking-tight">20+</p>
-                <p className="mt-1 text-sm text-muted-foreground">Connectors</p>
+                <p className="type-metric">20+</p>
+                <p className="type-body-sm mt-1 text-muted-foreground">Connectors</p>
               </div>
             </div>
 
-            <ul className="mt-10 space-y-3 text-sm leading-relaxed text-muted-foreground/70">
-              <li>SAP, Oracle, Salesforce, Postgres, MySQL, Azure, AWS, Excel and more</li>
-              <li>Billions of records processed in seconds</li>
-              <li>Full lineage, access control and governance from day one</li>
+            <ul className="mt-10 space-y-3">
+              <li className="type-body-sm text-muted-foreground/70">SAP, Oracle, Salesforce, Postgres, MySQL, Azure, AWS, Excel and more</li>
+              <li className="type-body-sm text-muted-foreground/70">Billions of records processed in seconds</li>
+              <li className="type-body-sm text-muted-foreground/70">Full lineage, access control and governance from day one</li>
             </ul>
 
             <div className="mt-8">

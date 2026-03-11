@@ -47,7 +47,7 @@ export function WhyTeamsSection({ className }: SectionProps) {
           className="mx-auto max-w-2xl text-center"
         >
           <Badge>Why teams prefer us</Badge>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+          <h2 className="type-title mt-4">
             <span className="text-muted-foreground">Trusted by </span>
             <span className="relative inline-block min-w-[160px] text-left">
               <AnimatePresence mode="wait">
@@ -81,8 +81,8 @@ export function WhyTeamsSection({ className }: SectionProps) {
                 idx < capabilities.length - 1 && "border-b border-border/15",
               )}
             >
-              <p className="text-sm font-medium">{title}</p>
-              <p className="text-sm leading-relaxed text-muted-foreground/60">{desc}</p>
+              <p className="type-body-sm font-medium">{title}</p>
+              <p className="type-body-sm text-muted-foreground/60">{desc}</p>
             </div>
           ))}
         </motion.div>

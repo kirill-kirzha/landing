@@ -22,7 +22,7 @@ export function TryAleriaSection({ className }: SectionProps) {
           className="text-center"
         >
           <Badge>Try before you book</Badge>
-          <h2 className="text-balance mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="type-title mt-4">
             See how Aleria transforms data into operational intelligence
           </h2>
         </motion.div>

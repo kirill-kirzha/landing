@@ -30,12 +30,12 @@ function ProductCard({
 
       <div className="mt-6">
         <Badge>{badge}</Badge>
-        <h3 className="mt-2 text-xl font-semibold tracking-tight">{title}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-muted-foreground/70">{description}</p>
+        <h3 className="type-heading mt-2">{title}</h3>
+        <p className="type-body-sm mt-2 text-muted-foreground/70">{description}</p>
 
         <ul className="mt-5 space-y-2">
           {features.map((f) => (
-            <li key={f} className="text-sm leading-relaxed text-muted-foreground/60">{f}</li>
+            <li key={f} className="type-body-sm text-muted-foreground/60">{f}</li>
           ))}
         </ul>
 
@@ -71,7 +71,7 @@ export function MoreProductsSection({ className }: SectionProps) {
           className="mx-auto max-w-2xl text-center"
         >
           <Badge>More</Badge>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+          <h2 className="type-title mt-4">
             Intelligence layers for every operation
           </h2>
         </motion.div>

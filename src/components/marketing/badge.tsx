@@ -7,7 +7,7 @@ interface BadgeProps {
 
 export function Badge({ className, children }: BadgeProps) {
   return (
-    <p className={cn("text-sm text-muted-foreground", className)}>
+    <p className={cn("type-label text-muted-foreground", className)}>
       {children}
     </p>
   );

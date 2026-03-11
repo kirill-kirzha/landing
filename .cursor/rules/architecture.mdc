@@ -25,9 +25,17 @@ Full reference: `DESIGN-SYSTEM.md` at repo root.
 - Gradient: `gradient-desert-mint` or `text-gradient-desert-mint` — use max 2-3 per page
 
 ### Typography
-- Headings (h1, h2): **Source Serif 4** (serif) — applied globally in CSS
-- Body: **Geist Sans** — `font-sans`
-- Never override heading font on individual elements. The CSS handles it.
+- Headings (h1, h2): **Playfair Display** (serif) — applied globally in CSS
+- Body: **Manrope** — `font-sans`
+- Monospace: **Geist Mono** — `font-mono`
+- ALWAYS use `.type-*` classes for text styling. NEVER combine manual font-size + font-weight + tracking + line-height.
+- Available classes: `type-display`, `type-title`, `type-heading`, `type-body`, `type-body-sm`, `type-label`, `type-metric`
+- Bold/light contrast (`.font-normal` on a keyword) is ONLY for `.type-display` hero titles
+
+### Bold/Light Rule
+- The light word must be a significant/signature word, never a conjunction or article
+- Never put the light word at the end of the line
+- Maximum 1 light word per title
 
 ## File rules
 - Max 150 lines per file. Split if larger.
@@ -47,7 +55,7 @@ Full reference: `DESIGN-SYSTEM.md` at repo root.
 - `Btn` — Polymorphic button/link. Variants: `primary`, `secondary`, `ghost`. Sizes: `sm`, `default`, `lg`.
 - `Section` — Section wrapper. Props: `background` (`default`/`muted`/`dark`), `spacing`, `divider`.
 - `Container` — Max-width wrapper. Props: `size` (`default`/`narrow`/`wide`/`full`).
-- `Badge` — Section label. Plain text, no borders.
+- `Badge` — Section label. Uses `type-label` by default.
 - `LinkArrow` — Text link with animated arrow.
 - `MediaFrame` — Video/image placeholder.
 
@@ -64,19 +72,21 @@ Full reference: `DESIGN-SYSTEM.md` at repo root.
 - Framer Motion `whileInView` for scroll-triggered.
 - Ease: `[0.4, 0, 0.2, 1]`
 - Duration: `0.5` (standard), `0.6` (hero/cta)
-- Viewport: `{{ once: true, margin: "-80px" }}`
-- Lists: `variants` + `staggerChildren: 0.08–0.12`
+- Viewport: `{ once: true, margin: "-80px" }`
+- Lists: `variants` + `staggerChildren: 0.08-0.12`
 
 ## What NOT to do
 - Do NOT use Shadcn components on marketing pages.
+- Do NOT combine manual font-size + font-weight + tracking. Use `.type-*` classes.
 - Do NOT add icon-in-a-box patterns. Use typography and whitespace.
 - Do NOT add `"use client"` unless the component uses hooks or event handlers.
 - Do NOT create hooks or utilities unless they're used by 2+ files.
 - Do NOT use the gradient on buttons, section backgrounds, or more than 3 elements per page.
+- Do NOT put the bold/light contrast on any title other than `.type-display`.
 
 ## Key Files
 - Design system reference: `DESIGN-SYSTEM.md`
-- CSS tokens: `src/app/globals.css`
+- CSS tokens + type scale: `src/app/globals.css`
 - Fonts: `src/lib/fonts.ts`
 - Site config: `src/config/site.ts`
 - Types: `src/types/index.ts`

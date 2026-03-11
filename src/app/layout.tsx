@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 
-import { geistSans, geistMono, sourceSerif } from "@/lib/fonts";
+import { manrope, geistMono, playfair } from "@/lib/fonts";
 import { siteConfig } from "@/config/site";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
@@ -62,7 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${sourceSerif.variable} min-h-dvh font-sans antialiased`}
+        className={`${manrope.variable} ${geistMono.variable} ${playfair.variable} min-h-dvh font-sans antialiased`}
       >
         <div className="relative flex min-h-dvh flex-col">
           <Header />

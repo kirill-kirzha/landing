@@ -20,7 +20,7 @@ export function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, ease }}
-          className="mb-8 text-sm text-muted-foreground"
+          className="type-label mb-12 text-muted-foreground"
         >
           Sovereign AI Platform
         </motion.p>
@@ -29,10 +29,9 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease }}
-          className="mx-auto max-w-4xl text-5xl leading-[1.08] font-semibold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+          className="type-display mx-auto max-w-4xl"
         >
-          Your{" "}
-          <span className="text-gradient-desert-mint">Sovereign</span>
+          Your <span className="font-normal">Sovereign</span>
           <br />
           AI Factory
         </motion.h1>
@@ -41,7 +40,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease }}
-          className="text-pretty mx-auto mt-6 max-w-xl text-lg text-muted-foreground sm:text-xl"
+          className="type-body text-pretty mx-auto mt-8 max-w-lg text-muted-foreground"
         >
           Build and operate sovereign AI systems that transform your data into
           operational intelligence.

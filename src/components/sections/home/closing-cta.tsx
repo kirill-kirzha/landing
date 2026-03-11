@@ -19,12 +19,12 @@ export function ClosingCtaSection({ className }: SectionProps) {
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
         className="relative z-10 mx-auto max-w-3xl px-6 text-center"
       >
-        <p className="text-pretty text-lg text-muted-foreground">
+        <p className="type-body text-muted-foreground">
           The organizations that can produce intelligence at scale will define
           the future.
         </p>
         <div className="gradient-desert-mint mx-auto mt-8 h-px w-24 rounded-full" />
-        <h2 className="mt-8 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+        <h2 className="type-display mt-8">
           Build Your AI Factory.
         </h2>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
