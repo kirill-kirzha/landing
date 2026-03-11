@@ -14,8 +14,8 @@ type Client = {
 };
 
 const row1: Client[] = [
-  { name: "UAE Presidential Court", file: null },
-  { name: "Ministry of Foreign Affairs", file: null },
+  { name: "UAE Presidential Court", file: "uae-presidential-court.png" },
+  { name: "Ministry of Foreign Affairs", file: "mofaic.png" },
   { name: "ADAA", file: "adaa.svg" },
   { name: "FAB", file: "fab.svg" },
   { name: "ADIA", file: "adia.svg" },
@@ -40,7 +40,7 @@ const row2: Client[] = [
   { name: "Grupo Nutresa", file: "grupo-nutresa.svg" },
   { name: "OncoClinicas", file: "oncoclnicas.png" },
   { name: "Dept. of Municipalities & Transport", file: "dmt.svg" },
-  { name: "Abu Dhabi Cyber Security Council", file: null },
+  { name: "Abu Dhabi Cyber Security Council", file: "adcsc.png" },
 ];
 
 function ClientLogo({ client }: { client: Client }) {
