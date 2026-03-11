@@ -11,6 +11,7 @@ import { Badge } from "@/components/marketing/badge";
 import { Btn } from "@/components/marketing/button";
 import { TextRotator } from "@/components/ui/text-rotator";
 import { BentoGrid } from "@/components/sections/home/why-teams-grid";
+import { DeployedBanner } from "./deployed-banner";
 import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
 
 const industries = [
@@ -49,7 +50,7 @@ export function WhyTeamsSection({ className }: SectionProps) {
           whileInView="visible"
           viewport={VIEWPORT}
           variants={stagger(0.04)}
-          className="mt-16"
+          className="mt-14"
         >
           <BentoGrid />
         </motion.div>
@@ -57,15 +58,17 @@ export function WhyTeamsSection({ className }: SectionProps) {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={VIEWPORT}
           transition={{ duration: DURATION.normal, delay: 0.2 }}
-          className="mt-14 text-center"
+          className="mt-10 text-center"
         >
-          <Btn href="/contact" size="lg">
+          <Btn href="/contact" size="lg" className="w-full sm:w-auto">
             See it in Action
             <ArrowRight className="size-4" aria-hidden="true" />
           </Btn>
         </motion.div>
+
+        <DeployedBanner />
       </Container>
     </Section>
   );

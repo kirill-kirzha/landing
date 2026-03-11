@@ -1,66 +1,94 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Shield, Wifi, Server } from "lucide-react";
 
 import type { SectionProps } from "@/types";
 import { fadeUp, stagger, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
-import { SectionHeader } from "@/components/marketing/section-header";
+import { Badge } from "@/components/marketing/badge";
+import { LinkArrow } from "@/components/marketing/link-arrow";
+import { WindowFrame } from "@/components/marketing/window-frame";
 
-const pillars = [
+const deployments = [
   {
+    icon: Server,
     title: "On-Premise / Private Cloud",
     description:
-      "Runs entirely within your infrastructure. No external API calls. No shared compute. No data leaving your perimeter.",
+      "Runs entirely within your infrastructure. No external API calls, no shared compute.",
   },
   {
+    icon: Wifi,
     title: "Air-Gapped Delivery",
     description:
-      "Encrypted VM on your hardware — Mac Studio, DGX, or your own servers. Zero internet. Proven at FAB, Aldar, DOF, Rakez.",
+      "Encrypted VM on your hardware. Zero internet. Proven at FAB, Aldar, DOF, Rakez.",
   },
   {
+    icon: Shield,
     title: "Sovereign AI Factory",
     description:
-      "National-scale infrastructure on NVIDIA DSX Blueprint, deployed in UAE bare-metal datacenters for total independence.",
+      "National-scale on NVIDIA DGX Blueprint, deployed in UAE bare-metal datacenters.",
   },
 ] as const;
 
 export function AiFactorySection({ className }: SectionProps) {
   return (
-    <Section background="muted" divider="both" className={className}>
+    <Section className={className}>
       <Container>
-        <SectionHeader
-          badge="AI Factory"
-          title={
-            <>
-              Your data <span className="font-normal">never</span> leaves.
-            </>
-          }
-          description="Your AI, your rules."
-          size="lg"
-        />
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={VIEWPORT}
-          variants={stagger(0.1)}
-          className="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-5 md:grid-cols-3"
-        >
-          {pillars.map((pillar) => (
-            <motion.div
-              key={pillar.title}
-              variants={fadeUp}
-              className="rounded-2xl border border-border/20 bg-background/60 p-6 transition-all duration-300 hover:border-border/50 hover:shadow-sm sm:p-8"
-            >
-              <h3 className="type-body-sm font-medium">{pillar.title}</h3>
-              <p className="type-body-sm mt-3 text-tertiary">
-                {pillar.description}
-              </p>
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={VIEWPORT}
+            variants={stagger(0.08)}
+          >
+            <motion.div variants={fadeUp}>
+              <Badge>AI Factory</Badge>
             </motion.div>
-          ))}
-        </motion.div>
+            <motion.h2 variants={fadeUp} className="type-title mt-5">
+              Your data <span className="font-normal">never</span> leaves.
+            </motion.h2>
+            <motion.p
+              variants={fadeUp}
+              className="type-body mt-4 max-w-lg text-muted-foreground"
+            >
+              Your AI, your rules. Deploy on your own infrastructure with full
+              sovereignty — no external calls, no shared compute.
+            </motion.p>
+
+            <motion.div variants={fadeUp} className="mt-8 space-y-5">
+              {deployments.map((d) => (
+                <div key={d.title} className="flex gap-4">
+                  <d.icon
+                    className="mt-0.5 size-5 shrink-0 text-muted-foreground"
+                    aria-hidden="true"
+                  />
+                  <div>
+                    <p className="type-body-sm font-medium">{d.title}</p>
+                    <p className="type-body-sm text-tertiary">
+                      {d.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+
+            <motion.div variants={fadeUp} className="mt-8">
+              <LinkArrow href="/ai-factory">Discover AI Factory</LinkArrow>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={VIEWPORT}
+          >
+            <WindowFrame title="AI Factory — Architecture">
+              <div className="aspect-[4/3] bg-muted/30" />
+            </WindowFrame>
+          </motion.div>
+        </div>
       </Container>
     </Section>
   );

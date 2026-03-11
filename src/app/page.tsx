@@ -1,13 +1,10 @@
 import { HeroSection } from "@/components/sections/home/hero";
 import { EcosystemSection } from "@/components/sections/home/ecosystem";
-import { SourcesSection } from "@/components/sections/home/sources";
-import { AgenticWorkforceSection } from "@/components/sections/home/agentic-workforce";
-import { FlowsSection } from "@/components/sections/home/flows";
-import { MoreProductsSection } from "@/components/sections/home/more-products";
-import { AiFactorySection } from "@/components/sections/home/ai-factory";
 import { WhyTeamsSection } from "@/components/sections/home/why-teams";
-import { TryAleriaSection } from "@/components/sections/home/try-aleria";
-import { CaseStudiesSection } from "@/components/sections/home/case-studies";
+import { AiFactorySection } from "@/components/sections/home/ai-factory";
+import { SourcesSection } from "@/components/sections/home/sources";
+import { AiOsSection } from "@/components/sections/home/ai-os";
+import { MoreProductsSection } from "@/components/sections/home/more-products";
 import { ClosingCtaSection } from "@/components/sections/home/closing-cta";
 
 export default function HomePage() {
@@ -15,14 +12,11 @@ export default function HomePage() {
     <>
       <HeroSection />
       <EcosystemSection />
-      <SourcesSection />
-      <AgenticWorkforceSection />
-      <FlowsSection />
-      <MoreProductsSection />
-      <AiFactorySection />
       <WhyTeamsSection />
-      <TryAleriaSection />
-      <CaseStudiesSection />
+      <AiFactorySection />
+      <SourcesSection />
+      <AiOsSection />
+      <MoreProductsSection />
       <ClosingCtaSection />
     </>
   );

@@ -3,22 +3,28 @@
 import { motion } from "framer-motion";
 
 import type { SectionProps } from "@/types";
-import { EASE, DURATION, VIEWPORT } from "@/lib/motion";
+import { fadeUp, stagger, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { SectionHeader } from "@/components/marketing/section-header";
-import { ProductCard } from "@/components/marketing/product-card";
+import { LinkArrow } from "@/components/marketing/link-arrow";
+import { WindowFrame } from "@/components/marketing/window-frame";
 
-const dashboardFeatures = [
-  "Real-time KPIs with drill-down by region, product line, customer segment",
-  "Natural language queries with instant charts and AI-curated intelligence",
-  "Board meeting recording with auto-drafted minutes in any language",
-] as const;
-
-const videoFeatures = [
-  "People, objects, vehicles and behavioral pattern detection in real time",
-  "Contextualized alerts with actionable intelligence",
-  "Security, smart city, retail analytics and safety dashboards",
+const products = [
+  {
+    title: "Dashboard AI",
+    description:
+      "Executive intelligence — live, explorable, traceable. Natural language queries with instant charts.",
+    href: "/solutions/dashboard-ai",
+    windowTitle: "Aleria Dashboard AI",
+  },
+  {
+    title: "Video AI",
+    description:
+      "Real-time intelligence across every camera stream. Detect, track and alert at scale.",
+    href: "/solutions/video-ai",
+    windowTitle: "Aleria Video AI",
+  },
 ] as const;
 
 export function MoreProductsSection({ className }: SectionProps) {
@@ -40,26 +46,26 @@ export function MoreProductsSection({ className }: SectionProps) {
         />
 
         <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={VIEWPORT}
-          transition={{ duration: DURATION.normal, ease: EASE }}
-          className="mt-16 grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-12"
+          variants={stagger(0.12)}
+          className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12"
         >
-          <ProductCard
-            badge="Dashboard AI"
-            title="Executive intelligence — live, explorable, traceable"
-            description="A decision-making surface for boards and C-suite that connects directly to your governed data."
-            features={dashboardFeatures}
-            href="/solutions/dashboard-ai"
-          />
-          <ProductCard
-            badge="Video AI"
-            title="Real-time intelligence across every camera stream"
-            description="Thousands of simultaneous video streams with AI that detects, tracks and alerts."
-            features={videoFeatures}
-            href="/solutions/video-ai"
-          />
+          {products.map((p) => (
+            <motion.div key={p.title} variants={fadeUp}>
+              <WindowFrame title={p.windowTitle} className="border-border/20">
+                <div className="aspect-video bg-card/30" />
+              </WindowFrame>
+              <h3 className="type-heading mt-6">{p.title}</h3>
+              <p className="type-body-sm mt-2 text-tertiary">
+                {p.description}
+              </p>
+              <div className="mt-4">
+                <LinkArrow href={p.href}>Discover</LinkArrow>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
       </Container>
     </Section>

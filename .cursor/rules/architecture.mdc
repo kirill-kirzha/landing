@@ -63,16 +63,18 @@ Full reference: `DESIGN-SYSTEM.md` at repo root.
 - Use Tailwind tokens (`text-foreground`, `bg-muted`, `text-tertiary`, `text-quaternary`).
 - Never hardcode colors in components.
 - Exception: radial gradients for ambient effects may use oklch inline.
+- Exception: macOS traffic light dots in `WindowFrame` use standard platform colors.
 
 ## Animations
 - Import constants from `src/lib/motion.ts`: `EASE`, `DURATION`, `VIEWPORT`, `fadeUp`, `fadeIn`, `stagger`.
 - NEVER hardcode ease arrays or duration values inline. Always use the centralized constants.
+- Exception: Framer Motion `layoutId` spring transitions may use inline spring config.
 - Framer Motion `whileInView` for scroll-triggered.
 - Lists use `variants` + `stagger()` function.
 
 ## Accessibility
 - All decorative elements must have `aria-hidden="true"`.
-- Icons inside buttons/links (ArrowRight, Menu, X, Play, ChevronDown) must have `aria-hidden="true"`.
+- Icons inside buttons/links (ArrowRight, ArrowDown, Menu, X, Play, ChevronRight) must have `aria-hidden="true"`.
 - Toggle buttons must have `aria-expanded`.
 - Navigation landmarks must have `aria-label`.
 - All interactive elements must use `.focus-ring` class.
@@ -87,28 +89,56 @@ Headless, interaction-focused components. No `"use client"` unless hooks are use
 
 ### Marketing primitives (`components/marketing/`)
 - `Btn` — Polymorphic button/link. Variants: `primary`, `secondary`, `outline_gradient`, `ghost`. Uses `.focus-ring`.
-- `Section` — Section wrapper. Props: `background` (`default`/`muted`/`dark`), `spacing`, `divider`.
-- `Container` — Max-width wrapper. Responsive padding: `px-5 sm:px-6 lg:px-8`.
+- `Section` — Section wrapper. Props: `background` (`default`/`muted`/`dark`), `spacing` (`default`/`lg`/`none`), `divider`.
+- `Container` — Max-width wrapper. Props: `size` (`default`/`narrow`/`wide`/`full`). Responsive padding: `px-5 sm:px-6 lg:px-8`.
 - `Badge` — Section label. Auto `type-label` styling.
 - `LinkArrow` — Text link with animated arrow. Uses `.focus-ring`.
-- `MediaFrame` — Media display: image (`src`), video (`videoSrc`), or grid-pattern placeholder. Props: `ratio` (`video`/`square`/`wide`), `label`.
+- `WindowFrame` — macOS-style window chrome (traffic light dots + optional title). Props: `title`, `children`. Server component.
 - `SectionHeader` — Badge + title + description with `fadeUp` animation. Props: `badge`, `title` (ReactNode), `description`, `align`, `size` (`default`/`lg`).
-- `Metric` / `MetricRow` — Large metric numbers. `Metric` props: `value`, `label`, `highlight`. `MetricRow` wraps in responsive flex.
-- `ProductCard` — Product showcase: MediaFrame + badge + title + features + LinkArrow.
-- `CaseStudyCard` — Case study card: logo placeholder + client + meta + description + arrow CTA.
-- `HoneycombBg` — Decorative SVG hex grid background. Props: `placement` (8 positions incl. `top-center`), `intensity` (`subtle`/`medium`/`strong`, default `medium`). Client component (IntersectionObserver fires once). Parent must have `relative overflow-hidden`. Max 5 per page, every placement must be unique. Intensity hierarchy: one `strong` per page, rest `subtle`/`medium`. See DESIGN-SYSTEM.md for full docs.
+- `HoneycombBg` — Decorative SVG hex grid background. Props: `placement` (8 positions), `intensity` (`subtle`/`medium`/`strong`). Max 5 per page, unique placements, max 1 `strong`.
 
-### Sections (`components/sections/{page}/`)
+### Sections (`components/sections/home/`)
 - One file per section, named by content. Sub-components split into `{section}-{part}.tsx`.
 - Each section receives `{ className?: string }` via `SectionProps`.
-- Standard section pattern: `SectionHeader` → `MediaFrame` (wide) → feature cards grid → `LinkArrow` CTA.
-- Dark accent cards: use `.dark` class on the element to auto-invert all semantic tokens.
-- Bento grid pattern: mix `col-span-2`, `row-span-2`, and accent cells for visual hierarchy.
+
+#### Homepage section order and patterns:
+1. **Hero** (`hero.tsx` + `hero-clients.tsx`) — Full viewport, announcement pill, h1, CTAs, logo marquee. Default bg. HoneycombBg: `top-left` subtle + `bottom-right` strong.
+2. **Ecosystem** (`ecosystem.tsx` + `ecosystem-tabs.tsx`) — SectionHeader, segmented process block (Build→Deploy→Operate with arrows), tabbed product showcase (WindowFrame). Default bg.
+3. **Why Teams** (`why-teams.tsx` + `why-teams-grid.tsx` + `deployed-banner.tsx`) — TextRotator headline, bento grid (sand bg cells + espresso accent cells), CTA, deployed banner (espresso block with case studies). Default bg. HoneycombBg: `top-right` subtle.
+4. **AI Factory** (`ai-factory.tsx`) — Asymmetric layout: text+icons left, WindowFrame right. Default bg.
+5. **Sources** (`sources.tsx`) — Asymmetric reversed: WindowFrame left, text+stats right. Muted bg + dividers. HoneycombBg: `top-center` subtle.
+6. **AI OS** (`ai-os.tsx`) — Centered header, tabs (AI Employees / Flows), WindowFrame + features side by side. Default bg.
+7. **More Products** (`more-products.tsx`) — 2-column WindowFrame cards (Dashboard AI, Video AI). Dark bg + dividers.
+8. **Closing CTA** (`closing-cta.tsx`) — Emotional h2, gradient divider, 2 CTAs. Container narrow. Default bg. HoneycombBg: `bottom-center` medium.
+
+#### Section background rhythm:
+`default → default → default → default → muted → default → dark → default`
+Muted and dark sections always have `divider="both"`.
+
+#### Layout patterns used:
+- **Centered**: SectionHeader → content → CTA (Ecosystem, More Products)
+- **Asymmetric**: text left + visual right, or reversed (AI Factory, Sources)
+- **Tabbed**: tabs bar + animated content swap (Ecosystem tabs, AI OS)
+- **Bento grid**: mixed col-span/row-span with accent cells (Why Teams)
+- **Embedded banner**: dark block within a section (Deployed banner in Why Teams)
+
+#### Section spacing system:
+- Section padding default: `py-16 sm:py-20 lg:py-28`
+- Section padding large: `py-20 sm:py-24 lg:py-32`
+- SectionHeader → content: `mt-14`
+- Content → CTA: `mt-10`
+- Asymmetric grid gap: `gap-10 lg:gap-16`
 
 ### Layout (`components/layout/`)
 - `header.tsx` — transparent blur + `.line-gradient` separator. Height: `var(--header-height)`.
 - `footer.tsx`, `mobile-nav.tsx`
 - Logo: `/public/logo.svg` (light) and `/public/logo-dark.svg` (dark sections)
+
+## Removed components (do NOT recreate)
+- `MediaFrame` — replaced by `WindowFrame` for product screenshots
+- `ProductCard` — replaced by direct WindowFrame + text layouts
+- `CaseStudyCard` — replaced by deployed banner inline layout
+- `Metric` / `MetricRow` — replaced by inline stat blocks
 
 ## What NOT to do
 - Do NOT combine manual font-size + font-weight + tracking. Use `.type-*` classes.
@@ -120,6 +150,7 @@ Headless, interaction-focused components. No `"use client"` unless hooks are use
 - Do NOT hardcode ease/duration values. Import from `@/lib/motion`.
 - Do NOT use opacity modifiers for text hierarchy. Use `text-tertiary` / `text-quaternary`.
 - Do NOT use more than 5 HoneycombBg per page, and never the same placement twice. Use at most one `strong` per page.
+- Do NOT recreate removed components (MediaFrame, ProductCard, CaseStudyCard, Metric).
 
 ## Key Files
 - Design system: `DESIGN-SYSTEM.md`

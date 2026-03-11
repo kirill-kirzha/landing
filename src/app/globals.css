@@ -220,6 +220,14 @@
   background: linear-gradient(90deg, transparent, var(--brand-mint), var(--brand-sand), transparent);
 }
 
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 @keyframes hc-fill {
   0%, 25%, 75%, 100% { opacity: 0; }
   40%, 60%           { opacity: 1; }

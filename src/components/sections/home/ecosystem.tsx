@@ -1,12 +1,15 @@
 "use client";
 
+import { Fragment } from "react";
 import { motion } from "framer-motion";
+import { ArrowRight, ArrowDown } from "lucide-react";
 
 import type { SectionProps } from "@/types";
-import { EASE, DURATION, VIEWPORT } from "@/lib/motion";
+import { fadeUp, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { SectionHeader } from "@/components/marketing/section-header";
+import { EcosystemTabs } from "./ecosystem-tabs";
 
 const pillars = [
   {
@@ -32,48 +35,6 @@ const pillars = [
   },
 ] as const;
 
-const NODE_CENTER = 22;
-
-const lineH = {
-  hidden: { scaleX: 0 },
-  visible: { scaleX: 1, transition: { duration: 1.4, ease: EASE } },
-};
-
-const lineV = {
-  hidden: { scaleY: 0 },
-  visible: { scaleY: 1, transition: { duration: 1.4, ease: EASE } },
-};
-
-function stepReveal(index: number) {
-  return {
-    hidden: { opacity: 0, y: 8 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: DURATION.normal,
-        delay: 0.2 + index * 0.18,
-        ease: EASE,
-      },
-    },
-  };
-}
-
-function nodeReveal(index: number) {
-  return {
-    hidden: { scale: 0.85, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: DURATION.slow,
-        delay: 0.2 + index * 0.18,
-        ease: EASE,
-      },
-    },
-  };
-}
-
 export function EcosystemSection({ className }: SectionProps) {
   return (
     <Section className={className}>
@@ -89,66 +50,45 @@ export function EcosystemSection({ className }: SectionProps) {
         />
 
         <motion.div
+          variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={VIEWPORT}
-          className="relative mx-auto mt-20 max-w-5xl"
+          className="mx-auto mt-14 max-w-5xl overflow-hidden rounded-2xl border border-border/30"
         >
-          <motion.div
-            variants={lineH}
-            className="absolute hidden h-0.5 origin-left md:block"
-            style={{
-              top: NODE_CENTER,
-              left: "calc(100% / 6)",
-              right: "calc(100% / 6)",
-              background:
-                "linear-gradient(90deg, var(--brand-mint), var(--brand-sand))",
-            }}
-            aria-hidden="true"
-          />
+          <div className="h-1 gradient-desert-mint" aria-hidden="true" />
 
-          <motion.div
-            variants={lineV}
-            className="absolute w-0.5 origin-top md:hidden"
-            style={{
-              left: NODE_CENTER - 1,
-              top: NODE_CENTER,
-              bottom: 0,
-              background:
-                "linear-gradient(180deg, var(--brand-mint), var(--brand-sand) 80%, transparent)",
-            }}
-            aria-hidden="true"
-          />
-
-          <div className="grid grid-cols-1 gap-14 md:grid-cols-3 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr]">
             {pillars.map((pillar, i) => (
-              <motion.div
-                key={pillar.number}
-                variants={stepReveal(i)}
-                className="group flex gap-5 md:flex-col md:items-center md:gap-0 md:text-center"
-              >
-                <motion.div
-                  variants={nodeReveal(i)}
-                  className="relative z-10 flex size-[44px] shrink-0 items-center justify-center rounded-full border-gradient shadow-[0_0_16px_-3px_oklch(0.84_0.15_155/0.2)] transition-shadow duration-300 group-hover:shadow-[0_0_24px_-3px_oklch(0.84_0.15_155/0.4)]"
-                >
-                  <span className="type-label text-muted-foreground">
-                    {pillar.number}
-                  </span>
-                </motion.div>
-
-                <div className="md:mt-8">
+              <Fragment key={pillar.title}>
+                <div className="p-6 transition-colors duration-300 hover:bg-muted/30 sm:p-8 md:text-center">
                   <h3 className="type-heading">{pillar.title}</h3>
-                  <p className="type-label mt-1 text-muted-foreground">
+                  <p className="type-body-sm mt-1 text-muted-foreground">
                     {pillar.subtitle}
                   </p>
-                  <p className="type-body-sm mt-3 max-w-[280px] text-tertiary md:mx-auto">
+                  <p className="type-body-sm mx-auto mt-3 max-w-[260px] text-tertiary">
                     {pillar.description}
                   </p>
                 </div>
-              </motion.div>
+
+                {i < pillars.length - 1 && (
+                  <div className="flex items-center justify-center py-2 md:py-0">
+                    <ArrowDown
+                      className="size-4 text-quaternary md:hidden"
+                      aria-hidden="true"
+                    />
+                    <ArrowRight
+                      className="hidden size-4 text-quaternary md:block"
+                      aria-hidden="true"
+                    />
+                  </div>
+                )}
+              </Fragment>
             ))}
           </div>
         </motion.div>
+
+        <EcosystemTabs />
       </Container>
     </Section>
   );
