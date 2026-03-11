@@ -44,7 +44,7 @@ export function EcosystemSection({ className }: SectionProps) {
         >
           <Badge>Ecosystem</Badge>
           <h2 className="type-title mt-4">
-            One sovereign ecosystem. Three pillars.
+            One <span className="font-normal">sovereign</span> ecosystem
           </h2>
           <p className="type-body mt-5 text-muted-foreground">
             Solutions, Infrastructure and Orchestration working together to
@@ -58,27 +58,29 @@ export function EcosystemSection({ className }: SectionProps) {
           viewport={{ once: true, margin: "-80px" }}
           variants={{
             hidden: {},
-            visible: { transition: { staggerChildren: 0.1 } },
+            visible: { transition: { staggerChildren: 0.12 } },
           }}
-          className="mt-20 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border/30 bg-border/30 md:grid-cols-3"
+          className="mx-auto mt-20 max-w-5xl"
         >
           {pillars.map((pillar) => (
             <motion.div
               key={pillar.number}
               variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1, transition: { duration: 0.5 } },
+                hidden: { opacity: 0, y: 16 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
               }}
-              className="bg-background p-10"
+              className="grid grid-cols-1 gap-6 border-t border-border/20 py-12 sm:grid-cols-[80px_160px_1fr]"
             >
-              <p className="font-mono text-xs text-muted-foreground/30">
+              <p className="type-display text-muted-foreground/10">
                 {pillar.number}
               </p>
-              <h3 className="type-heading mt-4">{pillar.title}</h3>
-              <p className="type-label mt-1 text-muted-foreground">
-                {pillar.subtitle}
-              </p>
-              <p className="type-body-sm mt-4 text-muted-foreground/60">
+              <div>
+                <h3 className="type-heading">{pillar.title}</h3>
+                <p className="type-label mt-1 text-muted-foreground">
+                  {pillar.subtitle}
+                </p>
+              </div>
+              <p className="type-body-sm text-muted-foreground/60 sm:pt-1">
                 {pillar.description}
               </p>
             </motion.div>

@@ -11,7 +11,7 @@ import { MediaFrame } from "@/components/marketing/media-frame";
 
 export function AgenticWorkforceSection({ className }: SectionProps) {
   return (
-    <Section className={className}>
+    <Section background="muted" divider="both" className={className}>
       <Container>
         <div className="grid items-start gap-16 lg:grid-cols-2 lg:gap-24">
           <motion.div

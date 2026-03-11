@@ -72,7 +72,7 @@ export function ClientsSection({ className }: SectionProps) {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="mb-6 text-center text-xs tracking-wider text-muted-foreground/40 uppercase"
+        className="type-label mb-6 text-center text-muted-foreground/40 uppercase"
       >
         Trusted by industry leaders
       </motion.p>

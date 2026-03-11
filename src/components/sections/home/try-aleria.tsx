@@ -12,7 +12,7 @@ import { MediaFrame } from "@/components/marketing/media-frame";
 
 export function TryAleriaSection({ className }: SectionProps) {
   return (
-    <Section className={className}>
+    <Section background="muted" divider="both" className={className}>
       <Container size="narrow">
         <motion.div
           initial={{ opacity: 0, y: 16 }}

@@ -61,7 +61,7 @@ const videoFeatures = [
 
 export function MoreProductsSection({ className }: SectionProps) {
   return (
-    <Section className={className}>
+    <Section background="dark" divider="both" className={className}>
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
