@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aleria V2
+
+Sovereign AI platform marketing site. Built with Next.js 16, React 19, Tailwind CSS v4, and Framer Motion.
+
+## Tech Stack
+
+| Technology | Version | Purpose |
+|---|---|---|
+| Next.js | 16.1.6 | App Router, Turbopack, SSG |
+| React | 19.2.3 | UI |
+| Tailwind CSS | v4 | Styling via CSS variables |
+| Framer Motion | 12.x | Animations |
+| TypeScript | 5.x | Type safety |
+| Lucide React | Icons |
+| Deployment | Vercel |
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── globals.css          # Design tokens (CSS variables, light/dark)
+│   ├── layout.tsx           # Root layout, metadata, fonts
+│   └── page.tsx             # Homepage (composes sections)
+│
+├── components/
+│   ├── layout/              # Header, Footer, MobileNav
+│   ├── marketing/           # Reusable marketing primitives
+│   │   ├── badge.tsx         # Section label text
+│   │   ├── button.tsx        # Polymorphic button (link or button)
+│   │   ├── container.tsx     # Max-width wrapper
+│   │   ├── link-arrow.tsx    # Text link with animated arrow
+│   │   ├── media-frame.tsx   # Video/image placeholder frame
+│   │   ├── metrics.tsx       # Key metrics display
+│   │   └── section.tsx       # Section wrapper (spacing, bg, dividers)
+│   └── sections/
+│       └── home/             # 12 homepage sections
+│
+├── config/
+│   └── site.ts              # Navigation, URLs, metadata strings
+│
+├── lib/
+│   ├── fonts.ts             # Geist Sans + Mono
+│   └── utils.ts             # cn() utility
+│
+└── types/
+    └── index.ts             # Shared TypeScript types
+```
 
-## Learn More
+## Architecture Decisions
 
-To learn more about Next.js, take a look at the following resources:
+### No Shadcn UI on marketing pages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Shadcn UI is built for application UIs (dashboards, forms, data tables). Marketing sites like vercel.com and anthropic.com use custom components with Tailwind. We follow the same approach:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `components/marketing/` — Custom primitives using CSS variables from `globals.css`
+- No external component library on the frontend
+- Shadcn can be re-added later for application pages (login, settings, admin)
 
-## Deploy on Vercel
+### Design tokens
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+All colors, spacing, and radii are defined as CSS custom properties in `globals.css` with light/dark mode support via oklch. Components reference tokens via Tailwind (e.g., `text-foreground`, `bg-muted/15`, `border-border/30`).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Component patterns
+
+- **`Btn`** — Polymorphic: pass `href` for a `<Link>`, omit for a `<button>`. Variants: `primary`, `secondary`, `ghost`. Sizes: `sm`, `default`, `lg`.
+- **`Section`** — Handles spacing (`default`/`lg`/`none`), background (`default`/`muted`), and gradient dividers (`top`/`bottom`/`both`/`none`).
+- **`Container`** — Max-width wrapper: `default` (7xl), `narrow` (3xl), `wide` (90rem), `full`.
+
+### Animations
+
+All animations use Framer Motion with a consistent ease curve `[0.4, 0, 0.2, 1]`, `duration: 0.5s`, and `viewport: { once: true, margin: "-80px" }`.
+
+## Scripts
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start dev server (Turbopack) |
+| `npm run build` | Production build |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |

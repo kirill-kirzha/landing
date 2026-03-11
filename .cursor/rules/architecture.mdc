@@ -1,0 +1,66 @@
+---
+description: Architecture and coding conventions for the Aleria V2 marketing site
+globs: src/**/*
+alwaysApply: true
+---
+
+# Aleria V2 — Architecture Rules
+
+## Stack
+- Next.js 16 (App Router, Turbopack, SSG)
+- React 19, TypeScript 5, Tailwind CSS v4
+- Framer Motion for animations
+- Lucide React for icons
+- Deployment: Vercel
+
+## File rules
+- Max 150 lines per file. Split if larger.
+- No barrel exports (index.ts re-exports). Import directly.
+- No unused imports, variables, or files. Run `npm run lint` before finishing.
+
+## Styling
+- All colors and radii come from CSS custom properties in `globals.css`.
+- Use Tailwind utilities that reference these tokens (`text-foreground`, `bg-muted`, `border-border/30`).
+- Never hardcode color values (no `#fff`, `rgb()`, `oklch()` inline in components).
+- Use opacity modifiers on tokens for subtle variants: `text-muted-foreground/70`, `border-border/15`.
+
+## Components
+
+### Marketing primitives (`components/marketing/`)
+These are the building blocks for all marketing pages:
+- `Btn` — Polymorphic button/link. Use `href` for links, omit for buttons.
+- `Section` — Section wrapper. Use `background`, `spacing`, `divider` props.
+- `Container` — Max-width wrapper. Use `size` prop.
+- `Badge` — Section label. Just text, no borders/pills.
+- `LinkArrow` — Text link with animated arrow icon.
+- `MediaFrame` — Placeholder for video/image content.
+- `Metrics` — Display key numbers inline.
+
+### Sections (`components/sections/{page}/`)
+- One file per section, named by content (e.g., `hero.tsx`, `sources.tsx`).
+- Each section receives `{ className?: string }` via `SectionProps`.
+- Use `Section` + `Container` wrappers, not raw `<section>` + `<div>`.
+
+### Layout (`components/layout/`)
+- `header.tsx`, `footer.tsx`, `mobile-nav.tsx`
+- Use `Btn` from marketing, not Shadcn Button.
+
+## Animations
+- Use Framer Motion `motion.div` with `whileInView` for scroll-triggered animations.
+- Consistent ease: `[0.4, 0, 0.2, 1]`
+- Consistent duration: `0.5` (standard), `0.6` (hero/cta)
+- Always `viewport={{ once: true, margin: "-80px" }}`
+- Use `variants` + `staggerChildren` for lists, not individual `delay` values.
+
+## What NOT to do
+- Do NOT import from `@/components/ui/` on marketing pages (that directory is reserved for future app UI).
+- Do NOT use Shadcn components on marketing pages.
+- Do NOT add icon-in-a-box patterns (bordered square with icon inside). Use typography and whitespace.
+- Do NOT add `"use client"` unless the component uses hooks or event handlers.
+- Do NOT create hooks or utilities unless they're used by 2+ files.
+
+## Configuration
+- Site config (nav, URLs, metadata): `config/site.ts`
+- Fonts: `lib/fonts.ts`
+- CSS tokens: `app/globals.css`
+- Types: `types/index.ts`
