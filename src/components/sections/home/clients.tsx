@@ -5,42 +5,65 @@ import { motion } from "framer-motion";
 import type { SectionProps } from "@/types";
 import { cn } from "@/lib/utils";
 import { Marquee } from "@/components/ui/marquee";
+import { DURATION, VIEWPORT } from "@/lib/motion";
 
-const row1 = [
-  "UAE Presidential Court",
-  "Abu Dhabi Cyber Security Council",
-  "Ministry of Foreign Affairs",
-  "ADAA",
-  "FAB",
-  "ADIA",
-  "ADX",
-  "EMAAR",
-  "Adani",
-  "Aldar",
-  "Miral",
-  "ADNEC",
+type Client = {
+  name: string;
+  file: string | null;
+  invert?: boolean;
+};
+
+const row1: Client[] = [
+  { name: "UAE Presidential Court", file: null },
+  { name: "Ministry of Foreign Affairs", file: null },
+  { name: "ADAA", file: "adaa.svg" },
+  { name: "FAB", file: "fab.svg" },
+  { name: "ADIA", file: "adia.svg" },
+  { name: "ADX", file: "adx.png" },
+  { name: "EMAAR", file: "emaar.svg" },
+  { name: "Adani", file: "adani.svg" },
+  { name: "Aldar", file: "aldar.png" },
+  { name: "Miral", file: "miral.png" },
+  { name: "ADNEC", file: "adnec.png" },
+  { name: "Dept. of Culture & Tourism", file: "dct.png" },
 ];
 
-const row2 = [
-  "Multiply Group",
-  "IHC",
-  "Masdar",
-  "Etisalat/e&",
-  "Rakez",
-  "IFZA",
-  "crypto.com",
-  "BTG Pactual",
-  "Indosat Ooredoo",
-  "Grupo Nutresa",
-  "OncoClinicas",
-  "Dept. of Municipalities & Transport",
+const row2: Client[] = [
+  { name: "Multiply Group", file: "multiply-group.svg", invert: true },
+  { name: "IHC", file: "ihc.png" },
+  { name: "Masdar", file: "masdar.svg" },
+  { name: "Etisalat / e&", file: "eand.svg" },
+  { name: "Rakez", file: "rakez.svg" },
+  { name: "IFZA", file: "ifza.png" },
+  { name: "crypto.com", file: "crypto-com.svg" },
+  { name: "BTG Pactual", file: "btg-pactual.png" },
+  { name: "Grupo Nutresa", file: "grupo-nutresa.svg" },
+  { name: "OncoClinicas", file: "oncoclnicas.png" },
+  { name: "Dept. of Municipalities & Transport", file: "dmt.svg" },
+  { name: "Abu Dhabi Cyber Security Council", file: null },
 ];
 
-function ClientPill({ name }: { name: string }) {
+function ClientLogo({ client }: { client: Client }) {
+  if (!client.file) {
+    return (
+      <span className="shrink-0 rounded-full border border-border/25 px-4 py-1.5 text-sm whitespace-nowrap text-quaternary">
+        {client.name}
+      </span>
+    );
+  }
+
   return (
-    <span className="shrink-0 rounded-full border border-border/25 px-4 py-1.5 text-sm whitespace-nowrap text-quaternary transition-all duration-200 hover:border-border/50 hover:text-muted-foreground">
-      {name}
-    </span>
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={`/logos/clients/${client.file}`}
+      alt={client.name}
+      className={cn(
+        "h-8 w-auto max-w-[140px] object-contain",
+        "grayscale opacity-50 transition-all duration-500",
+        "hover:grayscale-0 hover:opacity-100",
+        client.invert && "invert",
+      )}
+    />
   );
 }
 
@@ -50,8 +73,8 @@ export function ClientsSection({ className }: SectionProps) {
       <motion.p
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+        viewport={VIEWPORT}
+        transition={{ duration: DURATION.slow }}
         className="type-label mb-8 text-center text-quaternary"
       >
         Trusted by industry leaders
@@ -67,15 +90,15 @@ export function ClientsSection({ className }: SectionProps) {
           aria-hidden="true"
         />
 
-        <Marquee speed={50} className="py-2">
+        <Marquee speed={60} className="py-4">
           {row1.map((client) => (
-            <ClientPill key={client} name={client} />
+            <ClientLogo key={client.name} client={client} />
           ))}
         </Marquee>
 
-        <Marquee speed={50} reverse className="py-2">
+        <Marquee speed={60} reverse className="py-4">
           {row2.map((client) => (
-            <ClientPill key={client} name={client} />
+            <ClientLogo key={client.name} client={client} />
           ))}
         </Marquee>
       </div>

@@ -7,6 +7,7 @@ import { fadeUp, stagger, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { SectionHeader } from "@/components/marketing/section-header";
+import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
 
 const pillars = [
   {
@@ -29,6 +30,7 @@ const pillars = [
 export function AiFactorySection({ className }: SectionProps) {
   return (
     <Section background="muted" divider="both" className={className}>
+      <HoneycombBg placement="center-left" />
       <Container>
         <SectionHeader
           badge="AI Factory"

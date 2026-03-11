@@ -7,6 +7,7 @@ import type { SectionProps } from "@/types";
 import { cn } from "@/lib/utils";
 import { EASE, DURATION, VIEWPORT } from "@/lib/motion";
 import { Btn } from "@/components/marketing/button";
+import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
 
 export function ClosingCtaSection({ className }: SectionProps) {
   return (
@@ -20,6 +21,7 @@ export function ClosingCtaSection({ className }: SectionProps) {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_110%,oklch(0.93_0.015_82/0.4),transparent)]"
         aria-hidden="true"
       />
+      <HoneycombBg placement="top-left" />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}

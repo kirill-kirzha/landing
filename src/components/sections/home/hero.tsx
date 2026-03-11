@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 import { EASE, DURATION } from "@/lib/motion";
 import { Btn } from "@/components/marketing/button";
+import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
 
 export function HeroSection() {
   return (
@@ -13,6 +14,7 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,oklch(0.93_0.015_82/0.5),transparent)]" />
         <div className="absolute right-0 bottom-0 left-0 h-px bg-gradient-to-r from-transparent via-border/40 to-transparent" />
       </div>
+      <HoneycombBg placement="bottom-right" />
 
       <div className="relative z-10 mx-auto max-w-5xl px-5 pt-32 pb-24 text-center sm:px-6 lg:px-8">
         <motion.p
