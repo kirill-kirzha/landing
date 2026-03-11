@@ -1,5 +1,4 @@
 import { HeroSection } from "@/components/sections/home/hero";
-import { ClientsSection } from "@/components/sections/home/clients";
 import { EcosystemSection } from "@/components/sections/home/ecosystem";
 import { SourcesSection } from "@/components/sections/home/sources";
 import { AgenticWorkforceSection } from "@/components/sections/home/agentic-workforce";
@@ -15,7 +14,6 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <ClientsSection />
       <EcosystemSection />
       <SourcesSection />
       <AgenticWorkforceSection />

@@ -22,7 +22,7 @@ export function Marquee({
     >
       <div
         className={cn(
-          "flex shrink-0 items-center gap-10",
+          "flex shrink-0 items-center gap-12",
           reverse
             ? "animate-[marquee_var(--marquee-duration)_linear_infinite_reverse]"
             : "animate-[marquee_var(--marquee-duration)_linear_infinite]",
@@ -33,7 +33,7 @@ export function Marquee({
       </div>
       <div
         className={cn(
-          "flex shrink-0 items-center gap-10",
+          "flex shrink-0 items-center gap-12",
           reverse
             ? "animate-[marquee_var(--marquee-duration)_linear_infinite_reverse]"
             : "animate-[marquee_var(--marquee-duration)_linear_infinite]",
