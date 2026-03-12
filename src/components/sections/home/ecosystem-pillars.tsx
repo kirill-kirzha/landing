@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import { fadeUp } from "@/lib/motion";
+import { fadeUpLg, VIEWPORT } from "@/lib/motion";
 
 const pillars = [
   { title: "Build", subtitle: "Data Foundation" },
@@ -12,7 +12,13 @@ const pillars = [
 
 export function EcosystemPillars() {
   return (
-    <div className="mx-auto max-w-4xl">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={VIEWPORT}
+      variants={fadeUpLg}
+      className="mx-auto max-w-4xl"
+    >
       <div className="relative grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-0">
         <div
           className="pointer-events-none absolute top-1 right-[20%] left-[20%] hidden md:block"
@@ -22,9 +28,8 @@ export function EcosystemPillars() {
         </div>
 
         {pillars.map((pillar) => (
-          <motion.div
+          <div
             key={pillar.title}
-            variants={fadeUp}
             className="flex flex-col items-center text-center"
           >
             <div className="relative z-10 size-2 rounded-full gradient-desert-mint" />
@@ -33,9 +38,9 @@ export function EcosystemPillars() {
             <p className="type-body-sm mt-1 text-muted-foreground">
               {pillar.subtitle}
             </p>
-          </motion.div>
+          </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

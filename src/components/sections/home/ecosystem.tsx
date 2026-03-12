@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 import type { SectionProps } from "@/types";
-import { fadeUp, stagger, VIEWPORT } from "@/lib/motion";
+import { VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { SectionHeader } from "@/components/marketing/section-header";
@@ -24,15 +24,9 @@ export function EcosystemSection({ className }: SectionProps) {
           description="Solutions, Infrastructure and Orchestration working together to deliver operational intelligence at scale."
         />
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={VIEWPORT}
-          variants={stagger(0.12)}
-          className="mt-14"
-        >
+        <div className="mt-14">
           <EcosystemPillars />
-        </motion.div>
+        </div>
 
         <EcosystemTabs />
       </Container>
