@@ -24,11 +24,11 @@ export function AiOsSection({ className }: SectionProps) {
         <Reveal>
           <div className="text-center">
             <Badge>AI OS</Badge>
-            <h2 className="type-title mt-5">
+            <h2 className="type-title mt-6">
               Intelligent <span className="font-normal">agents</span> and
               workflows
             </h2>
-            <p className="type-body mx-auto mt-4 max-w-2xl text-muted-foreground">
+            <p className="type-body mx-auto mt-5 max-w-2xl text-muted-foreground">
               Autonomous AI employees and production-grade workflows that execute
               on your infrastructure — not chatbots, virtual colleagues.
             </p>

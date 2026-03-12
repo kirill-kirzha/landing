@@ -36,10 +36,10 @@ export function AiFactorySection({ className }: SectionProps) {
         <Reveal className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <Badge>AI Factory</Badge>
-            <h2 className="type-title mt-5">
+            <h2 className="type-title mt-6">
               Your data <span className="font-normal">never</span> leaves.
             </h2>
-            <p className="type-body mt-4 max-w-lg text-muted-foreground">
+            <p className="type-body mt-5 max-w-lg text-muted-foreground">
               Your AI, your rules. Deploy on your own infrastructure with full
               sovereignty — no external calls, no shared compute.
             </p>

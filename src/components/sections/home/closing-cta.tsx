@@ -9,10 +9,7 @@ import { Reveal } from "@/components/ui/reveal";
 
 export function ClosingCtaSection({ className }: SectionProps) {
   return (
-    <Section
-      spacing="none"
-      className={`flex min-h-[60vh] items-center justify-center py-20 sm:py-28 ${className ?? ""}`}
-    >
+    <Section spacing="lg" className={className}>
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_110%,oklch(0.93_0.015_82/0.4),transparent)]"
         aria-hidden="true"

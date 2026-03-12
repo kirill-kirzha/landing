@@ -19,8 +19,8 @@ export function Section({
     <section
       className={cn(
         "relative overflow-hidden",
-        spacing === "default" && "py-16 sm:py-20 lg:py-28",
-        spacing === "lg" && "py-20 sm:py-24 lg:py-32",
+        spacing === "default" && "py-14 sm:py-16 lg:py-20",
+        spacing === "lg" && "py-16 sm:py-20 lg:py-24",
         background === "muted" && "bg-muted",
         background === "dark" && "dark bg-background text-foreground",
         className,

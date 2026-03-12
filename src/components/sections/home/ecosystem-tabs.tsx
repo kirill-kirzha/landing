@@ -7,14 +7,8 @@ import { Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { EASE, DURATION } from "@/lib/motion";
 import { WindowFrame } from "@/components/marketing/window-frame";
-
-const tabs = [
-  { id: "sources", label: "Sources", title: "Aleria Sources" },
-  { id: "ai-employees", label: "AI Employees", title: "Aleria AI OS" },
-  { id: "flows", label: "Flows", title: "Aleria Flows" },
-  { id: "dashboard", label: "Dashboard AI", title: "Aleria Dashboard" },
-  { id: "video-ai", label: "Video AI", title: "Aleria Video AI" },
-];
+import { LinkArrow } from "@/components/marketing/link-arrow";
+import { ecosystemTabs } from "./ecosystem-tabs-data";
 
 function Placeholder() {
   return (
@@ -31,13 +25,13 @@ function Placeholder() {
 
 export function EcosystemTabs() {
   const [active, setActive] = useState(0);
-  const tab = tabs[active];
+  const tab = ecosystemTabs[active];
 
   return (
     <div className="mt-14">
       <div className="no-scrollbar flex justify-center overflow-x-auto">
         <div className="flex border-b border-border/30" role="tablist" aria-label="Products">
-          {tabs.map((t, i) => (
+          {ecosystemTabs.map((t, i) => (
             <button
               key={t.id}
               role="tab"
@@ -74,9 +68,19 @@ export function EcosystemTabs() {
             exit={{ opacity: 0 }}
             transition={{ duration: DURATION.normal, ease: EASE }}
           >
-            <WindowFrame title={tab.title}>
+            <WindowFrame title={tab.windowTitle}>
               <Placeholder />
             </WindowFrame>
+
+            <div className="mx-auto mt-8 max-w-2xl text-center">
+              <h3 className="type-heading">{tab.headline}</h3>
+              <p className="type-body-sm mt-3 text-muted-foreground">
+                {tab.description}
+              </p>
+              <div className="mt-5">
+                <LinkArrow href={tab.cta.href}>{tab.cta.text}</LinkArrow>
+              </div>
+            </div>
           </motion.div>
         </AnimatePresence>
       </div>

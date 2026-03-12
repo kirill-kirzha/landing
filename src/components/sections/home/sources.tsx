@@ -28,11 +28,11 @@ export function SourcesSection({ className }: SectionProps) {
 
           <div className="order-1 lg:order-2">
             <Badge>Sources — Big Data Fusion</Badge>
-            <h2 className="type-title mt-5">
+            <h2 className="type-title mt-6">
               Every data source,{" "}
               <span className="font-normal">unified</span>
             </h2>
-            <p className="type-body mt-4 max-w-lg text-muted-foreground">
+            <p className="type-body mt-5 max-w-lg text-muted-foreground">
               Proprietary ETL platform that extracts, transforms and loads
               massive volumes from any source into a governed, AI-ready
               datalake.

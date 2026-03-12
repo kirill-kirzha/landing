@@ -4,79 +4,89 @@ import { ArrowRight } from "lucide-react";
 const caseStudies = [
   {
     client: "ALDAR",
-    meta: "Real Estate",
+    logo: "/logos/clients/aldar.png",
+    industry: "Real Estate",
+    location: "UAE",
     result: "16 sources unified, feasibility in real time",
-    logos: ["/logos/clients/aldar.png"],
     href: "/customers/aldar",
   },
   {
     client: "PIVOT",
-    meta: "Investment",
+    industry: "Investment Intelligence",
+    location: "UAE",
     result: "AI backbone for due diligence & portfolio ops",
     href: "/customers/pivot",
   },
   {
     client: "IHC",
-    meta: "Holding Group",
-    result: "AI Board Observer at executive level",
-    logos: ["/logos/clients/ihc.png"],
+    logo: "/logos/clients/ihc.png",
+    industry: "Holding Group",
+    location: "UAE",
+    result: "AI Board Observer deployed at executive level",
     href: "/customers/ihc",
   },
   {
     client: "FAB",
-    meta: "Banking",
-    result: "AI-drafted board minutes & live KPIs",
-    logos: ["/logos/clients/fab.svg"],
+    logo: "/logos/clients/fab.svg",
+    industry: "Banking",
+    location: "UAE",
+    result: "AI-drafted board minutes & live KPIs — recognized at Davos WEF",
     href: "/customers/fab",
   },
 ] as const;
 
 export function DeployedBanner() {
   return (
-    <div className="dark mt-10 overflow-hidden rounded-2xl bg-background shadow-lg">
-      <div className="h-0.5 gradient-desert-mint" aria-hidden="true" />
+    <div className="dark mt-10 overflow-hidden rounded-2xl bg-background">
+      <div className="h-px gradient-desert-mint" aria-hidden="true" />
 
-      <p className="type-label px-6 pt-5 text-muted-foreground sm:px-8">
-        Deployed in production
-      </p>
+      <div className="px-6 pt-6 pb-2 sm:px-8 sm:pt-8">
+        <p className="type-label text-quaternary">Deployed in production</p>
+        <p className="type-heading mt-3 text-foreground">
+          Producing intelligence in production today.
+        </p>
+      </div>
 
-      <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-2 grid grid-cols-1 sm:grid-cols-2">
         {caseStudies.map((study) => (
-          <div key={study.client}>
-            <Link
-              href={study.href}
-              className="group flex flex-col gap-3 border-t border-border/10 px-6 py-5 transition-colors hover:bg-card/50 focus-ring sm:px-8"
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  {"logos" in study &&
-                    study.logos.map((logo) => (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        key={logo}
-                        src={logo}
-                        alt=""
-                        loading="lazy"
-                        decoding="async"
-                        className="h-5 w-auto object-contain brightness-0 invert"
-                      />
-                    ))}
+          <Link
+            key={study.client}
+            href={study.href}
+            className="group flex flex-col justify-between border-t border-border/10 px-6 py-5 transition-colors hover:bg-card/50 focus-ring sm:px-8 sm:py-6"
+          >
+            <div>
+              <div className="flex items-center gap-3">
+                {"logo" in study && study.logo ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={study.logo}
+                    alt={study.client}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-5 w-auto shrink-0 brightness-0 invert"
+                  />
+                ) : (
                   <span className="text-sm font-semibold text-foreground">
                     {study.client}
                   </span>
-                  <span className="text-xs text-quaternary">{study.meta}</span>
-                </div>
-                <ArrowRight
-                  className="size-3.5 shrink-0 text-quaternary transition-transform group-hover:translate-x-0.5 group-hover:text-foreground"
-                  aria-hidden="true"
-                />
+                )}
+                <span className="type-body-sm text-quaternary">
+                  {study.industry} · {study.location}
+                </span>
               </div>
-
-              <p className="type-body-sm leading-snug text-muted-foreground">
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {study.result}
               </p>
-            </Link>
-          </div>
+            </div>
+
+            <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-quaternary transition-colors group-hover:text-foreground">
+              Read case study
+              <ArrowRight
+                className="size-3 transition-transform group-hover:translate-x-0.5"
+                aria-hidden="true"
+              />
+            </div>
+          </Link>
         ))}
       </div>
     </div>
