@@ -1,23 +1,22 @@
 import type { SectionProps } from "@/types";
-import { cn } from "@/lib/utils";
+
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
 import { LinkArrow } from "@/components/marketing/link-arrow";
 import { WindowFrame } from "@/components/marketing/window-frame";
-import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
+
 import { Reveal } from "@/components/ui/reveal";
 
 const stats = [
-  { value: "145×", label: "Faster than Talend", highlight: true },
-  { value: "8×", label: "Infra reduction", highlight: false },
-  { value: "20+", label: "Connectors", highlight: false },
+  { value: "145×", label: "Faster than Talend" },
+  { value: "8×", label: "Infra reduction" },
+  { value: "20+", label: "Connectors" },
 ] as const;
 
 export function SourcesSection({ className }: SectionProps) {
   return (
     <Section background="muted" divider="both" className={className}>
-      <HoneycombBg placement="top-center" intensity="subtle" />
       <Container>
         <Reveal className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div className="order-2 lg:order-1">
@@ -41,12 +40,7 @@ export function SourcesSection({ className }: SectionProps) {
             <div className="mt-8 flex flex-wrap gap-8">
               {stats.map((s) => (
                 <div key={s.value}>
-                  <p
-                    className={cn(
-                      "type-metric",
-                      s.highlight && "text-gradient-desert-mint",
-                    )}
-                  >
+                  <p className="type-metric">
                     {s.value}
                   </p>
                   <p className="type-body-sm mt-1 text-tertiary">{s.label}</p>
