@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Play } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { EASE, DURATION, VIEWPORT, reveal } from "@/lib/motion";
+import { EASE, DURATION } from "@/lib/motion";
 import { WindowFrame } from "@/components/marketing/window-frame";
 
 const tabs = [
@@ -34,13 +34,7 @@ export function EcosystemTabs() {
   const tab = tabs[active];
 
   return (
-    <motion.div
-      className="mt-14"
-      variants={reveal}
-      initial="hidden"
-      whileInView="visible"
-      viewport={VIEWPORT}
-    >
+    <div className="mt-14">
       <div className="no-scrollbar flex justify-center overflow-x-auto">
         <div className="flex border-b border-border/30" role="tablist" aria-label="Products">
           {tabs.map((t, i) => (
@@ -86,6 +80,6 @@ export function EcosystemTabs() {
           </motion.div>
         </AnimatePresence>
       </div>
-    </motion.div>
+    </div>
   );
 }

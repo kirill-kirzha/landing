@@ -1,9 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 import { cn } from "@/lib/utils";
-import { reveal, VIEWPORT } from "@/lib/motion";
 import { Badge } from "@/components/marketing/badge";
 
 interface SectionHeaderProps {
@@ -24,11 +19,7 @@ export function SectionHeader({
   className,
 }: SectionHeaderProps) {
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={VIEWPORT}
-      variants={reveal}
+    <div
       className={cn(
         align === "center" && "mx-auto max-w-3xl text-center",
         className,
@@ -41,6 +32,6 @@ export function SectionHeader({
       {description && (
         <p className="type-body mt-6 text-muted-foreground">{description}</p>
       )}
-    </motion.div>
+    </div>
   );
 }

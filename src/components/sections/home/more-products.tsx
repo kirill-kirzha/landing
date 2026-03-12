@@ -1,14 +1,10 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 import type { SectionProps } from "@/types";
-import { reveal, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { LinkArrow } from "@/components/marketing/link-arrow";
 import { WindowFrame } from "@/components/marketing/window-frame";
+import { Reveal } from "@/components/ui/reveal";
 
 const products = [
   {
@@ -35,38 +31,34 @@ export function MoreProductsSection({ className }: SectionProps) {
         aria-hidden="true"
       />
       <Container>
-        <SectionHeader
-          badge="More"
-          title={
-            <>
-              <span className="font-normal">Intelligence</span> layers for
-              every operation
-            </>
-          }
-        />
+        <Reveal>
+          <SectionHeader
+            badge="More"
+            title={
+              <>
+                <span className="font-normal">Intelligence</span> layers for
+                every operation
+              </>
+            }
+          />
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={VIEWPORT}
-          variants={reveal}
-          className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12"
-        >
-          {products.map((p) => (
-            <div key={p.title}>
-              <WindowFrame title={p.windowTitle} className="border-border/20">
-                <div className="aspect-video bg-card/30" />
-              </WindowFrame>
-              <h3 className="type-heading mt-6">{p.title}</h3>
-              <p className="type-body-sm mt-2 text-tertiary">
-                {p.description}
-              </p>
-              <div className="mt-4">
-                <LinkArrow href={p.href}>Discover</LinkArrow>
+          <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+            {products.map((p) => (
+              <div key={p.title}>
+                <WindowFrame title={p.windowTitle} className="border-border/20">
+                  <div className="aspect-video bg-card/30" />
+                </WindowFrame>
+                <h3 className="type-heading mt-6">{p.title}</h3>
+                <p className="type-body-sm mt-2 text-tertiary">
+                  {p.description}
+                </p>
+                <div className="mt-4">
+                  <LinkArrow href={p.href}>Discover</LinkArrow>
+                </div>
               </div>
-            </div>
-          ))}
-        </motion.div>
+            ))}
+          </div>
+        </Reveal>
       </Container>
     </Section>
   );

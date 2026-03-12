@@ -1,10 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-
-import { reveal, VIEWPORT } from "@/lib/motion";
 
 const caseStudies = [
   {
@@ -38,13 +33,7 @@ const caseStudies = [
 
 export function DeployedBanner() {
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={VIEWPORT}
-      variants={reveal}
-      className="dark mt-10 overflow-hidden rounded-2xl bg-background shadow-lg"
-    >
+    <div className="dark mt-10 overflow-hidden rounded-2xl bg-background shadow-lg">
       <div className="h-0.5 gradient-desert-mint" aria-hidden="true" />
 
       <p className="type-label px-6 pt-5 text-muted-foreground sm:px-8">
@@ -90,6 +79,6 @@ export function DeployedBanner() {
           </div>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 }

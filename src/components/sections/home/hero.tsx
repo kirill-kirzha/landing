@@ -1,9 +1,5 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-import { EASE } from "@/lib/motion";
 import { Btn } from "@/components/marketing/button";
 import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
 import { HeroClients } from "./hero-clients";
@@ -17,12 +13,7 @@ export function HeroSection() {
       <HoneycombBg placement="top-left" intensity="strong" />
       <HoneycombBg placement="bottom-right" intensity="strong" />
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, ease: EASE }}
-        className="relative z-10 flex flex-1 items-center justify-center px-5 pt-24 pb-8 text-center sm:px-6 sm:pt-32 sm:pb-12 lg:px-8"
-      >
+      <div className="animate-fade-in relative z-10 flex flex-1 items-center justify-center px-5 pt-24 pb-8 text-center sm:px-6 sm:pt-32 sm:pb-12 lg:px-8">
         <div className="mx-auto max-w-5xl">
           <a
             href="/blog/aleria-2"
@@ -53,7 +44,7 @@ export function HeroSection() {
             </Btn>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       <HeroClients />
     </section>

@@ -1,14 +1,11 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 import type { SectionProps } from "@/types";
-import { reveal, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Btn } from "@/components/marketing/button";
 import { Container } from "@/components/marketing/container";
 import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
+import { Reveal } from "@/components/ui/reveal";
 
 export function ClosingCtaSection({ className }: SectionProps) {
   return (
@@ -23,13 +20,7 @@ export function ClosingCtaSection({ className }: SectionProps) {
       <HoneycombBg placement="bottom-center" intensity="medium" />
 
       <Container size="narrow" className="relative z-10">
-        <motion.div
-          variants={reveal}
-          initial="hidden"
-          whileInView="visible"
-          viewport={VIEWPORT}
-          className="text-center"
-        >
+        <Reveal className="text-center">
           <p className="type-body text-muted-foreground">
             The organizations that can produce intelligence at scale will define
             the future.
@@ -53,7 +44,7 @@ export function ClosingCtaSection({ className }: SectionProps) {
               Request a Demo
             </Btn>
           </div>
-        </motion.div>
+        </Reveal>
       </Container>
     </Section>
   );

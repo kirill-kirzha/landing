@@ -1,9 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
-import { reveal, VIEWPORT } from "@/lib/motion";
-
 const pillars = [
   { title: "Build", subtitle: "Data Foundation" },
   { title: "Deploy", subtitle: "Models & Agents" },
@@ -12,13 +6,7 @@ const pillars = [
 
 export function EcosystemPillars() {
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={VIEWPORT}
-      variants={reveal}
-      className="mx-auto max-w-4xl"
-    >
+    <div className="mx-auto max-w-4xl">
       <div className="relative grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-0">
         <div
           className="pointer-events-none absolute top-1 right-[20%] left-[20%] hidden md:block"
@@ -41,6 +29,6 @@ export function EcosystemPillars() {
           </div>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 }

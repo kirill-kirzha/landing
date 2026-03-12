@@ -228,6 +228,26 @@
   display: none;
 }
 
+.reveal {
+  opacity: 0;
+  will-change: opacity;
+  transition: opacity 0.5s var(--ease-default);
+}
+.reveal.revealed {
+  opacity: 1;
+  will-change: auto;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+.animate-fade-in {
+  animation: fade-in 0.6s var(--ease-default) both;
+}
+.animate-fade-in-slow {
+  animation: fade-in 0.8s var(--ease-default) 0.3s both;
+}
+
 @keyframes hc-fill {
   0%, 25%, 75%, 100% { opacity: 0; }
   40%, 60%           { opacity: 1; }

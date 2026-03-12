@@ -1,16 +1,12 @@
-"use client";
-
 import type { SectionProps } from "@/types";
-import { motion } from "framer-motion";
-
 import { cn } from "@/lib/utils";
-import { reveal, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
 import { LinkArrow } from "@/components/marketing/link-arrow";
 import { WindowFrame } from "@/components/marketing/window-frame";
 import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
+import { Reveal } from "@/components/ui/reveal";
 
 const stats = [
   { value: "145×", label: "Faster than Talend", highlight: true },
@@ -23,13 +19,7 @@ export function SourcesSection({ className }: SectionProps) {
     <Section background="muted" divider="both" className={className}>
       <HoneycombBg placement="top-center" intensity="subtle" />
       <Container>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={VIEWPORT}
-          variants={reveal}
-          className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16"
-        >
+        <Reveal className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div className="order-2 lg:order-1">
             <WindowFrame title="Aleria Sources">
               <div className="aspect-[4/3] bg-background/40" />
@@ -70,7 +60,7 @@ export function SourcesSection({ className }: SectionProps) {
               </LinkArrow>
             </div>
           </div>
-        </motion.div>
+        </Reveal>
       </Container>
     </Section>
   );

@@ -1,15 +1,12 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Shield, Wifi, Server } from "lucide-react";
 
 import type { SectionProps } from "@/types";
-import { reveal, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
 import { LinkArrow } from "@/components/marketing/link-arrow";
 import { WindowFrame } from "@/components/marketing/window-frame";
+import { Reveal } from "@/components/ui/reveal";
 
 const deployments = [
   {
@@ -36,13 +33,7 @@ export function AiFactorySection({ className }: SectionProps) {
   return (
     <Section className={className}>
       <Container>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={VIEWPORT}
-          variants={reveal}
-          className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16"
-        >
+        <Reveal className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <Badge>AI Factory</Badge>
             <h2 className="type-title mt-5">
@@ -78,7 +69,7 @@ export function AiFactorySection({ className }: SectionProps) {
           <WindowFrame title="AI Factory — Architecture">
             <div className="aspect-[4/3] bg-muted/30" />
           </WindowFrame>
-        </motion.div>
+        </Reveal>
       </Container>
     </Section>
   );

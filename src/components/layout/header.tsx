@@ -8,7 +8,6 @@ import { Menu, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
-import { DURATION, EASE } from "@/lib/motion";
 import { Btn } from "@/components/marketing/button";
 import { MobileNav } from "@/components/layout/mobile-nav";
 
@@ -24,12 +23,9 @@ export function Header() {
   }, []);
 
   return (
-    <motion.header
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.4, ease: EASE }}
+    <header
       className={cn(
-        "fixed top-0 z-50 w-full backdrop-blur-2xl backdrop-saturate-150 transition-all duration-300",
+        "animate-fade-in fixed top-0 z-50 w-full backdrop-blur-2xl backdrop-saturate-150 transition-all duration-300",
         scrolled ? "bg-background/80 shadow-xs" : "bg-background/60",
       )}
     >
@@ -104,6 +100,6 @@ export function Header() {
       />
 
       <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} />
-    </motion.header>
+    </header>
   );
 }

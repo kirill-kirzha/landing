@@ -1,8 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
-import { EASE } from "@/lib/motion";
 import { Marquee } from "@/components/ui/marquee";
 
 type Client = {
@@ -58,12 +53,7 @@ function ClientLogo({ client }: { client: Client }) {
 
 export function HeroClients() {
   return (
-    <motion.div
-      className="relative z-10 pb-8 sm:pb-14"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-    >
+    <div className="animate-fade-in-slow relative z-10 pb-8 sm:pb-14">
       <p className="type-body-sm mb-4 text-center text-quaternary sm:mb-5">
         Trusted by industry leaders
       </p>
@@ -90,6 +80,6 @@ export function HeroClients() {
           ))}
         </Marquee>
       </div>
-    </motion.div>
+    </div>
   );
 }
