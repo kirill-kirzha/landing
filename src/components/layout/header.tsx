@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
@@ -32,11 +31,20 @@ export function Header() {
       <div className="mx-auto flex h-[var(--header-height)] max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="relative z-10 transition-opacity duration-150 hover:opacity-70"
+          className="relative z-10 transition-opacity duration-150 hover:opacity-70 drop-shadow-[0_0_0.3px_oklch(0.11_0.008_55/0.5)]"
           aria-label={`${siteConfig.name} — Home`}
         >
-          <Image src="/logo.svg" alt={siteConfig.name} width={100} height={24} priority className="dark:hidden" />
-          <Image src="/logo-dark.svg" alt={siteConfig.name} width={100} height={24} priority className="hidden dark:block" />
+          <span
+            className="block h-6 w-[100px] bg-brand-mint"
+            style={{
+              maskImage: "url(/logo.svg)",
+              maskSize: "contain",
+              maskRepeat: "no-repeat",
+              WebkitMaskImage: "url(/logo.svg)",
+              WebkitMaskSize: "contain",
+              WebkitMaskRepeat: "no-repeat",
+            }}
+          />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Main navigation">
