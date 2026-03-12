@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 
 import { Btn } from "@/components/marketing/button";
 import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
+import { LlmDemo } from "@/components/ui/llm-demo";
 import { HeroClients } from "./hero-clients";
 
 export function HeroSection() {
@@ -13,35 +14,51 @@ export function HeroSection() {
       <HoneycombBg placement="top-left" intensity="strong" />
       <HoneycombBg placement="bottom-right" intensity="strong" />
 
-      <div className="animate-fade-in relative z-10 flex flex-1 items-center justify-center px-5 pt-24 pb-8 text-center sm:px-6 sm:pt-32 sm:pb-12 lg:px-8">
-        <div className="mx-auto max-w-5xl">
-          <a
-            href="/blog/aleria-2"
-            className="group mb-6 inline-flex items-center gap-2 rounded-full bg-muted px-3.5 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-ring sm:mb-8 sm:px-4 sm:text-sm"
-          >
-            Introducing Aleria 2.0
-            <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5 sm:size-3.5" aria-hidden="true" />
-          </a>
+      <div className="relative z-10 flex flex-1 items-center justify-center px-5 pt-24 pb-8 sm:px-6 sm:pt-32 sm:pb-12 lg:px-8">
+        <div className="mx-auto w-full max-w-7xl">
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div className="animate-fade-in text-center">
+              <a
+                href="/blog/aleria-2"
+                className="group mb-6 inline-flex items-center gap-2 rounded-full bg-muted px-3.5 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-ring sm:mb-8 sm:px-4 sm:text-sm"
+              >
+                Introducing Aleria 2.0
+                <ArrowRight
+                  className="size-3 transition-transform group-hover:translate-x-0.5 sm:size-3.5"
+                  aria-hidden="true"
+                />
+              </a>
 
-          <h1 className="type-display mx-auto max-w-4xl">
-            Your <span className="font-normal">Sovereign</span>
-            <br />
-            AI Factory
-          </h1>
+              <h1 className="type-display">
+                Your <span className="font-normal">Sovereign</span>
+                <br />
+                AI Factory
+              </h1>
 
-          <p className="type-body mx-auto mt-5 max-w-[36rem] text-muted-foreground sm:mt-6">
-            Build and operate sovereign AI systems that transform your data into
-            operational intelligence.
-          </p>
+              <p className="type-body mx-auto mt-5 max-w-[36rem] text-muted-foreground sm:mt-6">
+                Build and operate sovereign AI systems that transform your data
+                into operational intelligence.
+              </p>
 
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
-            <Btn href="/try" size="lg" className="w-full sm:w-auto">
-              Try Aleria
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </Btn>
-            <Btn href="/contact" variant="outline_gradient" size="lg" className="w-full sm:w-auto">
-              Let&apos;s Talk
-            </Btn>
+              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
+                <Btn href="/try" size="lg" className="w-full sm:w-auto">
+                  Try Aleria
+                  <ArrowRight className="size-4" aria-hidden="true" />
+                </Btn>
+                <Btn
+                  href="/contact"
+                  variant="outline_gradient"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                >
+                  Let&apos;s Talk
+                </Btn>
+              </div>
+            </div>
+
+            <div className="animate-fade-in-slow mx-auto w-full max-w-lg">
+              <LlmDemo />
+            </div>
           </div>
         </div>
       </div>

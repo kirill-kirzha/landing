@@ -86,6 +86,8 @@ Full reference: `DESIGN-SYSTEM.md` at repo root.
 Headless, interaction-focused components. No `"use client"` unless hooks are used.
 - `Marquee` — CSS-only infinite scroll. Props: `speed`, `reverse`, `pauseOnHover`. Server component.
 - `TextRotator` — Animated word cycling with AnimatePresence. Props: `words`, `interval`. Client component.
+- `LlmDemo` — Simulated LLM chat with word-by-word streaming inside a WindowFrame. Props: `className`. Client component. Fixed-height chat area (200/240/260px responsive). Includes `LlmDemoChart` bar chart that animates in after streaming completes. Respects `prefers-reduced-motion`. Reusable across pages.
+- `LlmDemoChart` — Pure CSS/HTML bar chart (zero dependency). Props: `visible`. Bars animate height with stagger delay. Used by `LlmDemo`. Server component.
 
 ### Marketing primitives (`components/marketing/`)
 - `Btn` — Polymorphic button/link. Variants: `primary`, `secondary`, `outline_gradient`, `ghost`. Uses `.focus-ring`.
@@ -102,7 +104,7 @@ Headless, interaction-focused components. No `"use client"` unless hooks are use
 - Each section receives `{ className?: string }` via `SectionProps`.
 
 #### Homepage section order and patterns:
-1. **Hero** (`hero.tsx` + `hero-clients.tsx`) — Full viewport, announcement pill, h1, CTAs, logo marquee. Default bg. HoneycombBg: `top-left` subtle + `bottom-right` strong.
+1. **Hero** (`hero.tsx` + `hero-clients.tsx`) — Full viewport, 2-column grid on lg+ (centered text left + `LlmDemo` right, stacked on mobile), announcement pill, h1, CTAs, logo marquee. Container `max-w-7xl`. Default bg. HoneycombBg: `top-left` strong + `bottom-right` strong.
 2. **Ecosystem** (`ecosystem.tsx` + `ecosystem-tabs.tsx`) — SectionHeader, segmented process block (Build→Deploy→Operate with arrows), tabbed product showcase (WindowFrame). Default bg.
 3. **Why Teams** (`why-teams.tsx` + `why-teams-grid.tsx` + `deployed-banner.tsx`) — TextRotator headline, bento grid (sand bg cells + espresso accent cells), CTA, deployed banner (espresso block with case studies). Default bg. HoneycombBg: `top-right` subtle.
 4. **AI Factory** (`ai-factory.tsx`) — Asymmetric layout: text+icons left, WindowFrame right. Default bg.
