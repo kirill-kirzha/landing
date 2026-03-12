@@ -97,29 +97,30 @@ function Row({
   ctaAfter?: number;
 }) {
   return (
-    <Marquee speed={80} reverse={reverse} pauseOnHover className="py-1.5">
-      {bubbles.map((b, i) => (
-        <span key={b.label} className="contents">
-          <Pill {...b} />
-          {i === ctaAfter && <CtaPill />}
-        </span>
-      ))}
-    </Marquee>
+    <div className="relative">
+      <div
+        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-4 bg-gradient-to-r from-background to-transparent sm:w-6"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-4 bg-gradient-to-l from-background to-transparent sm:w-6"
+        aria-hidden="true"
+      />
+      <Marquee speed={80} reverse={reverse} pauseOnHover className="py-1.5">
+        {bubbles.map((b, i) => (
+          <span key={b.label} className="contents">
+            <Pill {...b} />
+            {i === ctaAfter && <CtaPill />}
+          </span>
+        ))}
+      </Marquee>
+    </div>
   );
 }
 
 export function BubbleMarquee() {
   return (
-    <motion.div variants={fadeUp} className="relative">
-      <div
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent sm:w-24"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent sm:w-24"
-        aria-hidden="true"
-      />
-
+    <motion.div variants={fadeUp}>
       <Row bubbles={row1} ctaAfter={2} />
       <Row bubbles={row2} reverse ctaAfter={6} />
       <Row bubbles={row3} ctaAfter={4} />

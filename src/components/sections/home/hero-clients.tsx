@@ -9,58 +9,49 @@ import { Marquee } from "@/components/ui/marquee";
 type Client = {
   name: string;
   file: string;
-  width: number;
-  invert?: boolean;
+  scale?: number;
 };
 
 const row1: Client[] = [
-  { name: "UAE Presidential Court", file: "uae-presidential-court.png", width: 42 },
-  { name: "Ministry of Foreign Affairs", file: "mofaic.png", width: 100 },
-  { name: "ADAA", file: "adaa.svg", width: 88 },
-  { name: "FAB", file: "fab.svg", width: 56 },
-  { name: "ADIA", file: "adia.svg", width: 78 },
-  { name: "ADX", file: "adx.png", width: 34 },
-  { name: "EMAAR", file: "emaar.svg", width: 100 },
-  { name: "Adani", file: "adani.svg", width: 80 },
-  { name: "Aldar", file: "aldar.png", width: 38 },
-  { name: "Miral", file: "miral.png", width: 72 },
-  { name: "ADNEC", file: "adnec.png", width: 36 },
-  { name: "Dept. of Culture & Tourism", file: "dct.png", width: 90 },
+  { name: "UAE Presidential Court", file: "uae-presidential-court.png" },
+  { name: "Ministry of Foreign Affairs", file: "mofaic.png" },
+  { name: "ADAA", file: "adaa.svg" },
+  { name: "FAB", file: "fab.svg" },
+  { name: "ADIA", file: "adia.svg" },
+  { name: "ADX", file: "adx.png", scale: 1.8 },
+  { name: "EMAAR", file: "emaar.svg" },
+  { name: "Adani", file: "adani.svg" },
+  { name: "Aldar", file: "aldar.png" },
+  { name: "Miral", file: "miral.png" },
+  { name: "ADNEC", file: "adnec.png" },
+  { name: "Dept. of Culture & Tourism", file: "dct.png" },
 ];
 
 const row2: Client[] = [
-  { name: "Multiply Group", file: "multiply-group.svg", width: 52, invert: true },
-  { name: "IHC", file: "ihc.png", width: 34 },
-  { name: "Masdar", file: "masdar.svg", width: 100 },
-  { name: "Etisalat / e&", file: "eand.svg", width: 36 },
-  { name: "Rakez", file: "rakez.svg", width: 28 },
-  { name: "IFZA", file: "ifza.png", width: 88 },
-  { name: "crypto.com", file: "crypto-com.svg", width: 100 },
-  { name: "BTG Pactual", file: "btg-pactual.png", width: 72 },
-  { name: "Grupo Nutresa", file: "grupo-nutresa.svg", width: 50 },
-  { name: "OncoClinicas", file: "oncoclnicas.png", width: 80 },
-  { name: "Dept. of Municipalities & Transport", file: "dmt.svg", width: 100 },
-  { name: "Abu Dhabi Cyber Security Council", file: "adcsc.png", width: 80 },
+  { name: "Multiply Group", file: "multiply-group.svg" },
+  { name: "IHC", file: "ihc.png" },
+  { name: "Masdar", file: "masdar.svg" },
+  { name: "Etisalat / e&", file: "eand.svg" },
+  { name: "Rakez", file: "rakez.svg" },
+  { name: "IFZA", file: "ifza.png" },
+  { name: "crypto.com", file: "crypto-com.svg" },
+  { name: "BTG Pactual", file: "btg-pactual.png", scale: 1.8 },
+  { name: "Grupo Nutresa", file: "grupo-nutresa.svg", scale: 1.6 },
+  { name: "Dept. of Municipalities & Transport", file: "dmt.svg" },
+  { name: "Abu Dhabi Cyber Security Council", file: "adcsc.png" },
 ];
 
 function ClientLogo({ client }: { client: Client }) {
   return (
-    <div
-      className="flex h-7 shrink-0 items-center justify-center sm:h-8"
-      style={{ width: client.width }}
-    >
+    <div className="flex h-8 shrink-0 items-center justify-center sm:h-10">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`/logos/clients/${client.file}`}
         alt={client.name}
         loading="lazy"
         decoding="async"
-        className={cn(
-          "max-h-full max-w-full object-contain",
-          "opacity-40 grayscale transition-all duration-500",
-          "hover:opacity-100 hover:grayscale-0",
-          client.invert && "invert",
-        )}
+        className="h-full w-auto object-contain transition-all duration-500 [filter:grayscale(1)_contrast(0)_brightness(0.7)] hover:[filter:none]"
+        style={client.scale ? { transform: `scale(${client.scale})` } : undefined}
       />
     </div>
   );
@@ -90,11 +81,11 @@ export function HeroClients() {
 
       <motion.div variants={fadeIn} className="relative">
         <div
-          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent sm:w-32"
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-background to-transparent sm:w-16"
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent sm:w-32"
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-background to-transparent sm:w-16"
           aria-hidden="true"
         />
 

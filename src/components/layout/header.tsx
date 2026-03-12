@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -29,37 +29,21 @@ export function Header() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: DURATION.normal, ease: EASE }}
       className={cn(
-        "fixed top-0 z-50 w-full backdrop-blur-2xl backdrop-saturate-150 transition-[background-color,box-shadow] duration-300",
-        scrolled
-          ? "bg-background/80 shadow-xs"
-          : "bg-background/60",
+        "fixed top-0 z-50 w-full backdrop-blur-2xl backdrop-saturate-150 transition-all duration-300",
+        scrolled ? "bg-background/80 shadow-xs" : "bg-background/60",
       )}
     >
       <div className="mx-auto flex h-[var(--header-height)] max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="transition-opacity duration-150 hover:opacity-70"
+          className="relative z-10 transition-opacity duration-150 hover:opacity-70"
           aria-label={`${siteConfig.name} — Home`}
         >
-          <Image
-            src="/logo.svg"
-            alt={siteConfig.name}
-            width={100}
-            height={24}
-            priority
-            className="dark:hidden"
-          />
-          <Image
-            src="/logo-dark.svg"
-            alt={siteConfig.name}
-            width={100}
-            height={24}
-            priority
-            className="hidden dark:block"
-          />
+          <Image src="/logo.svg" alt={siteConfig.name} width={100} height={24} priority className="dark:hidden" />
+          <Image src="/logo-dark.svg" alt={siteConfig.name} width={100} height={24} priority className="hidden dark:block" />
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Main navigation">
+        <nav className="hidden items-center gap-7 lg:flex" aria-label="Main navigation">
           {siteConfig.nav.main.map((item) => (
             <Link
               key={item.href}
@@ -71,7 +55,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-4 lg:flex">
           <Link
             href={siteConfig.nav.cta.tryAleria.href}
             className="text-sm text-muted-foreground transition-colors duration-150 hover:text-foreground"
@@ -91,15 +75,33 @@ export function Header() {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="flex size-10 items-center justify-center rounded-full text-muted-foreground transition-colors duration-150 hover:text-foreground lg:hidden"
+          className="relative z-10 flex size-10 items-center justify-center rounded-full text-muted-foreground transition-colors duration-150 hover:text-foreground focus-ring lg:hidden"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
         >
-          {mobileOpen ? <X className="size-5" aria-hidden="true" /> : <Menu className="size-5" aria-hidden="true" />}
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.span
+              key={mobileOpen ? "close" : "open"}
+              initial={{ opacity: 0, rotate: -90 }}
+              animate={{ opacity: 1, rotate: 0 }}
+              exit={{ opacity: 0, rotate: 90 }}
+              transition={{ duration: 0.15 }}
+            >
+              {mobileOpen
+                ? <X className="size-5" aria-hidden="true" />
+                : <Menu className="size-5" aria-hidden="true" />}
+            </motion.span>
+          </AnimatePresence>
         </button>
       </div>
 
-      <div className="line-gradient" aria-hidden="true" />
+      <div
+        className={cn(
+          "line-gradient transition-opacity duration-300",
+          scrolled || mobileOpen ? "opacity-100" : "opacity-0",
+        )}
+        aria-hidden="true"
+      />
 
       <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} />
     </motion.header>

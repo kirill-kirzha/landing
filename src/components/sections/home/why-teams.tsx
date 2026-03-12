@@ -42,17 +42,19 @@ export function WhyTeamsSection({ className }: SectionProps) {
             />
           </h2>
         </motion.div>
+      </Container>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={VIEWPORT}
-          variants={stagger(0.04)}
-          className="mt-14"
-        >
-          <BubbleMarquee />
-        </motion.div>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={VIEWPORT}
+        variants={stagger(0.04)}
+        className="mt-14"
+      >
+        <BubbleMarquee />
+      </motion.div>
 
+      <Container>
         <DeployedBanner />
       </Container>
     </Section>

@@ -24,7 +24,7 @@ export function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: DURATION.slow, ease: EASE }}
-            className="group mb-6 inline-flex items-center gap-2 rounded-full border border-border/60 px-3.5 py-1.5 text-xs text-muted-foreground transition-colors hover:border-border hover:text-foreground focus-ring sm:mb-8 sm:px-4 sm:text-sm"
+            className="group mb-6 inline-flex items-center gap-2 rounded-full bg-muted px-3.5 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-ring sm:mb-8 sm:px-4 sm:text-sm"
           >
             Introducing Aleria 2.0
             <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5 sm:size-3.5" aria-hidden="true" />
