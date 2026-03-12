@@ -6,7 +6,15 @@ export const DURATION = {
   slow: 0.4,
 } as const;
 
-export const VIEWPORT = { once: true, margin: "-80px" } as const;
+export const VIEWPORT = { once: true, margin: "120px" } as const;
+
+export const reveal = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.6, ease: EASE },
+  },
+};
 
 export const fadeUp = {
   hidden: { opacity: 0, y: 4 },

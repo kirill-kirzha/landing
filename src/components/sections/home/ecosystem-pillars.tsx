@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import { fadeUpLg, VIEWPORT } from "@/lib/motion";
+import { reveal, VIEWPORT } from "@/lib/motion";
 
 const pillars = [
   { title: "Build", subtitle: "Data Foundation" },
@@ -16,7 +16,7 @@ export function EcosystemPillars() {
       initial="hidden"
       whileInView="visible"
       viewport={VIEWPORT}
-      variants={fadeUpLg}
+      variants={reveal}
       className="mx-auto max-w-4xl"
     >
       <div className="relative grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-0">

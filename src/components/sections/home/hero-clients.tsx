@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import { cn } from "@/lib/utils";
-import { fadeIn } from "@/lib/motion";
+import { EASE } from "@/lib/motion";
 import { Marquee } from "@/components/ui/marquee";
 
 type Client = {
@@ -57,29 +56,19 @@ function ClientLogo({ client }: { client: Client }) {
   );
 }
 
-const container = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.08, delayChildren: 0.6 },
-  },
-};
-
 export function HeroClients() {
   return (
     <motion.div
       className="relative z-10 pb-8 sm:pb-14"
-      variants={container}
-      initial="hidden"
-      animate="visible"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
     >
-      <motion.p
-        variants={fadeIn}
-        className="type-body-sm mb-4 text-center text-quaternary sm:mb-5"
-      >
+      <p className="type-body-sm mb-4 text-center text-quaternary sm:mb-5">
         Trusted by industry leaders
-      </motion.p>
+      </p>
 
-      <motion.div variants={fadeIn} className="relative">
+      <div className="relative">
         <div
           className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-background to-transparent sm:w-16"
           aria-hidden="true"
@@ -100,7 +89,7 @@ export function HeroClients() {
             <ClientLogo key={client.name} client={client} />
           ))}
         </Marquee>
-      </motion.div>
+      </div>
     </motion.div>
   );
 }

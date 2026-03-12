@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 import type { SectionProps } from "@/types";
-import { fadeUpLg, VIEWPORT } from "@/lib/motion";
+import { reveal, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Btn } from "@/components/marketing/button";
 import { Container } from "@/components/marketing/container";
@@ -24,7 +24,7 @@ export function ClosingCtaSection({ className }: SectionProps) {
 
       <Container size="narrow" className="relative z-10">
         <motion.div
-          variants={fadeUpLg}
+          variants={reveal}
           initial="hidden"
           whileInView="visible"
           viewport={VIEWPORT}

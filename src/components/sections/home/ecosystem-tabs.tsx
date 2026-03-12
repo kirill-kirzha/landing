@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Play } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { EASE, DURATION, VIEWPORT, fadeUp } from "@/lib/motion";
+import { EASE, DURATION, VIEWPORT, reveal } from "@/lib/motion";
 import { WindowFrame } from "@/components/marketing/window-frame";
 
 const tabs = [
@@ -36,7 +36,7 @@ export function EcosystemTabs() {
   return (
     <motion.div
       className="mt-14"
-      variants={fadeUp}
+      variants={reveal}
       initial="hidden"
       whileInView="visible"
       viewport={VIEWPORT}

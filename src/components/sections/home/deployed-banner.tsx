@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-import { fadeUp, stagger, VIEWPORT } from "@/lib/motion";
+import { reveal, VIEWPORT } from "@/lib/motion";
 
 const caseStudies = [
   {
@@ -42,7 +42,7 @@ export function DeployedBanner() {
       initial="hidden"
       whileInView="visible"
       viewport={VIEWPORT}
-      variants={stagger(0.06)}
+      variants={reveal}
       className="dark mt-10 overflow-hidden rounded-2xl bg-background shadow-lg"
     >
       <div className="h-0.5 gradient-desert-mint" aria-hidden="true" />
@@ -53,7 +53,7 @@ export function DeployedBanner() {
 
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {caseStudies.map((study) => (
-          <motion.div key={study.client} variants={fadeUp}>
+          <div key={study.client}>
             <Link
               href={study.href}
               className="group flex flex-col gap-3 border-t border-border/10 px-6 py-5 transition-colors hover:bg-card/50 focus-ring sm:px-8"
@@ -87,7 +87,7 @@ export function DeployedBanner() {
                 {study.result}
               </p>
             </Link>
-          </motion.div>
+          </div>
         ))}
       </div>
     </motion.div>

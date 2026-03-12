@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
-import { fadeUp, VIEWPORT } from "@/lib/motion";
+import { reveal, VIEWPORT } from "@/lib/motion";
 import { Badge } from "@/components/marketing/badge";
 
 interface SectionHeaderProps {
@@ -28,7 +28,7 @@ export function SectionHeader({
       initial="hidden"
       whileInView="visible"
       viewport={VIEWPORT}
-      variants={fadeUp}
+      variants={reveal}
       className={cn(
         align === "center" && "mx-auto max-w-3xl text-center",
         className,

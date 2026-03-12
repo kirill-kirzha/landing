@@ -1,11 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { fadeUp } from "@/lib/motion";
 import { Marquee } from "@/components/ui/marquee";
 
 type Bubble = { label: string; accent?: boolean };
@@ -120,11 +118,11 @@ function Row({
 
 export function BubbleMarquee() {
   return (
-    <motion.div variants={fadeUp}>
+    <div>
       <Row bubbles={row1} ctaAfter={2} />
       <Row bubbles={row2} reverse ctaAfter={6} />
       <Row bubbles={row3} ctaAfter={4} />
       <Row bubbles={row4} reverse ctaAfter={1} />
-    </motion.div>
+    </div>
   );
 }

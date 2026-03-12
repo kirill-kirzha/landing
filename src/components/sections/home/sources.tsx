@@ -1,10 +1,10 @@
 "use client";
 
+import type { SectionProps } from "@/types";
 import { motion } from "framer-motion";
 
-import type { SectionProps } from "@/types";
 import { cn } from "@/lib/utils";
-import { fadeUp, fadeUpLg, stagger, VIEWPORT } from "@/lib/motion";
+import { reveal, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
@@ -23,46 +23,32 @@ export function SourcesSection({ className }: SectionProps) {
     <Section background="muted" divider="both" className={className}>
       <HoneycombBg placement="top-center" intensity="subtle" />
       <Container>
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <motion.div
-            variants={fadeUpLg}
-            initial="hidden"
-            whileInView="visible"
-            viewport={VIEWPORT}
-            className="order-2 lg:order-1"
-          >
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT}
+          variants={reveal}
+          className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16"
+        >
+          <div className="order-2 lg:order-1">
             <WindowFrame title="Aleria Sources">
               <div className="aspect-[4/3] bg-background/40" />
             </WindowFrame>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={VIEWPORT}
-            variants={stagger(0.08)}
-            className="order-1 lg:order-2"
-          >
-            <motion.div variants={fadeUp}>
-              <Badge>Sources — Big Data Fusion</Badge>
-            </motion.div>
-            <motion.h2 variants={fadeUp} className="type-title mt-5">
+          <div className="order-1 lg:order-2">
+            <Badge>Sources — Big Data Fusion</Badge>
+            <h2 className="type-title mt-5">
               Every data source,{" "}
               <span className="font-normal">unified</span>
-            </motion.h2>
-            <motion.p
-              variants={fadeUp}
-              className="type-body mt-4 max-w-lg text-muted-foreground"
-            >
+            </h2>
+            <p className="type-body mt-4 max-w-lg text-muted-foreground">
               Proprietary ETL platform that extracts, transforms and loads
               massive volumes from any source into a governed, AI-ready
               datalake.
-            </motion.p>
+            </p>
 
-            <motion.div
-              variants={fadeUp}
-              className="mt-8 flex flex-wrap gap-8"
-            >
+            <div className="mt-8 flex flex-wrap gap-8">
               {stats.map((s) => (
                 <div key={s.value}>
                   <p
@@ -76,15 +62,15 @@ export function SourcesSection({ className }: SectionProps) {
                   <p className="type-body-sm mt-1 text-tertiary">{s.label}</p>
                 </div>
               ))}
-            </motion.div>
+            </div>
 
-            <motion.div variants={fadeUp} className="mt-10">
+            <div className="mt-10">
               <LinkArrow href="/solutions/sources">
                 Discover Sources
               </LinkArrow>
-            </motion.div>
-          </motion.div>
-        </div>
+            </div>
+          </div>
+        </motion.div>
       </Container>
     </Section>
   );

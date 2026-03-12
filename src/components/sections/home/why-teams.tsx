@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 import type { SectionProps } from "@/types";
-import { fadeUpLg, stagger, VIEWPORT } from "@/lib/motion";
+import { reveal, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
@@ -27,7 +27,7 @@ export function WhyTeamsSection({ className }: SectionProps) {
       <HoneycombBg placement="top-right" intensity="subtle" />
       <Container>
         <motion.div
-          variants={fadeUpLg}
+          variants={reveal}
           initial="hidden"
           whileInView="visible"
           viewport={VIEWPORT}
@@ -48,7 +48,7 @@ export function WhyTeamsSection({ className }: SectionProps) {
         initial="hidden"
         whileInView="visible"
         viewport={VIEWPORT}
-        variants={stagger(0.04)}
+        variants={reveal}
         className="mt-14"
       >
         <BubbleMarquee />

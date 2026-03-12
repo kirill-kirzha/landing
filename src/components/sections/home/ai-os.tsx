@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import type { SectionProps } from "@/types";
 import { cn } from "@/lib/utils";
-import { EASE, DURATION, fadeUp, stagger, VIEWPORT } from "@/lib/motion";
+import { EASE, DURATION, reveal, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
@@ -24,23 +24,18 @@ export function AiOsSection({ className }: SectionProps) {
           initial="hidden"
           whileInView="visible"
           viewport={VIEWPORT}
-          variants={stagger(0.08)}
+          variants={reveal}
           className="text-center"
         >
-          <motion.div variants={fadeUp}>
-            <Badge>AI OS</Badge>
-          </motion.div>
-          <motion.h2 variants={fadeUp} className="type-title mt-5">
+          <Badge>AI OS</Badge>
+          <h2 className="type-title mt-5">
             Intelligent <span className="font-normal">agents</span> and
             workflows
-          </motion.h2>
-          <motion.p
-            variants={fadeUp}
-            className="type-body mx-auto mt-4 max-w-2xl text-muted-foreground"
-          >
+          </h2>
+          <p className="type-body mx-auto mt-4 max-w-2xl text-muted-foreground">
             Autonomous AI employees and production-grade workflows that execute
             on your infrastructure — not chatbots, virtual colleagues.
-          </motion.p>
+          </p>
         </motion.div>
 
         <div className="mt-10 flex justify-center">
@@ -105,14 +100,9 @@ export function AiOsSection({ className }: SectionProps) {
           </AnimatePresence>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-10 text-center"
-        >
+        <div className="mt-10 text-center">
           <LinkArrow href="/solutions/ai-os">Discover AI OS</LinkArrow>
-        </motion.div>
+        </div>
       </Container>
     </Section>
   );

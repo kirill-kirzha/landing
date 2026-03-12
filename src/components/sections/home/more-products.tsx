@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 import type { SectionProps } from "@/types";
-import { fadeUp, stagger, VIEWPORT } from "@/lib/motion";
+import { reveal, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { SectionHeader } from "@/components/marketing/section-header";
@@ -49,11 +49,11 @@ export function MoreProductsSection({ className }: SectionProps) {
           initial="hidden"
           whileInView="visible"
           viewport={VIEWPORT}
-          variants={stagger(0.12)}
+          variants={reveal}
           className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12"
         >
           {products.map((p) => (
-            <motion.div key={p.title} variants={fadeUp}>
+            <div key={p.title}>
               <WindowFrame title={p.windowTitle} className="border-border/20">
                 <div className="aspect-video bg-card/30" />
               </WindowFrame>
@@ -64,7 +64,7 @@ export function MoreProductsSection({ className }: SectionProps) {
               <div className="mt-4">
                 <LinkArrow href={p.href}>Discover</LinkArrow>
               </div>
-            </motion.div>
+            </div>
           ))}
         </motion.div>
       </Container>

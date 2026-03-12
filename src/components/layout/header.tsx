@@ -25,9 +25,9 @@ export function Header() {
 
   return (
     <motion.header
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: DURATION.normal, ease: EASE }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4, ease: EASE }}
       className={cn(
         "fixed top-0 z-50 w-full backdrop-blur-2xl backdrop-saturate-150 transition-all duration-300",
         scrolled ? "bg-background/80 shadow-xs" : "bg-background/60",
