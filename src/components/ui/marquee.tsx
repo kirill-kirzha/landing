@@ -27,7 +27,7 @@ export function Marquee({
   const animation = reverse
     ? "animate-[marquee_var(--marquee-duration)_linear_infinite_reverse]"
     : "animate-[marquee_var(--marquee-duration)_linear_infinite]";
-  const pause = pauseOnHover && "group-hover:[animation-play-state:paused]";
+  const pause = pauseOnHover && "group-hover:marquee-pause";
 
   return (
     <div
@@ -35,21 +35,13 @@ export function Marquee({
       style={{ ...style, ...gapStyle }}
     >
       <div
-        className={cn(
-          "flex shrink-0 items-center will-change-transform",
-          animation,
-          pause,
-        )}
+        className={cn("flex shrink-0 items-center", animation, pause)}
         style={gapStyle}
       >
         {children}
       </div>
       <div
-        className={cn(
-          "flex shrink-0 items-center will-change-transform",
-          animation,
-          pause,
-        )}
+        className={cn("flex shrink-0 items-center", animation, pause)}
         style={gapStyle}
         aria-hidden="true"
       >

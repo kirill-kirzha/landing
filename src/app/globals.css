@@ -258,6 +258,16 @@
   to { transform: translateX(calc(-100% - var(--marquee-gap))); }
 }
 
+@media (hover: hover) {
+  .marquee-pause {
+    animation-play-state: running;
+    transition: animation-play-state 0.3s;
+  }
+  .group:hover .marquee-pause {
+    animation-play-state: paused;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
