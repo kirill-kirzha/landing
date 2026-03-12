@@ -42,10 +42,14 @@ export function EcosystemTabs() {
       viewport={VIEWPORT}
     >
       <div className="no-scrollbar flex justify-center overflow-x-auto">
-        <div className="flex border-b border-border/30">
+        <div className="flex border-b border-border/30" role="tablist" aria-label="Products">
           {tabs.map((t, i) => (
             <button
               key={t.id}
+              role="tab"
+              id={`eco-tab-${t.id}`}
+              aria-selected={active === i}
+              aria-controls={`eco-panel-${t.id}`}
               onClick={() => setActive(i)}
               className={cn(
                 "relative whitespace-nowrap px-4 py-3 text-sm font-medium transition-colors focus-ring sm:px-5",
@@ -67,7 +71,7 @@ export function EcosystemTabs() {
         </div>
       </div>
 
-      <div className="mt-10">
+      <div className="mt-10" role="tabpanel" id={`eco-panel-${tab.id}`} aria-labelledby={`eco-tab-${tab.id}`}>
         <AnimatePresence mode="wait">
           <motion.div
             key={tab.id}

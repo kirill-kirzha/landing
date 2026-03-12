@@ -1,138 +1,129 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { fadeUp } from "@/lib/motion";
+import { Marquee } from "@/components/ui/marquee";
 
-function Cell({
-  className,
-  children,
-  accent = false,
-}: {
-  className?: string;
-  children: React.ReactNode;
-  accent?: boolean;
-}) {
+type Bubble = { label: string; accent?: boolean };
+
+const row1: Bubble[] = [
+  { label: "Full Stack AI" },
+  { label: "145× Faster", accent: true },
+  { label: "GPU Orchestration" },
+  { label: "400+ Connectors" },
+  { label: "Agentic Workforce" },
+  { label: "Board Advisory" },
+  { label: "Digital Twin" },
+  { label: "Dynamic Dashboards" },
+];
+
+const row2: Bubble[] = [
+  { label: "Sovereign by Design", accent: true },
+  { label: "Air-Gapped Ready" },
+  { label: "Zero Vendor Lock-in" },
+  { label: "8× Compression", accent: true },
+  { label: "On-premise Always" },
+  { label: "Own Your Models" },
+  { label: "Multi-tenant Isolation" },
+  { label: "No Foreign Dependency" },
+];
+
+const row3: Bubble[] = [
+  { label: "End-to-end Flows" },
+  { label: "Production Deployed", accent: true },
+  { label: "Video AI" },
+  { label: "One Stack" },
+  { label: "Real-time Processing" },
+  { label: "Spatial Intelligence" },
+  { label: "Any Database" },
+  { label: "Workflow Automation" },
+];
+
+const row4: Bubble[] = [
+  { label: "Network Isolation" },
+  { label: "Natural Language Queries" },
+  { label: "500+ MB/s per Node", accent: true },
+  { label: "Dedicated Compute" },
+  { label: "Live KPIs" },
+  { label: "Built Not Bought" },
+  { label: "Proprietary Models" },
+  { label: "Investment Intelligence" },
+];
+
+const pill =
+  "shrink-0 rounded-full px-5 py-2.5 text-sm font-medium select-none sm:px-6 sm:py-3";
+
+function Pill({ label, accent }: Bubble) {
   return (
-    <motion.div
-      variants={fadeUp}
+    <span
       className={cn(
-        "relative overflow-hidden rounded-xl transition-all duration-300",
+        pill,
         accent
-          ? "dark bg-background p-5 text-foreground sm:p-6"
-          : "bg-muted p-5 hover:shadow-sm sm:p-6",
-        className,
+          ? "dark bg-background text-foreground"
+          : "border border-border/40 bg-muted/60 text-muted-foreground",
       )}
     >
-      {children}
-    </motion.div>
+      {label}
+    </span>
   );
 }
 
-export function BentoGrid() {
+function CtaPill() {
   return (
-    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      <Cell className="lg:col-span-2">
-        <h3 className="type-heading">Universal Database Connection</h3>
-        <p className="type-body-sm mt-2 text-tertiary">
-          Connect to any database — legacy SQL, cloud storage, obscure API
-          endpoints. Aleria bridges the gap between every data source in your
-          organization.
-        </p>
-      </Cell>
+    <Link
+      href="/contact"
+      className={cn(
+        pill,
+        "btn-primary-gradient inline-flex items-center gap-2 transition-opacity hover:opacity-90 focus-ring",
+      )}
+    >
+      See it in Action
+      <ArrowRight className="size-3.5" aria-hidden="true" />
+    </Link>
+  );
+}
 
-      <Cell accent>
-        <div className="space-y-5">
-          <div>
-            <p className="type-metric text-4xl">145×</p>
-            <p className="type-body-sm mt-1 text-muted-foreground">
-              Faster than Talend Studio
-            </p>
-          </div>
-          <div>
-            <p className="type-metric text-4xl">8×</p>
-            <p className="type-body-sm mt-1 text-muted-foreground">
-              Infrastructure reduction
-            </p>
-          </div>
-        </div>
-      </Cell>
+function Row({
+  bubbles,
+  reverse,
+  ctaAfter = -1,
+}: {
+  bubbles: Bubble[];
+  reverse?: boolean;
+  ctaAfter?: number;
+}) {
+  return (
+    <Marquee speed={80} reverse={reverse} pauseOnHover className="py-1.5">
+      {bubbles.map((b, i) => (
+        <span key={b.label} className="contents">
+          <Pill {...b} />
+          {i === ctaAfter && <CtaPill />}
+        </span>
+      ))}
+    </Marquee>
+  );
+}
 
-      <Cell>
-        <h3 className="type-heading">Clean Data Pipelines</h3>
-        <p className="type-body-sm mt-2 text-tertiary">
-          20+ connectors transforming raw inputs into structured, AI-ready
-          pipelines.
-        </p>
-      </Cell>
+export function BubbleMarquee() {
+  return (
+    <motion.div variants={fadeUp} className="relative">
+      <div
+        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent sm:w-24"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent sm:w-24"
+        aria-hidden="true"
+      />
 
-      <Cell>
-        <h3 className="type-heading">Unified Intelligence</h3>
-        <p className="type-body-sm mt-2 text-tertiary">
-          All knowledge consolidated in one governed environment. Every team,
-          every source, one truth.
-        </p>
-      </Cell>
-
-      <Cell>
-        <h3 className="type-heading">Visual Intelligence</h3>
-        <p className="type-body-sm mt-2 text-tertiary">
-          Live video feeds from cameras and drones turned into real-time
-          operational intelligence.
-        </p>
-      </Cell>
-
-      <Cell accent className="flex flex-col justify-between lg:row-span-2">
-        <div>
-          <h3 className="type-heading">One Sovereign Ecosystem</h3>
-          <p className="type-body-sm mt-2 text-tertiary">
-            A complete, integrated platform — not a collection of disconnected
-            tools. Every capability under one roof.
-          </p>
-        </div>
-        <div className="mt-6 flex flex-wrap gap-1.5">
-          {["Sources", "Agents", "Flows", "Boards", "Video AI"].map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full border border-border/40 px-2.5 py-1 text-xs text-muted-foreground"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </Cell>
-
-      <Cell>
-        <h3 className="type-heading">Dynamic Visualization</h3>
-        <p className="type-body-sm mt-2 text-tertiary">
-          Dashboards that adapt to your questions with drill-down granularity.
-        </p>
-      </Cell>
-
-      <Cell>
-        <h3 className="type-heading">Orchestrated AI Agents</h3>
-        <p className="type-body-sm mt-2 text-tertiary">
-          End-to-end task chains from data ingestion to finished output, fully
-          autonomous.
-        </p>
-      </Cell>
-
-      <Cell>
-        <h3 className="type-heading">Fully Configurable</h3>
-        <p className="type-body-sm mt-2 text-tertiary">
-          Adapt every workflow to your organization&apos;s unique processes. No
-          rigid templates.
-        </p>
-      </Cell>
-
-      <Cell>
-        <h3 className="type-heading">Data Sovereignty</h3>
-        <p className="type-body-sm mt-2 text-tertiary">
-          Your data stays under your control, always. On your infrastructure, by
-          your rules.
-        </p>
-      </Cell>
-    </div>
+      <Row bubbles={row1} ctaAfter={2} />
+      <Row bubbles={row2} reverse ctaAfter={6} />
+      <Row bubbles={row3} ctaAfter={4} />
+      <Row bubbles={row4} reverse ctaAfter={1} />
+    </motion.div>
   );
 }

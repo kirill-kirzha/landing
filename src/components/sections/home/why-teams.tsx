@@ -1,16 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 
 import type { SectionProps } from "@/types";
-import { stagger, DURATION, VIEWPORT } from "@/lib/motion";
+import { fadeUpLg, stagger, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
-import { Btn } from "@/components/marketing/button";
 import { TextRotator } from "@/components/ui/text-rotator";
-import { BentoGrid } from "@/components/sections/home/why-teams-grid";
+import { BubbleMarquee } from "@/components/sections/home/why-teams-grid";
 import { DeployedBanner } from "./deployed-banner";
 import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
 
@@ -29,10 +27,10 @@ export function WhyTeamsSection({ className }: SectionProps) {
       <HoneycombBg placement="top-right" intensity="subtle" />
       <Container>
         <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeUpLg}
+          initial="hidden"
+          whileInView="visible"
           viewport={VIEWPORT}
-          transition={{ duration: DURATION.normal }}
           className="mx-auto max-w-3xl text-center"
         >
           <Badge>Why teams prefer us</Badge>
@@ -52,20 +50,7 @@ export function WhyTeamsSection({ className }: SectionProps) {
           variants={stagger(0.04)}
           className="mt-14"
         >
-          <BentoGrid />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={VIEWPORT}
-          transition={{ duration: DURATION.normal, delay: 0.2 }}
-          className="mt-10 text-center"
-        >
-          <Btn href="/contact" size="lg" className="w-full sm:w-auto">
-            See it in Action
-            <ArrowRight className="size-4" aria-hidden="true" />
-          </Btn>
+          <BubbleMarquee />
         </motion.div>
 
         <DeployedBanner />

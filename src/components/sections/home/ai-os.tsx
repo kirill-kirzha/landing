@@ -11,53 +11,7 @@ import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
 import { LinkArrow } from "@/components/marketing/link-arrow";
 import { WindowFrame } from "@/components/marketing/window-frame";
-
-const tabs = [
-  {
-    id: "employees",
-    label: "AI Employees",
-    windowTitle: "Aleria AI OS — Employees",
-    features: [
-      {
-        title: "Role-based templates",
-        description:
-          "Legal, HR, Finance, Procurement, Compliance — each with defined skills and guardrails.",
-      },
-      {
-        title: "Background execution",
-        description:
-          "Unlimited file handling and live database access. Results delivered asynchronously.",
-      },
-      {
-        title: "Reusable across your org",
-        description:
-          "Built once, reused endlessly. Share templates across teams, publish organization-wide.",
-      },
-    ],
-  },
-  {
-    id: "flows",
-    label: "Flows",
-    windowTitle: "Aleria AI OS — Flows",
-    features: [
-      {
-        title: "Visual canvas",
-        description:
-          "Data lookups, LLM steps, write-back and adaptive Agent nodes for complex reasoning.",
-      },
-      {
-        title: "Production-grade",
-        description:
-          "Every run traced, every version saved, every output schema-validated JSON.",
-      },
-      {
-        title: "Proven at scale",
-        description:
-          "Powers ALDAR X (16 connected sources) and Pivot (investment due diligence, end-to-end).",
-      },
-    ],
-  },
-] as const;
+import { aiOsTabs as tabs } from "./ai-os-tabs";
 
 export function AiOsSection({ className }: SectionProps) {
   const [active, setActive] = useState(0);
@@ -90,13 +44,17 @@ export function AiOsSection({ className }: SectionProps) {
         </motion.div>
 
         <div className="mt-10 flex justify-center">
-          <div className="flex border-b border-border/30">
+          <div className="flex border-b border-border/30" role="tablist" aria-label="AI OS features">
             {tabs.map((t, i) => (
               <button
                 key={t.id}
+                role="tab"
+                id={`aios-tab-${t.id}`}
+                aria-selected={active === i}
+                aria-controls={`aios-panel-${t.id}`}
                 onClick={() => setActive(i)}
                 className={cn(
-                  "relative whitespace-nowrap px-5 py-3 text-sm font-medium transition-colors focus-ring",
+                  "relative whitespace-nowrap px-4 py-3 text-sm font-medium transition-colors focus-ring sm:px-5",
                   active === i
                     ? "text-foreground"
                     : "text-quaternary hover:text-muted-foreground",
@@ -119,7 +77,7 @@ export function AiOsSection({ className }: SectionProps) {
           </div>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-10" role="tabpanel" id={`aios-panel-${tab.id}`} aria-labelledby={`aios-tab-${tab.id}`}>
           <AnimatePresence mode="wait">
             <motion.div
               key={tab.id}

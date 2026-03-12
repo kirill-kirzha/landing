@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
+import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import { DURATION, EASE } from "@/lib/motion";
 import { Btn } from "@/components/marketing/button";
@@ -13,13 +14,26 @@ import { MobileNav } from "@/components/layout/mobile-nav";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <motion.header
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: DURATION.normal, ease: EASE }}
-      className="fixed top-0 z-50 w-full bg-background/60 backdrop-blur-2xl backdrop-saturate-150"
+      className={cn(
+        "fixed top-0 z-50 w-full backdrop-blur-2xl backdrop-saturate-150 transition-[background-color,box-shadow] duration-300",
+        scrolled
+          ? "bg-background/80 shadow-xs"
+          : "bg-background/60",
+      )}
     >
       <div className="mx-auto flex h-[var(--header-height)] max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
         <Link

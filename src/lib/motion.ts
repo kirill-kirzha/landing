@@ -17,6 +17,15 @@ export const fadeUp = {
   },
 };
 
+export const fadeUpLg = {
+  hidden: { opacity: 0, y: 8 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: DURATION.slow, ease: EASE },
+  },
+};
+
 export const fadeIn = {
   hidden: { opacity: 0 },
   visible: {

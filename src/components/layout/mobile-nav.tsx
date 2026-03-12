@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -13,6 +14,11 @@ interface MobileNavProps {
 }
 
 export function MobileNav({ open, onClose }: MobileNavProps) {
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
   return (
     <AnimatePresence>
       {open && (

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import type { SectionProps } from "@/types";
 import { cn } from "@/lib/utils";
-import { fadeUp, stagger, VIEWPORT } from "@/lib/motion";
+import { fadeUp, fadeUpLg, stagger, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
@@ -25,8 +25,9 @@ export function SourcesSection({ className }: SectionProps) {
       <Container>
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={fadeUpLg}
+            initial="hidden"
+            whileInView="visible"
             viewport={VIEWPORT}
             className="order-2 lg:order-1"
           >
@@ -77,7 +78,7 @@ export function SourcesSection({ className }: SectionProps) {
               ))}
             </motion.div>
 
-            <motion.div variants={fadeUp} className="mt-8">
+            <motion.div variants={fadeUp} className="mt-10">
               <LinkArrow href="/solutions/sources">
                 Discover Sources
               </LinkArrow>

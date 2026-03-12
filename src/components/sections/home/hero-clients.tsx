@@ -46,13 +46,15 @@ const row2: Client[] = [
 function ClientLogo({ client }: { client: Client }) {
   return (
     <div
-      className="flex h-6 shrink-0 items-center justify-center sm:h-8"
+      className="flex h-7 shrink-0 items-center justify-center sm:h-8"
       style={{ width: client.width }}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`/logos/clients/${client.file}`}
         alt={client.name}
+        loading="lazy"
+        decoding="async"
         className={cn(
           "max-h-full max-w-full object-contain",
           "opacity-40 grayscale transition-all duration-500",

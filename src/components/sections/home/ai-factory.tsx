@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Shield, Wifi, Server } from "lucide-react";
 
 import type { SectionProps } from "@/types";
-import { fadeUp, stagger, VIEWPORT } from "@/lib/motion";
+import { fadeUp, fadeUpLg, stagger, VIEWPORT } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
@@ -74,14 +74,15 @@ export function AiFactorySection({ className }: SectionProps) {
               ))}
             </motion.div>
 
-            <motion.div variants={fadeUp} className="mt-8">
+            <motion.div variants={fadeUp} className="mt-10">
               <LinkArrow href="/ai-factory">Discover AI Factory</LinkArrow>
             </motion.div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={fadeUpLg}
+            initial="hidden"
+            whileInView="visible"
             viewport={VIEWPORT}
           >
             <WindowFrame title="AI Factory — Architecture">
