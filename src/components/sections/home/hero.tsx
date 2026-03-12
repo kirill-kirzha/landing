@@ -14,7 +14,7 @@ export function HeroSection() {
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,oklch(0.93_0.015_82/0.5),transparent)]" />
       </div>
-      <HoneycombBg placement="top-left" intensity="subtle" />
+      <HoneycombBg placement="top-left" intensity="strong" />
       <HoneycombBg placement="bottom-right" intensity="strong" />
 
       <div className="relative z-10 flex flex-1 items-center justify-center px-5 pt-24 pb-8 text-center sm:px-6 sm:pt-32 sm:pb-12 lg:px-8">
