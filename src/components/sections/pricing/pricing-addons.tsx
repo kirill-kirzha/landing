@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { SectionHeader } from "@/components/marketing/section-header";
@@ -11,32 +12,42 @@ export function PricingAddons() {
         <Reveal>
           <SectionHeader
             badge="Add-Ons"
-            title="Modular capabilities"
+            title={
+              <>
+                <span className="font-normal">Modular</span> capabilities
+              </>
+            }
             description="Each scales with your team size."
           />
-          <div className="mt-14 grid gap-8 md:grid-cols-2">
+          <div className="mt-14 space-y-6">
             {addons.map((addon) => (
               <div
                 key={addon.id}
-                className="rounded-xl border border-border bg-background p-6 lg:p-8"
+                className="overflow-hidden rounded-xl border border-border bg-background"
               >
-                <h3 className="type-heading text-foreground">{addon.title}</h3>
-                <p className="type-body-sm mt-2 text-tertiary">{addon.description}</p>
-                <div className="mt-6 grid grid-cols-3 gap-4">
-                  {addon.tiers.map((tier) => (
-                    <div
-                      key={tier.name}
-                      className="rounded-lg border border-border bg-muted/50 p-4"
-                    >
-                      <p className="type-label text-foreground">{tier.name}</p>
+                <div className="border-b border-border/50 px-6 py-5 lg:px-8">
+                  <h3 className="type-heading">{addon.title}</h3>
+                  <p className="type-body-sm mt-1 text-tertiary">{addon.description}</p>
+                </div>
+                <div className="grid grid-cols-3 divide-x divide-border/50">
+                  {addon.tiers.map((tier, i) => (
+                    <div key={tier.name} className={cn("px-5 py-5 lg:px-8", i === 1 && "bg-muted/30")}>
+                      <p className="type-label text-quaternary">{tier.name}</p>
                       {tier.seats && (
-                        <p className="type-body-sm mt-1 text-tertiary">{tier.seats}</p>
+                        <p className="mt-2 text-sm text-tertiary">{tier.seats}</p>
                       )}
                       {tier.limit && tier.limit !== "—" && (
-                        <p className="type-body-sm text-tertiary">{tier.limit}</p>
+                        <p className="text-sm text-tertiary">{tier.limit}</p>
                       )}
-                      <p className="type-metric mt-2 text-foreground">
-                        {tier.price ? `${tier.price} AED/mo` : "Contact Sales"}
+                      <p className="mt-3 text-lg font-semibold tracking-tight text-foreground sm:text-xl">
+                        {tier.price ? (
+                          <>
+                            {tier.price}
+                            <span className="ml-1 text-xs font-normal text-quaternary">AED/mo</span>
+                          </>
+                        ) : (
+                          <span className="text-sm font-medium text-muted-foreground">Contact Sales</span>
+                        )}
                       </p>
                     </div>
                   ))}

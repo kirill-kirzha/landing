@@ -61,7 +61,11 @@ export function PricingPlans() {
         <Reveal>
           <SectionHeader
             badge="Platform Access"
-            title="The foundation"
+            title={
+              <>
+                The <span className="font-normal">foundation</span>
+              </>
+            }
             description="Included in every Aleria deployment."
           />
           <div className="mt-14 grid gap-6 md:grid-cols-3">
@@ -74,7 +78,7 @@ export function PricingPlans() {
                 )}
               >
                 <h3 className="type-heading text-foreground">{plan.name}</h3>
-                <div className="mt-4 flex items-baseline gap-1">
+                <div className="mt-4 flex items-baseline gap-1.5">
                   {plan.price ? (
                     <>
                       <span className="type-metric">{plan.price}</span>
@@ -83,7 +87,7 @@ export function PricingPlans() {
                       </span>
                     </>
                   ) : (
-                    <span className="type-metric text-muted-foreground">Contact Sales</span>
+                    <span className="type-heading text-muted-foreground">Contact Sales</span>
                   )}
                 </div>
                 <p className="type-body-sm mt-3 text-tertiary">{plan.description}</p>
