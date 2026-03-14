@@ -7,7 +7,9 @@ import { Menu, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
+import type { NavItem } from "@/config/site";
 import { Btn } from "@/components/marketing/button";
+import { NavDropdown } from "@/components/layout/nav-dropdown";
 import { MobileNav } from "@/components/layout/mobile-nav";
 
 export function Header() {
@@ -48,14 +50,8 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Main navigation">
-          {siteConfig.nav.main.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm text-muted-foreground transition-colors duration-150 hover:text-foreground"
-            >
-              {item.label}
-            </Link>
+          {(siteConfig.nav.main as readonly NavItem[]).map((item) => (
+            <NavDropdown key={item.href} item={item} />
           ))}
         </nav>
 

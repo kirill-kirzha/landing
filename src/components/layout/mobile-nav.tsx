@@ -1,10 +1,13 @@
 "use client";
 
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
+import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
+import type { NavItem } from "@/config/site";
 import { EASE } from "@/lib/motion";
 import { Btn } from "@/components/marketing/button";
 
@@ -21,6 +24,60 @@ const linkVariants = {
     transition: { delay: 0.05 * i, duration: 0.2, ease: EASE },
   }),
 };
+
+function MobileNavItem({ item, index, onClose }: { item: NavItem; index: number; onClose: () => void }) {
+  const [expanded, setExpanded] = useState(false);
+  const hasChildren = item.children && item.children.length > 0;
+
+  return (
+    <motion.div custom={index} variants={linkVariants} initial="hidden" animate="visible">
+      {hasChildren ? (
+        <>
+          <button
+            onClick={() => setExpanded((v) => !v)}
+            className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-medium text-foreground transition-colors hover:bg-muted focus-ring"
+            aria-expanded={expanded}
+          >
+            {item.label}
+            <ChevronDown className={cn("size-4 transition-transform", expanded && "rotate-180")} aria-hidden="true" />
+          </button>
+          <AnimatePresence>
+            {expanded && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.2, ease: EASE }}
+                className="overflow-hidden"
+              >
+                <div className="space-y-0.5 pb-2 pl-4">
+                  {item.children!.map((child) => (
+                    <Link
+                      key={child.href}
+                      href={child.href}
+                      onClick={onClose}
+                      className="block rounded-lg px-3 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-ring"
+                    >
+                      {child.label}
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </>
+      ) : (
+        <Link
+          href={item.href}
+          onClick={onClose}
+          className="block rounded-lg px-3 py-3 text-base font-medium text-foreground transition-colors hover:bg-muted focus-ring"
+        >
+          {item.label}
+        </Link>
+      )}
+    </motion.div>
+  );
+}
 
 export function MobileNav({ open, onClose }: MobileNavProps) {
   const handleEsc = useCallback(
@@ -50,48 +107,24 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
         >
           <div className="flex min-h-full flex-col px-5 pt-6 pb-10 sm:px-6">
             <div className="flex flex-col gap-1">
-              {siteConfig.nav.main.map((item, i) => (
-                <motion.div
-                  key={item.href}
-                  custom={i}
-                  variants={linkVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  <Link
-                    href={item.href}
-                    onClick={onClose}
-                    className="block rounded-lg px-3 py-3 text-base font-medium text-foreground transition-colors duration-150 hover:bg-muted focus-ring"
-                  >
-                    {item.label}
-                  </Link>
-                </motion.div>
+              {(siteConfig.nav.main as readonly NavItem[]).map((item, i) => (
+                <MobileNavItem key={item.href} item={item} index={i} onClose={onClose} />
               ))}
             </div>
-
             <div className="my-6 h-px bg-border/20" aria-hidden="true" />
-
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.2, ease: EASE }}
               className="flex flex-col gap-3"
             >
-              <Btn
-                href={siteConfig.nav.cta.tryAleria.href}
-                variant="secondary"
-                onClick={onClose}
-              >
+              <Btn href={siteConfig.nav.cta.tryAleria.href} variant="secondary" onClick={onClose}>
                 {siteConfig.nav.cta.tryAleria.label}
               </Btn>
-              <Btn
-                href={siteConfig.nav.cta.primary.href}
-                onClick={onClose}
-              >
+              <Btn href={siteConfig.nav.cta.primary.href} onClick={onClose}>
                 {siteConfig.nav.cta.primary.label}
               </Btn>
             </motion.div>
-
             <div className="mt-auto pt-8">
               <Link
                 href={siteConfig.nav.cta.login.href}
