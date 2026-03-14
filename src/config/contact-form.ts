@@ -1,5 +1,5 @@
 export const FORM_INPUT_CLASS =
-  "rounded-lg border border-border bg-background px-4 py-3 type-body-sm focus-ring w-full";
+  "rounded-lg border border-border bg-background px-4 py-3 type-body-sm focus-ring w-full transition-colors duration-150 hover:border-border/80 placeholder:text-quaternary";
 export const FORM_LABEL_CLASS = "type-label mb-2 block text-muted-foreground";
 
 export const CONTACT_COUNTRIES = [

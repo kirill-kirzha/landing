@@ -1,6 +1,9 @@
+import { ArrowRight } from "lucide-react";
+
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { SectionHeader } from "@/components/marketing/section-header";
+import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
 import { Btn } from "@/components/marketing/button";
 import { Reveal } from "@/components/ui/reveal";
 
@@ -13,12 +16,14 @@ const clientLogos = [
 export function FactoryDeployed() {
   return (
     <Section background="dark" divider="both">
-      <Container>
+      <HoneycombBg placement="bottom-right" intensity="medium" />
+      <Container className="relative z-10">
         <SectionHeader
           badge="Deployed at scale"
           title={
             <>
-              Sovereign AI at <span className="font-normal">national</span> scale
+              Sovereign AI at{" "}
+              <span className="font-normal">national</span> scale
             </>
           }
           description="Aleria powers sovereign AI infrastructure at the UAE national data center — delivering enterprise-grade intelligence for government and industry, fully isolated and under sovereign control."
@@ -41,6 +46,7 @@ export function FactoryDeployed() {
         <div className="mt-10 flex justify-center">
           <Btn href="/contact" variant="primary" size="lg">
             Build your AI Factory
+            <ArrowRight className="size-4" aria-hidden="true" />
           </Btn>
         </div>
       </Container>

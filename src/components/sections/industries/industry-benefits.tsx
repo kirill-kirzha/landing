@@ -21,16 +21,18 @@ export function IndustryBenefits({ benefits }: IndustryBenefitsProps) {
               </>
             }
           />
-          <div className="mt-14 divide-y divide-border/50">
+          <div className="mt-14 space-y-0 divide-y divide-border/50">
             {benefits.map((item) => (
               <div
                 key={item.benefit}
-                className="flex flex-col gap-2 py-5 first:pt-0 sm:flex-row sm:items-start sm:gap-8"
+                className="grid grid-cols-1 gap-1 py-5 first:pt-0 sm:grid-cols-[14rem_1fr] sm:gap-8"
               >
-                <span className="min-w-[12rem] font-medium text-foreground">
+                <span className="type-body-sm font-medium text-foreground">
                   {item.benefit}
                 </span>
-                <span className="type-body-sm text-tertiary">{item.impact}</span>
+                <span className="type-body-sm text-tertiary">
+                  {item.impact}
+                </span>
               </div>
             ))}
           </div>

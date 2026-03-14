@@ -12,6 +12,10 @@ export function CaseStudyEntity({ text }: CaseStudyEntityProps) {
       <Container size="narrow">
         <Reveal>
           <p className="type-label text-muted-foreground">The organization</p>
+          <div
+            className="gradient-desert-mint mt-4 h-px w-12 rounded-full"
+            aria-hidden="true"
+          />
           <p className="type-body mt-6 text-muted-foreground leading-relaxed">
             {text}
           </p>

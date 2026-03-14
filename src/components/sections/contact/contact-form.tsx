@@ -27,8 +27,14 @@ export function ContactForm() {
 
   return (
     <Section>
-      <Container>
-        <ContactFormFields form={form} setForm={setForm} onSubmit={handleSubmit} />
+      <Container size="narrow">
+        <div className="rounded-2xl border border-border/40 bg-card/30 p-6 sm:p-8 lg:p-10">
+          <ContactFormFields
+            form={form}
+            setForm={setForm}
+            onSubmit={handleSubmit}
+          />
+        </div>
       </Container>
     </Section>
   );

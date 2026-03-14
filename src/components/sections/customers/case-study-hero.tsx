@@ -1,6 +1,7 @@
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
+import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
 import { LinkArrow } from "@/components/marketing/link-arrow";
 
 interface CaseStudyHeroProps {
@@ -9,9 +10,14 @@ interface CaseStudyHeroProps {
   location: string;
 }
 
-export function CaseStudyHero({ title, industry, location }: CaseStudyHeroProps) {
+export function CaseStudyHero({
+  title,
+  industry,
+  location,
+}: CaseStudyHeroProps) {
   return (
     <Section spacing="lg" className="pt-28 sm:pt-32 lg:pt-36">
+      <HoneycombBg placement="top-right" intensity="subtle" />
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,oklch(0.93_0.015_82/0.4),transparent)]"
         aria-hidden="true"
@@ -22,11 +28,17 @@ export function CaseStudyHero({ title, industry, location }: CaseStudyHeroProps)
             All case studies
           </LinkArrow>
           <div className="mt-8">
-            <Badge>{industry} · {location}</Badge>
+            <Badge>
+              {industry} · {location}
+            </Badge>
             <h1 className="type-display mt-6">{title}</h1>
           </div>
         </div>
       </Container>
+      <div
+        className="pointer-events-none absolute right-0 bottom-0 left-0 h-px bg-gradient-to-r from-transparent via-border/40 to-transparent"
+        aria-hidden="true"
+      />
     </Section>
   );
 }

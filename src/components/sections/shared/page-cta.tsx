@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { Btn } from "@/components/marketing/button";
+import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
 import { Reveal } from "@/components/ui/reveal";
 
 interface PageCtaProps {
@@ -24,6 +25,7 @@ export function PageCta({
 }: PageCtaProps) {
   return (
     <Section spacing="lg">
+      <HoneycombBg placement="bottom-center" intensity="medium" />
       <Container size="narrow" className="relative z-10">
         <Reveal className="text-center">
           <p className="type-body text-muted-foreground">{headline}</p>

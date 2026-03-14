@@ -8,6 +8,7 @@ import { EASE, DURATION } from "@/lib/motion";
 import { Section } from "@/components/marketing/section";
 import { Container } from "@/components/marketing/container";
 import { SectionHeader } from "@/components/marketing/section-header";
+import { HoneycombBg } from "@/components/marketing/honeycomb-bg";
 import { factoryLayers } from "./factory-layers-data";
 
 export function FactoryLayers() {
@@ -17,7 +18,8 @@ export function FactoryLayers() {
 
   return (
     <Section>
-      <Container>
+      <HoneycombBg placement="bottom-left" intensity="subtle" />
+      <Container className="relative z-10">
         <SectionHeader
           badge="How it works"
           title={

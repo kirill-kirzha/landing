@@ -11,7 +11,11 @@ interface CaseStudyChangeProps {
   shifts: readonly CaseStudyShift[];
 }
 
-export function CaseStudyChange({ headline, intro, shifts }: CaseStudyChangeProps) {
+export function CaseStudyChange({
+  headline,
+  intro,
+  shifts,
+}: CaseStudyChangeProps) {
   return (
     <Section background="muted" divider="both">
       <Container>
@@ -24,11 +28,11 @@ export function CaseStudyChange({ headline, intro, shifts }: CaseStudyChangeProp
           <p className="type-body mt-6 max-w-3xl text-muted-foreground">
             {intro}
           </p>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {shifts.map((shift) => (
               <div
                 key={shift.title}
-                className="rounded-xl border border-border/40 bg-background p-6"
+                className="rounded-xl border border-border/40 bg-background p-6 transition-colors duration-200 hover:border-border/70"
               >
                 <h3 className="type-heading">{shift.title}</h3>
                 <p className="type-body-sm mt-3 text-tertiary">

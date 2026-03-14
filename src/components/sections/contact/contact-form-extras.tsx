@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import {
   CONTACT_BUDGET_OPTIONS,
   CONTACT_CHALLENGES,
@@ -28,22 +29,29 @@ export function ContactFormExtras({ form, setForm }: ContactFormExtrasProps) {
     <>
       <div className="mt-6">
         <span className={FORM_LABEL_CLASS}>Primary Challenge</span>
-        <div className="mt-3 flex flex-wrap gap-4">
-          {CONTACT_CHALLENGES.map((ch) => (
-            <label key={ch} className="flex cursor-pointer items-center gap-2">
-              <input
-                type="checkbox"
-                checked={form.challenges.includes(ch)}
-                onChange={() => toggleChallenge(ch)}
-                className="focus-ring size-4 rounded border-border"
-              />
-              <span className="type-body-sm text-foreground">{ch}</span>
-            </label>
-          ))}
+        <div className="mt-3 flex flex-wrap gap-2.5">
+          {CONTACT_CHALLENGES.map((ch) => {
+            const isSelected = form.challenges.includes(ch);
+            return (
+              <button
+                key={ch}
+                type="button"
+                onClick={() => toggleChallenge(ch)}
+                className={cn(
+                  "rounded-full border px-3.5 py-1.5 text-sm transition-colors duration-150 focus-ring",
+                  isSelected
+                    ? "border-brand-mint/40 bg-brand-mint/10 text-foreground"
+                    : "border-border text-tertiary hover:border-border/80 hover:text-muted-foreground",
+                )}
+              >
+                {ch}
+              </button>
+            );
+          })}
         </div>
       </div>
 
-      <div className="mt-6 grid gap-6 md:grid-cols-2">
+      <div className="mt-6 grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="deployment" className={FORM_LABEL_CLASS}>
             Preferred Deployment Model

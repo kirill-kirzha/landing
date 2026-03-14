@@ -25,13 +25,19 @@ export function PricingAddons() {
                 key={addon.id}
                 className="overflow-hidden rounded-xl border border-border bg-background"
               >
-                <div className="border-b border-border/50 px-6 py-5 lg:px-8">
+                <div className="border-b border-border/50 px-5 py-5 sm:px-6 lg:px-8">
                   <h3 className="type-heading">{addon.title}</h3>
-                  <p className="type-body-sm mt-1 text-tertiary">{addon.description}</p>
+                  <p className="type-body-sm mt-1 text-tertiary">
+                    {addon.description}
+                  </p>
                 </div>
-                <div className="grid grid-cols-3 divide-x divide-border/50">
+
+                <div className="hidden divide-x divide-border/50 sm:grid sm:grid-cols-3">
                   {addon.tiers.map((tier, i) => (
-                    <div key={tier.name} className={cn("px-5 py-5 lg:px-8", i === 1 && "bg-muted/30")}>
+                    <div
+                      key={tier.name}
+                      className={cn("px-5 py-5 lg:px-8", i === 1 && "bg-muted/30")}
+                    >
                       <p className="type-label text-quaternary">{tier.name}</p>
                       {tier.seats && (
                         <p className="mt-2 text-sm text-tertiary">{tier.seats}</p>
@@ -39,14 +45,53 @@ export function PricingAddons() {
                       {tier.limit && tier.limit !== "—" && (
                         <p className="text-sm text-tertiary">{tier.limit}</p>
                       )}
-                      <p className="mt-3 text-lg font-semibold tracking-tight text-foreground sm:text-xl">
+                      <p className="type-heading mt-3">
                         {tier.price ? (
                           <>
                             {tier.price}
-                            <span className="ml-1 text-xs font-normal text-quaternary">AED/mo</span>
+                            <span className="ml-1 text-xs font-normal text-quaternary">
+                              AED/mo
+                            </span>
                           </>
                         ) : (
-                          <span className="text-sm font-medium text-muted-foreground">Contact Sales</span>
+                          <span className="type-body-sm font-medium text-muted-foreground">
+                            Contact Sales
+                          </span>
+                        )}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="divide-y divide-border/30 sm:hidden">
+                  {addon.tiers.map((tier) => (
+                    <div
+                      key={tier.name}
+                      className="flex items-center justify-between px-5 py-4"
+                    >
+                      <div>
+                        <p className="type-label text-quaternary">{tier.name}</p>
+                        {tier.seats && (
+                          <p className="mt-0.5 text-sm text-tertiary">
+                            {tier.seats}
+                          </p>
+                        )}
+                        {tier.limit && tier.limit !== "—" && (
+                          <p className="text-sm text-tertiary">{tier.limit}</p>
+                        )}
+                      </div>
+                      <p className="type-heading shrink-0">
+                        {tier.price ? (
+                          <>
+                            {tier.price}
+                            <span className="ml-1 text-xs font-normal text-quaternary">
+                              AED/mo
+                            </span>
+                          </>
+                        ) : (
+                          <span className="type-body-sm font-medium text-muted-foreground">
+                            Contact Sales
+                          </span>
                         )}
                       </p>
                     </div>

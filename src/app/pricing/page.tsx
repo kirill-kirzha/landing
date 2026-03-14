@@ -4,6 +4,7 @@ import { PricingPlans } from "@/components/sections/pricing/pricing-plans";
 import { PricingAddons } from "@/components/sections/pricing/pricing-addons";
 import { PricingEnterprise } from "@/components/sections/pricing/pricing-enterprise";
 import { PricingFaq } from "@/components/sections/pricing/pricing-faq";
+import { PageCta } from "@/components/sections/shared/page-cta";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -18,6 +19,17 @@ export default function PricingPage() {
       <PricingAddons />
       <PricingEnterprise />
       <PricingFaq />
+      <PageCta
+        title={
+          <>
+            Build Your <span className="font-normal">AI</span> Factory.
+          </>
+        }
+        primaryLabel="Let's Talk"
+        primaryHref="/contact"
+        secondaryLabel="Try Aleria"
+        secondaryHref="/try"
+      />
     </>
   );
 }
