@@ -5,6 +5,7 @@ import { AiFactorySection } from "@/components/sections/home/ai-factory";
 import { SourcesSection } from "@/components/sections/home/sources";
 import { AiOsSection } from "@/components/sections/home/ai-os";
 import { MoreProductsSection } from "@/components/sections/home/more-products";
+import { PricingSection } from "@/components/sections/home/pricing";
 import { ClosingCtaSection } from "@/components/sections/home/closing-cta";
 
 export default function HomePage() {
@@ -17,6 +18,7 @@ export default function HomePage() {
       <SourcesSection />
       <AiOsSection />
       <MoreProductsSection />
+      <PricingSection />
       <ClosingCtaSection />
     </>
   );
