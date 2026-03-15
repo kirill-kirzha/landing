@@ -7,6 +7,7 @@ import { Badge } from "@/components/marketing/badge";
 import { LinkArrow } from "@/components/marketing/link-arrow";
 import { WindowFrame } from "@/components/marketing/window-frame";
 import { Reveal } from "@/components/ui/reveal";
+import { FactoryStack } from "./ai-factory-stack";
 
 const deployments = [
   {
@@ -67,7 +68,7 @@ export function AiFactorySection({ className }: SectionProps) {
           </div>
 
           <WindowFrame title="AI Factory">
-            <div className="aspect-[4/3] bg-muted/30" />
+            <FactoryStack />
           </WindowFrame>
         </Reveal>
       </Container>
