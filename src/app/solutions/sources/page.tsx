@@ -4,7 +4,7 @@ import { SolutionLayout } from "@/components/sections/solutions/solution-layout"
 import { sourcesData } from "@/config/solutions/sources";
 
 export const metadata: Metadata = {
-  title: "Aleria Fusion — Sources",
+  title: "Aleria Fusion",
   description: sourcesData.subtitle,
 };
 

@@ -118,9 +118,6 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
               transition={{ delay: 0.3, duration: 0.2, ease: EASE }}
               className="flex flex-col gap-3"
             >
-              <Btn href={siteConfig.nav.cta.tryAleria.href} variant="secondary" onClick={onClose}>
-                {siteConfig.nav.cta.tryAleria.label}
-              </Btn>
               <Btn href={siteConfig.nav.cta.primary.href} onClick={onClose}>
                 {siteConfig.nav.cta.primary.label}
               </Btn>

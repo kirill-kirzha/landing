@@ -55,8 +55,8 @@ export default async function CaseStudyPage({
             Build Your <span className="font-normal">AI</span> Factory.
           </>
         }
-        primaryLabel="Let's Talk"
-        primaryHref="/contact"
+        primaryLabel="Start today"
+        primaryHref="/pricing"
       />
     </>
   );

@@ -30,7 +30,7 @@ export const plans: Plan[] = [
     tagline: "Get started with Aleria\u2019s core AI capabilities",
     price: null,
     isFree: true,
-    cta: { label: "Get Started", href: "/try" },
+    cta: { label: "Get Started", href: "/pricing" },
     features: [
       { name: "Chat", included: true },
       { name: "Reports", included: true },
@@ -48,7 +48,7 @@ export const plans: Plan[] = [
     name: "Personal",
     tagline: "Personal AI assistant with key functionality",
     price: { aed: 99, usd: 29 },
-    cta: { label: "Start Free Trial", href: "/try" },
+    cta: { label: "Start Free Trial", href: "/pricing" },
     features: [
       { name: "Chat", included: true },
       { name: "Reports", included: true },
@@ -67,7 +67,7 @@ export const plans: Plan[] = [
     tagline: "AI platform with top-notch capabilities for teams",
     price: { aed: 490, usd: 139 },
     highlighted: true,
-    cta: { label: "Start Free Trial", href: "/try" },
+    cta: { label: "Start Free Trial", href: "/pricing" },
     features: [
       { name: "Chat", included: true },
       { name: "Reports", included: true },

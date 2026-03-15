@@ -2,12 +2,13 @@ export const aiOsTabs = [
   {
     id: "employees",
     label: "AI Employees",
-    windowTitle: "Aleria AI OS — Employees",
+    windowTitle: "Aleria AI OS",
+    videoSrc: "/videos/ai-employees.mp4",
     features: [
       {
         title: "Role-based templates",
         description:
-          "Legal, HR, Finance, Procurement, Compliance — each with defined skills and guardrails.",
+          "Legal, HR, Finance, Procurement, Compliance. Each with defined skills and guardrails.",
       },
       {
         title: "Background execution",
@@ -24,7 +25,8 @@ export const aiOsTabs = [
   {
     id: "flows",
     label: "Flows",
-    windowTitle: "Aleria AI OS — Flows",
+    windowTitle: "Aleria Flows",
+    videoSrc: "/videos/flows.mp4",
     features: [
       {
         title: "Visual canvas",

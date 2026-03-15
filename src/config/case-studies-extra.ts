@@ -7,7 +7,7 @@ export const CASE_STUDIES_EXTRA: readonly CaseStudyData[] = [
     industry: "Maritime",
     location: "Middle East",
     summary:
-      "The maritime sector's first AI-powered non-voting Board Observer — real-time governance across shipbuilding, fleet management, and logistics.",
+      "The maritime sector's first AI-powered non-voting Board Observer: real-time governance across shipbuilding, fleet management, and logistics.",
     entity:
       "A leading maritime technology company operates across shipbuilding, fleet management, logistics, unmanned surface vessels, and advanced maritime manufacturing. Managing such a complex ecosystem requires constant visibility across operational performance, financial structures, supply chains, and subsidiary activities. To strengthen governance, the company introduced the maritime sector's first AI-powered non-voting Board Observer, developed with Aleria.",
     changeHeadline: "From slow reporting to AI-powered maritime governance",
@@ -46,7 +46,7 @@ export const CASE_STUDIES_EXTRA: readonly CaseStudyData[] = [
     industry: "Investment Holdings",
     location: "Middle East",
     summary:
-      "The first sovereign AI Board Observer — real-time strategic intelligence for a holding group managing hundreds of billions in assets across 1,000+ entities.",
+      "The first sovereign AI Board Observer: real-time strategic intelligence for a holding group managing hundreds of billions in assets across 1,000+ entities.",
     entity:
       "A leading publicly listed holding company manages a vast portfolio of subsidiaries and strategic investments across multiple sectors. With more than a thousand entities under management and hundreds of billions in assets, governance requires continuous access to accurate data, real-time insights, and reliable decision support. The company introduced a sovereign AI Board Observer, operating entirely on-premise within the organization's infrastructure.",
     changeHeadline: "From delayed reporting to real-time boardroom intelligence",

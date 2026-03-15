@@ -2,26 +2,13 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { EASE, DURATION } from "@/lib/motion";
 import { WindowFrame } from "@/components/marketing/window-frame";
 import { LinkArrow } from "@/components/marketing/link-arrow";
+import { VideoPlayer } from "@/components/ui/video-player";
 import { ecosystemTabs } from "./ecosystem-tabs-data";
-
-function Placeholder() {
-  return (
-    <div className="relative flex aspect-video items-center justify-center bg-muted/30">
-      <button
-        className="flex size-14 items-center justify-center rounded-full border border-border/50 bg-background/80 text-muted-foreground shadow-md transition-all hover:scale-105 hover:shadow-lg focus-ring"
-        aria-label="Play demo video"
-      >
-        <Play className="size-5 translate-x-0.5" aria-hidden="true" />
-      </button>
-    </div>
-  );
-}
 
 export function EcosystemTabs() {
   const [active, setActive] = useState(0);
@@ -69,7 +56,7 @@ export function EcosystemTabs() {
             transition={{ duration: DURATION.normal, ease: EASE }}
           >
             <WindowFrame title={tab.windowTitle}>
-              <Placeholder />
+              <VideoPlayer src={tab.videoSrc} />
             </WindowFrame>
 
             <div className="mx-auto mt-8 max-w-2xl text-center">

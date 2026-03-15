@@ -9,17 +9,17 @@ import { LlmDemoChart } from "./llm-demo-chart";
 const PROMPT =
   "Brief me on Q1 group performance and flag any risks.";
 
-const RESPONSE = `Connected to 4 enterprise sources — sovereign environment
+const RESPONSE = `Connected to 4 enterprise sources (sovereign environment)
 
-Group Performance — Q1 2025
+Group Performance: Q1 2025
 Revenue: AED 27.2B (+8.3% YoY)
 Net profit: AED 4.1B
 Portfolio: AED 324B across 45 subsidiaries
 
 3 risk signals identified:
-→ Technology — margin compression (-2.1pp QoQ)
-→ Real estate — 12 contracts expiring within 60 days
-→ Energy — capex overrun flagged at 8%
+→ Technology: margin compression (-2.1pp QoQ)
+→ Real estate: 12 contracts expiring within 60 days
+→ Energy: capex overrun flagged at 8%
 
 Recommendation: schedule review for technology and energy verticals.
 Board briefing exported to secure workspace.

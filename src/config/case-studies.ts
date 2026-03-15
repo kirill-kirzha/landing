@@ -26,12 +26,12 @@ const BASE_STUDIES: readonly CaseStudyData[] = [
     industry: "Government",
     location: "Middle East",
     summary:
-      "Legislation stopped being static text and started functioning as operational intelligence — with automated global benchmarking for drafting new laws.",
+      "Legislation stopped being static text and started functioning as operational intelligence, with automated global benchmarking for drafting new laws.",
     entity:
-      "A leading public audit and accountability authority chose Aleria to make legislation more readable, more actionable, and easier to use in day-to-day decision-making. The challenge was not to automate legal work for the sake of speed — it was to make complex regulatory material clearer, more usable, and more directly connected to operations.",
+      "A leading public audit and accountability authority chose Aleria to make legislation more readable, more actionable, and easier to use in day-to-day decision-making. The challenge was not to automate legal work for the sake of speed. It was to make complex regulatory material clearer, more usable, and more directly connected to operations.",
     changeHeadline: "From legal complexity to operational clarity",
     changeIntro:
-      "Legislation stopped being treated as static text and started functioning as operational intelligence. Instead of relying on manual reading, disconnected interpretation, and slow analysis cycles, the organization gained a way to access, understand, and apply legal and regulatory content in context. Aleria also transformed the way new legislation is prepared — automatically scanning international legal frameworks, analyzing how regulations are structured across jurisdictions, and identifying what models can inform the new regulation.",
+      "Legislation stopped being treated as static text and started functioning as operational intelligence. Instead of relying on manual reading, disconnected interpretation, and slow analysis cycles, the organization gained a way to access, understand, and apply legal and regulatory content in context. Aleria also transformed the way new legislation is prepared: automatically scanning international legal frameworks, analyzing how regulations are structured across jurisdictions, and identifying what models can inform the new regulation.",
     shifts: [
       {
         title: "Automated legislative benchmark",
@@ -46,7 +46,7 @@ const BASE_STUDIES: readonly CaseStudyData[] = [
       {
         title: "Clearer path from analysis to design",
         description:
-          "A direct connection from regulatory analysis to legislative design — not just faster access to information, but better-structured output.",
+          "A direct connection from regulatory analysis to legislative design: not just faster access to information, but better-structured output.",
       },
     ],
     capabilities: [

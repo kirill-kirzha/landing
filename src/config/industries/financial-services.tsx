@@ -21,7 +21,7 @@ export const financialServicesData: IndustryPageData = {
   beforeAfter: [
     {
       before:
-        "AI tools fail at the first compliance review — data governance unverifiable",
+        "AI tools fail at the first compliance review, data governance unverifiable",
       after:
         "Every deployment runs on isolated, permissioned infrastructure. Full audit trail on every AI interaction from day one.",
     },
@@ -29,7 +29,7 @@ export const financialServicesData: IndustryPageData = {
       before:
         "Contract and document review takes weeks of manual legal effort",
       after:
-        "Legal Agent extracts clauses, compares versions, flags risk and produces structured summaries — overnight.",
+        "Legal Agent extracts clauses, compares versions, flags risk and produces structured summaries. Overnight.",
     },
     {
       before:
@@ -39,7 +39,7 @@ export const financialServicesData: IndustryPageData = {
     },
     {
       before:
-        "Back-office processes run on manual repetition — variance checks, expense reviews, regulatory reports",
+        "Back-office processes run on manual repetition: variance checks, expense reviews, regulatory reports",
       after:
         "Flows automate high-frequency operations with structured outputs that feed directly into downstream systems.",
     },
@@ -51,36 +51,36 @@ export const financialServicesData: IndustryPageData = {
     },
   ] as const,
   deployment: {
-    title: "IHC + First Abu Dhabi Bank — AI Board Observer",
+    title: "IHC + First Abu Dhabi Bank: AI Board Observer",
     description:
-      "AI Board Observer deployed at board level across IHC and FAB. Live KPIs, natural language queries and AI-drafted board minutes. First worldwide AI Board Observer — Aiden Insight — recognized at Davos WEF 2025.",
+      "AI Board Observer deployed at board level across IHC and FAB. Live KPIs, natural language queries and AI-drafted board minutes. First worldwide AI Board Observer, Aiden Insight, recognized at Davos WEF 2025.",
   },
   areas: [
     {
       title: "Data Governance",
       description:
-        "Every Aleria deployment in financial services runs on isolated, permissioned infrastructure. Data stays within the client's perimeter. Models never train on client data. Full audit trail on every AI interaction — meeting regulatory requirements from day one.",
+        "Every Aleria deployment in financial services runs on isolated, permissioned infrastructure. Data stays within the client's perimeter. Models never train on client data. Full audit trail on every AI interaction, meeting regulatory requirements from day one.",
       capabilities:
         "Sovereign infrastructure · Air-gapped delivery · Full interaction audit trail · Permissioned access control",
     },
     {
       title: "Contract Intelligence",
       description:
-        "Legal Agent handles the volume of contracts, term sheets and regulatory documents that financial institutions process — extracting clauses, comparing versions, flagging risk and producing structured summaries for legal review.",
+        "Legal Agent handles the volume of contracts, term sheets and regulatory documents that financial institutions process, extracting clauses, comparing versions, flagging risk and producing structured summaries for legal review.",
       capabilities:
         "Legal Agent · Overnight contract review · Termination clause extraction · Risk flagging · Delta summaries",
     },
     {
       title: "Executive Reporting",
       description:
-        "AI Board Observer connects to core banking systems, investment portfolios and operational data — giving C-suite and board members live KPI visibility with natural language querying and AI-drafted meeting minutes.",
+        "AI Board Observer connects to core banking systems, investment portfolios and operational data, giving C-suite and board members live KPI visibility with natural language querying and AI-drafted meeting minutes.",
       capabilities:
         "AI Board Observer · Live multi-layer dashboards · Natural language querying · AI-drafted minutes",
     },
     {
       title: "Operational Automation",
       description:
-        "Flows automate high-frequency back-office processes — variance analysis, expense policy checks, regulatory reporting, KYC document processing — with structured outputs that feed directly into downstream systems.",
+        "Flows automate high-frequency back-office processes: variance analysis, expense policy checks, regulatory reporting, KYC document processing. Structured outputs feed directly into downstream systems.",
       capabilities:
         "Flows · Finance Ops Agent · Compliance Agent · Schema-validated JSON outputs · Scheduled triggers",
     },
@@ -89,7 +89,7 @@ export const financialServicesData: IndustryPageData = {
     {
       benefit: "Compliance-ready from day one",
       impact:
-        "Full audit trail, data isolation and governance built into the architecture — not bolted on.",
+        "Full audit trail, data isolation and governance built into the architecture. Not bolted on.",
     },
     {
       benefit: "Document processing at scale",
@@ -99,7 +99,7 @@ export const financialServicesData: IndustryPageData = {
     {
       benefit: "Live board intelligence",
       impact:
-        "Real-time KPIs and AI-drafted minutes — recognized at Davos WEF 2025.",
+        "Real-time KPIs and AI-drafted minutes. Recognized at Davos WEF 2025.",
     },
     {
       benefit: "Back-office automation",
@@ -118,7 +118,7 @@ export const financialServicesData: IndustryPageData = {
       industry: "Executive AI",
       location: "UAE",
       description:
-        "AI Board Observer deployed at board level. Live KPIs, natural language queries and AI-drafted board minutes. First worldwide AI Board Observer — Aiden Insight — recognized at Davos WEF 2025.",
+        "AI Board Observer deployed at board level. Live KPIs, natural language queries and AI-drafted board minutes. First worldwide AI Board Observer, Aiden Insight, recognized at Davos WEF 2025.",
       href: "/customers/ihc-fab",
     },
     {

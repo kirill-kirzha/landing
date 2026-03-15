@@ -26,7 +26,7 @@ export function FactoryDeployed() {
               <span className="font-normal">national</span> scale
             </>
           }
-          description="Aleria powers sovereign AI infrastructure at the UAE national data center — delivering enterprise-grade intelligence for government and industry, fully isolated and under sovereign control."
+          description="Aleria powers sovereign AI infrastructure at the UAE national data center, delivering enterprise-grade intelligence for government and industry, fully isolated and under sovereign control."
         />
         <Reveal className="mt-10">
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">

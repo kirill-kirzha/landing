@@ -13,7 +13,7 @@ import { EASE, DURATION } from "@/lib/motion";
 const faqs = [
   {
     q: "What is included in the base platform vs add-ons?",
-    a: "The base platform (Personal or Business) gives you Aleria OS — chat, sources, reports and core agentic capabilities. Add-ons extend this with specialized infrastructure: Flows for workflow automation, Datalake for live database connections, Agentic Workforce for background AI Employees, and ETL for large-scale data pipelines.",
+    a: "The base platform (Personal or Business) gives you Aleria OS: chat, sources, reports and core agentic capabilities. Add-ons extend this with specialized infrastructure: Flows for workflow automation, Datalake for live database connections, Agentic Workforce for background AI Employees, and ETL for large-scale data pipelines.",
   },
   {
     q: "Can I deploy fully on-premise with no cloud dependency?",
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: "What does air-gapped delivery mean in practice?",
-    a: "Aleria is delivered as an encrypted VM on your hardware — Mac Studio, NVIDIA DGX or your own servers. It operates with zero internet connectivity. The entire platform runs locally. This has been deployed and is running in production at multiple government and financial institutions.",
+    a: "Aleria is delivered as an encrypted VM on your hardware: Mac Studio, NVIDIA DGX or your own servers. It operates with zero internet connectivity. The entire platform runs locally. This has been deployed and is running in production at multiple government and financial institutions.",
   },
   {
     q: "Is there a minimum seat requirement?",
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: "What AI models does Aleria use?",
-    a: "Aleria is model-agnostic. We support and integrate the leading LLMs and allow organizations to bring their own models. In air-gapped deployments, only locally hosted models are used — no external model API calls.",
+    a: "Aleria is model-agnostic. We support and integrate the leading LLMs and allow organizations to bring their own models. In air-gapped deployments, only locally hosted models are used. No external model API calls.",
   },
   {
     q: "Can I bring my own model?",
@@ -37,11 +37,11 @@ const faqs = [
   },
   {
     q: "How long does onboarding take?",
-    a: "Tier 1 standard use cases can be live in hours. Tier 2 configured deployments take days to weeks. Enterprise and sovereign deployments are scoped individually — Aleria provides a dedicated implementation team for all Custom Solution contracts.",
+    a: "Tier 1 standard use cases can be live in hours. Tier 2 configured deployments take days to weeks. Enterprise and sovereign deployments are scoped individually. Aleria provides a dedicated implementation team for all Custom Solution contracts.",
   },
   {
     q: "What exactly is an AI Employee?",
-    a: "An AI Employee is a role-based autonomous agent that operates in a controlled execution environment. Unlike a chatbot, it doesn't just answer questions — it opens files, runs code, queries databases, executes multi-step tasks and delivers finished outputs. It works in background mode, handles unlimited files and can be customized with skills and templates specific to your organization's processes.",
+    a: "An AI Employee is a role-based autonomous agent that operates in a controlled execution environment. Unlike a chatbot, it doesn't just answer questions. It opens files, runs code, queries databases, executes multi-step tasks and delivers finished outputs. It works in background mode, handles unlimited files and can be customized with skills and templates specific to your organization's processes.",
   },
 ];
 

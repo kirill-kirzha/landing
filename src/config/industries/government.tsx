@@ -20,13 +20,13 @@ export const governmentData: IndustryPageData = {
   beforeAfter: [
     {
       before:
-        "Data fragmented across dozens of disconnected legacy systems — no unified view",
+        "Data fragmented across dozens of disconnected legacy systems. No unified view",
       after:
         "Every system connected into a single governed datalake. One source of truth across all departments.",
     },
     {
       before:
-        "AI tools rejected by procurement and security — data sovereignty unverifiable",
+        "AI tools rejected by procurement and security. Data sovereignty unverifiable",
       after:
         "Sovereign by architecture. On-premise, private cloud or air-gapped. Data never leaves your infrastructure.",
     },
@@ -34,7 +34,7 @@ export const governmentData: IndustryPageData = {
       before:
         "Cross-departmental processes run on manual hand-offs, paper trails and tribal knowledge",
       after:
-        "Flows automate procurement pipelines, compliance reporting and citizen service routing — with full audit trail.",
+        "Flows automate procurement pipelines, compliance reporting and citizen service routing, with full audit trail.",
     },
     {
       before:
@@ -46,33 +46,33 @@ export const governmentData: IndustryPageData = {
       before:
         "Months-long evaluation cycles for AI vendors with no proven government deployments",
       after:
-        "Aleria is deployed and proven at the highest levels of government — from presidential courts to national cybersecurity.",
+        "Aleria is deployed and proven at the highest levels of government: from presidential courts to national cybersecurity.",
     },
   ] as const,
   deployment: {
-    title: "Sovereign AI Factory — UAE National Infrastructure",
+    title: "Sovereign AI Factory: UAE National Infrastructure",
     description:
-      "Aleria designed and built sovereign AI infrastructure at national scale for the UAE — a fully operational AI Factory powering government and enterprise intelligence across the country. Built on the NVIDIA DGX architecture and DDN AI-optimized storage.",
+      "Aleria designed and built sovereign AI infrastructure at national scale for the UAE: a fully operational AI Factory powering government and enterprise intelligence across the country. Built on the NVIDIA DGX architecture and DDN AI-optimized storage.",
   },
   areas: [
     {
       title: "Data Sovereignty",
       description:
-        "Every deployment option — on-premise, private cloud or Sovereign AI Factory — guarantees that data never leaves government infrastructure. No external API calls. No model training on government data. Full technological independence.",
+        "Every deployment option (on-premise, private cloud or Sovereign AI Factory) guarantees that data never leaves government infrastructure. No external API calls. No model training on government data. Full technological independence.",
       capabilities:
         "Sovereign AI Factory on NVIDIA DGX Blueprint · Air-gapped delivery · Hardware-isolated zero-trust security",
     },
     {
       title: "Legacy System Integration",
       description:
-        "Big Data Fusion connects to every system government organizations run — from decades-old Oracle databases to modern cloud platforms — unifying them into a single governed datalake without replacing existing infrastructure.",
+        "Big Data Fusion connects to every system government organizations run, from decades-old Oracle databases to modern cloud platforms, unifying them into a single governed datalake without replacing existing infrastructure.",
       capabilities:
         "Big Data Fusion · 400+ universal connectors · Governed datalake with full lineage and access control",
     },
     {
       title: "Workflow Automation",
       description:
-        "Flows automate the cross-departmental processes that currently run on manual hand-offs — procurement pipelines, compliance reporting, citizen service routing — with full audit trail and version control.",
+        "Flows automate the cross-departmental processes that currently run on manual hand-offs: procurement pipelines, compliance reporting, citizen service routing, with full audit trail and version control.",
       capabilities:
         "Flows · Agentic Workforce (Procurement Agent, Compliance Agent) · Structured JSON outputs feeding downstream systems",
     },
@@ -93,7 +93,7 @@ export const governmentData: IndustryPageData = {
     {
       benefit: "Legacy modernization without replacement",
       impact:
-        "Connect existing systems into one AI-ready foundation — no rip-and-replace.",
+        "Connect existing systems into one AI-ready foundation. No rip-and-replace.",
     },
     {
       benefit: "Automation of manual processes",
@@ -103,7 +103,7 @@ export const governmentData: IndustryPageData = {
     {
       benefit: "Real-time executive visibility",
       impact:
-        "Live decision-making surface for leadership — not quarterly snapshots.",
+        "Live decision-making surface for leadership, not quarterly snapshots.",
     },
     {
       benefit: "Proven at the highest levels",

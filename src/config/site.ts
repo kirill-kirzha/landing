@@ -18,7 +18,6 @@ export const siteConfig = {
   ogImage: "https://aleria.com/og.png",
   links: {
     login: "https://id.aleria.com/in?callbackURL=https://aleria.com",
-    tryAleria: "/try",
     contact: "/contact",
   },
   nav: {
@@ -59,8 +58,7 @@ export const siteConfig = {
       },
     ] satisfies NavItem[],
     cta: {
-      primary: { label: "Let's Talk", href: "/contact" },
-      tryAleria: { label: "Try Aleria", href: "/try" },
+      primary: { label: "Start today", href: "/pricing" },
       login: { label: "Log In", href: "https://id.aleria.com/in?callbackURL=https://aleria.com" },
     },
   },

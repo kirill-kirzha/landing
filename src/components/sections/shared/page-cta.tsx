@@ -18,8 +18,8 @@ interface PageCtaProps {
 export function PageCta({
   headline = "The organizations that can produce intelligence at scale will define the future.",
   title,
-  primaryLabel = "Let's Talk",
-  primaryHref = "/contact",
+  primaryLabel = "Start today",
+  primaryHref = "/pricing",
   secondaryLabel,
   secondaryHref,
 }: PageCtaProps) {

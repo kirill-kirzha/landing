@@ -4,15 +4,17 @@ import { Container } from "@/components/marketing/container";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { LinkArrow } from "@/components/marketing/link-arrow";
 import { WindowFrame } from "@/components/marketing/window-frame";
+import { VideoPlayer } from "@/components/ui/video-player";
 import { Reveal } from "@/components/ui/reveal";
 
 const products = [
   {
     title: "Dashboard AI",
     description:
-      "Executive intelligence — live, explorable, traceable. Natural language queries with instant charts.",
+      "Executive intelligence. Live, explorable, traceable. Natural language queries with instant charts.",
     href: "/solutions/dashboard-ai",
     windowTitle: "Aleria Dashboard AI",
+    videoSrc: "/videos/dashboard-ai.mp4",
   },
   {
     title: "Video AI",
@@ -20,6 +22,7 @@ const products = [
       "Real-time intelligence across every camera stream. Detect, track and alert at scale.",
     href: "/solutions/video-ai",
     windowTitle: "Aleria Video AI",
+    videoSrc: "/videos/video-ai.mp4",
   },
 ] as const;
 
@@ -46,7 +49,7 @@ export function MoreProductsSection({ className }: SectionProps) {
             {products.map((p) => (
               <div key={p.title}>
                 <WindowFrame title={p.windowTitle} className="border-border/20">
-                  <div className="aspect-video bg-card/30" />
+                  <VideoPlayer src={p.videoSrc} />
                 </WindowFrame>
                 <h3 className="type-heading mt-6">{p.title}</h3>
                 <p className="type-body-sm mt-2 text-tertiary">

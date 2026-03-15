@@ -8,9 +8,9 @@ export const agentsData = {
     </>
   ),
   subtitle:
-    "Not a chatbot. A virtual colleague with a computer, skills and a role — running in the background while your team focuses on what matters.",
+    "Not a chatbot. A virtual colleague with a computer, skills and a role, running in the background while your team focuses on what matters.",
   problem:
-    "Chat AI answers questions. It doesn't do the work. Your legal team still manually reviews 200 contracts. Your procurement team still writes every RFP from scratch. Your finance team still runs variance checks by hand. The bottleneck isn't intelligence — it's execution. Agentic Workforce closes that gap. These are AI Employees — role-defined, skill-equipped, background-running agents that produce finished outputs, not suggestions.",
+    "Chat AI answers questions. It doesn't do the work. Your legal team still manually reviews 200 contracts. Your procurement team still writes every RFP from scratch. Your finance team still runs variance checks by hand. The bottleneck isn't intelligence, it's execution. Agentic Workforce closes that gap. These are AI Employees: role-defined, skill-equipped, background-running agents that produce finished outputs, not suggestions.",
   features: [
     {
       title: "A controlled environment",
@@ -20,19 +20,20 @@ export const agentsData = {
     {
       title: "A Marketplace of roles",
       description:
-        "Pre-built, role-based AI Employee templates — HR Agent for CV screening, Legal Agent for contract review, Finance Ops for variance checks, Procurement Agent for RFP drafting, Compliance Agent for regulatory cross-referencing, Sales Ops for account research. More roles added continuously.",
+        "Pre-built, role-based AI Employee templates: HR Agent for CV screening, Legal Agent for contract review, Finance Ops for variance checks, Procurement Agent for RFP drafting, Compliance Agent for regulatory cross-referencing, Sales Ops for account research. More roles added continuously.",
     },
     {
       title: "Skills & Templates",
       description:
-        "Skills are modular capabilities you equip any AI Employee with. Templates are saved, role-ready configurations — built once and reused endlessly. Share across teams, publish organization-wide or pick from Aleria's Marketplace of proven configurations.",
+        "Skills are modular capabilities you equip any AI Employee with. Templates are saved, role-ready configurations, built once and reused endlessly. Share across teams, publish organization-wide or pick from Aleria's Marketplace of proven configurations.",
     },
     {
       title: "Composing agents together",
       description:
-        "Some outcomes require multiple roles working in sequence. HR + Legal + Finance, for example. Aleria supports agent chaining — narrow, specialized agents passing structured outputs to each other. How you enforce order, add approvals and make it repeatable: that's Flows.",
+        "Some outcomes require multiple roles working in sequence. HR + Legal + Finance, for example. Aleria supports agent chaining with narrow, specialized agents passing structured outputs to each other. How you enforce order, add approvals and make it repeatable: that's Flows.",
     },
   ] as const,
+  videoSrc: "/videos/ai-employees.mp4",
   ctaLabel: "See it in Action",
-  ctaHref: "/contact",
+  ctaHref: "/pricing",
 } as const satisfies SolutionPageData;

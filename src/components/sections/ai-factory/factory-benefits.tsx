@@ -17,7 +17,7 @@ const benefits = [
   {
     title: "Completeness",
     description:
-      "From infrastructure to data to agents to applications — one ecosystem.",
+      "From infrastructure to data to agents to applications. One ecosystem.",
   },
   {
     title: "Modularity",

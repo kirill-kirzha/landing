@@ -21,7 +21,7 @@ const plans = [
       "Deep research reports with cited outputs",
       "Standard agentic capabilities",
     ],
-    cta: { label: "Get started", href: "/try" },
+    cta: { label: "Get started", href: "/pricing" },
     highlighted: false,
   },
   {
@@ -38,7 +38,7 @@ const plans = [
       "Add-on integration: Flows, Datalake, Agents",
       "Team management and access control",
     ],
-    cta: { label: "Get started", href: "/try" },
+    cta: { label: "Get started", href: "/pricing" },
     highlighted: true,
   },
   {

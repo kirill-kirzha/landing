@@ -7,7 +7,7 @@ export const CASE_STUDIES_MORE: readonly CaseStudyData[] = [
     industry: "Telecom",
     location: "Middle East",
     summary:
-      "A national telecom operator distributes sovereign AI to thousands of local businesses — keeping all data within national boundaries.",
+      "A national telecom operator distributes sovereign AI to thousands of local businesses, keeping all data within national boundaries.",
     entity:
       "A major national telecommunications operator set out to bring sovereign artificial intelligence directly to the country's business ecosystem. Beyond connectivity, the organization acts as a critical digital infrastructure provider. Its ambition was to distribute a powerful and sovereign alternative to global AI platforms to thousands of local companies.",
     changeHeadline: "From disconnected tools to sovereign AI infrastructure",
@@ -32,7 +32,7 @@ export const CASE_STUDIES_MORE: readonly CaseStudyData[] = [
     ],
     capabilities: [
       "Natural language analysis and synthesis of HR, financial, and commercial data",
-      "Automated detection of weak signals — inventory shortages, credit anomalies, contractual risks",
+      "Automated detection of weak signals: inventory shortages, credit anomalies, contractual risks",
       "Real-time reporting and dashboards for operational monitoring",
       "Direct integrations with ERP, CRM, SQL databases, and internal tools",
       "Collaborative AI workflows with instant answers and custom alerts",
@@ -46,7 +46,7 @@ export const CASE_STUDIES_MORE: readonly CaseStudyData[] = [
     industry: "Real Estate",
     location: "Middle East",
     summary:
-      "A centralized development intelligence platform connected to 16 enterprise sources — feasibility studies from months to real time.",
+      "A centralized development intelligence platform connected to 16 enterprise sources. Feasibility studies went from months to real time.",
     entity:
       "One of the region's largest real estate developers manages complex development programs requiring alignment of land assessment, design, feasibility, cost planning, market positioning, and sales strategy. At this scale, early-stage planning involved multiple teams, datasets, and enterprise systems. The organization needed a unified intelligence environment capable of consolidating enterprise data and embedding advanced analytics directly into the development planning process.",
     changeHeadline: "From distributed data to real-time development intelligence",
@@ -56,7 +56,7 @@ export const CASE_STUDIES_MORE: readonly CaseStudyData[] = [
       {
         title: "13 AI use cases supporting development planning",
         description:
-          "Specialized AI capabilities support the entire early-stage lifecycle — from land recommendation and market positioning to cost benchmarking and revenue forecasting.",
+          "Specialized AI capabilities support the entire early-stage lifecycle: from land recommendation and market positioning to cost benchmarking and revenue forecasting.",
       },
       {
         title: "Live enterprise data hub",

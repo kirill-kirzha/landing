@@ -41,7 +41,7 @@ export function AiFactorySection({ className }: SectionProps) {
             </h2>
             <p className="type-body mt-5 max-w-lg text-muted-foreground">
               Your AI, your rules. Deploy on your own infrastructure with full
-              sovereignty — no external calls, no shared compute.
+              sovereignty. No external calls, no shared compute.
             </p>
 
             <div className="mt-8 space-y-5">
@@ -66,7 +66,7 @@ export function AiFactorySection({ className }: SectionProps) {
             </div>
           </div>
 
-          <WindowFrame title="AI Factory — Architecture">
+          <WindowFrame title="AI Factory">
             <div className="aspect-[4/3] bg-muted/30" />
           </WindowFrame>
         </Reveal>

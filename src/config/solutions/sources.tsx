@@ -8,14 +8,14 @@ export const sourcesData = {
     </>
   ),
   subtitle:
-    "Proprietary ETL that processes billions of records in seconds — the foundation layer that turns fragmented data into operational intelligence.",
+    "Proprietary ETL that processes billions of records in seconds. The foundation layer that turns fragmented data into operational intelligence.",
   problem:
-    "Enterprise data is fragmented across dozens of systems that don't talk to each other. Before AI can do anything useful, that data needs to be extracted, cleaned, unified and governed. Most organizations spend more time on this than on the AI itself — and most ETL tools take hours to do what Aleria does in seconds.",
+    "Enterprise data is fragmented across dozens of systems that don't talk to each other. Before AI can do anything useful, that data needs to be extracted, cleaned, unified and governed. Most organizations spend more time on this than on the AI itself, and most ETL tools take hours to do what Aleria does in seconds.",
   features: [
     {
       title: "Connect to any source",
       description:
-        "SAP, Oracle, Salesforce, MySQL, Postgres, Azure, AWS, Excel, XML, JSON, ODBC, Stata, Dynamics 365, Huawei, SAS and more. Universal connectors built in-house — no third-party middleware.",
+        "SAP, Oracle, Salesforce, MySQL, Postgres, Azure, AWS, Excel, XML, JSON, ODBC, Stata, Dynamics 365, Huawei, SAS and more. Universal connectors built in-house, no third-party middleware.",
     },
     {
       title: "Extract, Transform, Load",
@@ -25,8 +25,9 @@ export const sourcesData = {
     {
       title: "Governed AI datalake",
       description:
-        "Output lands in a centralized, organization-wide datalake — permissioned, lineage-tracked and immediately accessible to Aleria OS, Chats, Agents, Flows and Boards.",
+        "Output lands in a centralized, organization-wide datalake. Permissioned, lineage-tracked and immediately accessible to Aleria OS, Chats, Agents, Flows and Boards.",
     },
   ] as const,
-  ctaLabel: "Let's Talk",
+  videoSrc: "/videos/sources.mp4",
+  ctaLabel: "Start today",
 } as const satisfies SolutionPageData;

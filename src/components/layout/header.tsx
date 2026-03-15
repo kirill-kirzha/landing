@@ -57,12 +57,6 @@ export function Header() {
 
         <div className="hidden items-center gap-4 lg:flex">
           <Link
-            href={siteConfig.nav.cta.tryAleria.href}
-            className="text-sm text-muted-foreground transition-colors duration-150 hover:text-foreground"
-          >
-            {siteConfig.nav.cta.tryAleria.label}
-          </Link>
-          <Link
             href={siteConfig.nav.cta.login.href}
             className="text-sm text-muted-foreground transition-colors duration-150 hover:text-foreground"
           >

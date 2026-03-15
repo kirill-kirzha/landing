@@ -11,7 +11,7 @@ export const videoAiData = {
   subtitle:
     "Thousands of simultaneous streams. One operational picture. Instant alerts.",
   problem:
-    "Security and operations teams are overwhelmed by footage nobody watches until after something goes wrong. Camera infrastructure generates data continuously — and almost all of it is ignored. Video AI turns passive surveillance into active operational intelligence.",
+    "Security and operations teams are overwhelmed by footage nobody watches until after something goes wrong. Camera infrastructure generates data continuously, and almost all of it is ignored. Video AI turns passive surveillance into active operational intelligence.",
   features: [
     {
       title: "Detection",
@@ -21,7 +21,7 @@ export const videoAiData = {
     {
       title: "Contextualized Alerts",
       description:
-        "The system doesn't show you footage. It tells you what happened, where, when and why it matters — so your team responds to intelligence, not raw video.",
+        "The system doesn't show you footage. It tells you what happened, where, when and why it matters, so your team responds to intelligence, not raw video.",
     },
     {
       title: "Tracking Dashboard",
@@ -29,6 +29,7 @@ export const videoAiData = {
         "Advanced visualization layer with live map overlays, event timelines and historical analysis. Full operational picture at any moment, with searchable history.",
     },
   ] as const,
-  ctaLabel: "Let's Talk",
-  ctaHref: "/contact",
+  videoSrc: "/videos/video-ai.mp4",
+  ctaLabel: "Start today",
+  ctaHref: "/pricing",
 } as const satisfies SolutionPageData;

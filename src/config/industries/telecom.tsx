@@ -17,17 +17,17 @@ export const telecomData: IndustryPageData = {
       before:
         "Network, customer and operational data siloed across OSS, BSS and CRM systems",
       after:
-        "Big Data Fusion connects every system into a single AI-ready foundation — billions of records processed in seconds.",
+        "Big Data Fusion connects every system into a single AI-ready foundation. Billions of records processed in seconds.",
     },
     {
       before:
         "Contract processing, service desk and compliance documentation handled manually",
       after:
-        "AI Employees run customer-facing and internal operations in the background — without pulling teams from core work.",
+        "AI Employees run customer-facing and internal operations in the background, without pulling teams from core work.",
     },
     {
       before:
-        "Physical infrastructure monitored reactively — issues discovered after impact",
+        "Physical infrastructure monitored reactively. Issues discovered after impact",
       after:
         "Video AI delivers real-time anomaly detection across data centers, exchange points and retail locations.",
     },
@@ -35,7 +35,7 @@ export const telecomData: IndustryPageData = {
       before:
         "AI tools cannot handle telecom-scale data volumes",
       after:
-        "Aleria's ETL processes billions of records in seconds — 145× faster than legacy tools, 8× infrastructure reduction.",
+        "Aleria's ETL processes billions of records in seconds. 145× faster than legacy tools, 8× infrastructure reduction.",
     },
     {
       before:
@@ -45,36 +45,36 @@ export const telecomData: IndustryPageData = {
     },
   ] as const,
   deployment: {
-    title: "e& UAE — AI for SMBs at National Scale",
+    title: "e& UAE: AI for SMBs at National Scale",
     description:
-      "e& UAE deployed Aleria to enable advanced AI solutions for SMBs across every sector — launched February 2025.",
+      "e& UAE deployed Aleria to enable advanced AI solutions for SMBs across every sector. Launched February 2025.",
   },
   areas: [
     {
       title: "Network Data",
       description:
-        "Network operations, customer intelligence and enterprise service delivery all run on data at a scale most AI tools cannot handle. Big Data Fusion connects OSS, BSS and customer data systems into a single AI-ready foundation — processing billions of records in seconds.",
+        "Network operations, customer intelligence and enterprise service delivery all run on data at a scale most AI tools cannot handle. Big Data Fusion connects OSS, BSS and customer data systems into a single AI-ready foundation, processing billions of records in seconds.",
       capabilities:
         "Big Data Fusion · 400+ universal connectors · Governed datalake · Extreme throughput (500–1,000 MB/s per node)",
     },
     {
       title: "Customer Operations",
       description:
-        "AI Employees handle the customer-facing and internal complexity — contract processing, service desk automation, compliance documentation and operational reporting. All running in background mode without taking teams away from core operations.",
+        "AI Employees handle the customer-facing and internal complexity: contract processing, service desk automation, compliance documentation and operational reporting. All running in background mode without taking teams away from core operations.",
       capabilities:
         "Agentic Workforce · Legal Agent · Compliance Agent · Sales Ops Agent · Background execution",
     },
     {
       title: "Infrastructure Monitoring",
       description:
-        "Video AI monitors physical infrastructure — data centers, exchange points, retail locations — with real-time anomaly detection and operational dashboards. Passive surveillance transformed into active operational intelligence.",
+        "Video AI monitors physical infrastructure (data centers, exchange points, retail locations) with real-time anomaly detection and operational dashboards. Passive surveillance transformed into active operational intelligence.",
       capabilities:
         "Video AI · Real-time detection across simultaneous streams · Contextualized alerts · Tracking dashboards",
     },
     {
       title: "SMB Enablement",
       description:
-        "Aleria deployed through e& UAE to bring enterprise-grade AI capabilities to small and medium businesses across every sector — making sovereign AI accessible beyond large enterprises and government.",
+        "Aleria deployed through e& UAE to bring enterprise-grade AI capabilities to small and medium businesses across every sector, making sovereign AI accessible beyond large enterprises and government.",
       capabilities:
         "Full Aleria platform · e& partnership · National-scale SMB deployment · February 2025",
     },
@@ -93,7 +93,7 @@ export const telecomData: IndustryPageData = {
     {
       benefit: "Physical infrastructure intelligence",
       impact:
-        "Real-time monitoring across data centers, exchanges and retail — no human watching required.",
+        "Real-time monitoring across data centers, exchanges and retail. No human watching required.",
     },
     {
       benefit: "National-scale SMB enablement",

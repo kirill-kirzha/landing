@@ -3,35 +3,36 @@ import { ArrowRight } from "lucide-react";
 
 const caseStudies = [
   {
-    client: "ALDAR",
-    logo: "/logos/clients/aldar.png",
+    client: "Government Authority",
+    industry: "Government",
+    location: "Middle East",
+    result:
+      "Legislation transformed into operational intelligence with automated global benchmarking for drafting new laws",
+    href: "/customers/augmented-legislation",
+  },
+  {
+    client: "National Telecom Operator",
+    industry: "Telecom",
+    location: "Middle East",
+    result:
+      "Sovereign AI distributed to thousands of local businesses, all data within national boundaries",
+    href: "/customers/sovereign-ai-distribution",
+  },
+  {
+    client: "Leading Real Estate Developer",
     industry: "Real Estate",
-    location: "UAE",
-    result: "16 sources unified, feasibility in real time",
-    href: "/customers/aldar",
+    location: "Middle East",
+    result:
+      "16 enterprise sources unified into a centralized development intelligence platform, feasibility in real time",
+    href: "/customers/real-estate-intelligence",
   },
   {
-    client: "PIVOT",
-    industry: "Investment Intelligence",
-    location: "UAE",
-    result: "AI backbone for due diligence & portfolio ops",
-    href: "/customers/pivot",
-  },
-  {
-    client: "IHC",
-    logo: "/logos/clients/ihc.png",
-    industry: "Holding Group",
-    location: "UAE",
-    result: "AI Board Observer deployed at executive level",
-    href: "/customers/ihc",
-  },
-  {
-    client: "FAB",
-    logo: "/logos/clients/fab.svg",
-    industry: "Banking",
-    location: "UAE",
-    result: "AI-drafted board minutes & live KPIs — recognized at Davos WEF",
-    href: "/customers/fab",
+    client: "Investment Holdings Group",
+    industry: "Investment Holdings",
+    location: "Middle East",
+    result:
+      "First sovereign AI Board Observer delivering real-time strategic intelligence across 1,000+ entities",
+    href: "/customers/ai-board-observer",
   },
 ] as const;
 
@@ -56,20 +57,9 @@ export function DeployedBanner() {
           >
             <div>
               <div className="flex items-center gap-3">
-                {"logo" in study && study.logo ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={study.logo}
-                    alt={study.client}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-5 w-auto shrink-0 brightness-0 invert"
-                  />
-                ) : (
-                  <span className="text-sm font-semibold text-foreground">
-                    {study.client}
-                  </span>
-                )}
+                <span className="text-sm font-semibold text-foreground">
+                  {study.client}
+                </span>
                 <span className="type-body-sm text-quaternary">
                   {study.industry} · {study.location}
                 </span>

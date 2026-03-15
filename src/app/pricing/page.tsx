@@ -25,10 +25,8 @@ export default function PricingPage() {
             Build Your <span className="font-normal">AI</span> Factory.
           </>
         }
-        primaryLabel="Let's Talk"
-        primaryHref="/contact"
-        secondaryLabel="Try Aleria"
-        secondaryHref="/try"
+        primaryLabel="Start today"
+        primaryHref="/pricing"
       />
     </>
   );

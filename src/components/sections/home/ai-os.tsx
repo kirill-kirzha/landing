@@ -11,6 +11,7 @@ import { Container } from "@/components/marketing/container";
 import { Badge } from "@/components/marketing/badge";
 import { LinkArrow } from "@/components/marketing/link-arrow";
 import { WindowFrame } from "@/components/marketing/window-frame";
+import { VideoPlayer } from "@/components/ui/video-player";
 import { Reveal } from "@/components/ui/reveal";
 import { aiOsTabs as tabs } from "./ai-os-tabs";
 
@@ -30,7 +31,7 @@ export function AiOsSection({ className }: SectionProps) {
             </h2>
             <p className="type-body mx-auto mt-5 max-w-2xl text-muted-foreground">
               Autonomous AI employees and production-grade workflows that execute
-              on your infrastructure — not chatbots, virtual colleagues.
+              on your infrastructure. Not chatbots, virtual colleagues.
             </p>
           </div>
 
@@ -79,7 +80,7 @@ export function AiOsSection({ className }: SectionProps) {
                 className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16"
               >
                 <WindowFrame title={tab.windowTitle}>
-                  <div className="aspect-[4/3] bg-muted/30" />
+                  <VideoPlayer src={tab.videoSrc} aspectRatio="4/3" />
                 </WindowFrame>
 
                 <div className="space-y-6">

@@ -33,12 +33,9 @@ export function ClosingCtaSection({ className }: SectionProps) {
           </h2>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-            <Btn href="/contact" size="lg" className="w-full sm:w-auto">
-              See It in Action
+            <Btn href="/pricing" size="lg" className="w-full sm:w-auto">
+              Start today
               <ArrowRight className="size-4" aria-hidden="true" />
-            </Btn>
-            <Btn href="/contact" variant="outline_gradient" size="lg" className="w-full sm:w-auto">
-              Request a Demo
             </Btn>
           </div>
         </Reveal>

@@ -8,8 +8,8 @@ const footerLinks = {
     title: "Solutions",
     links: [
       { label: "Sources", href: "/solutions/sources" },
-      { label: "AI OS — Agents", href: "/solutions/ai-os" },
-      { label: "AI OS — Flows", href: "/solutions/flows" },
+      { label: "AI OS · Agents", href: "/solutions/ai-os" },
+      { label: "AI OS · Flows", href: "/solutions/flows" },
       { label: "Dashboard AI", href: "/solutions/dashboard-ai" },
       { label: "Video AI", href: "/solutions/video-ai" },
     ],

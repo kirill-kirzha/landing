@@ -41,17 +41,9 @@ export function HeroSection() {
               </p>
 
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
-                <Btn href="/try" size="lg" className="w-full sm:w-auto">
-                  Try Aleria
+                <Btn href="/pricing" size="lg" className="w-full sm:w-auto">
+                  Start today
                   <ArrowRight className="size-4" aria-hidden="true" />
-                </Btn>
-                <Btn
-                  href="/contact"
-                  variant="outline_gradient"
-                  size="lg"
-                  className="w-full sm:w-auto"
-                >
-                  Let&apos;s Talk
                 </Btn>
               </div>
             </div>

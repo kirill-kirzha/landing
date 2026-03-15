@@ -16,7 +16,7 @@ export const flowsData = {
     {
       title: "Automate a chain of tasks",
       description:
-        "A Flow takes a typed input payload and turns it into a reliable output by executing a sequence of nodes — observable, versioned and safe to run in production.",
+        "A Flow takes a typed input payload and turns it into a reliable output by executing a sequence of nodes. Observable, versioned and safe to run in production.",
     },
     {
       title: "Triggers",
@@ -26,12 +26,12 @@ export const flowsData = {
     {
       title: "Canvas Graph & Nodes",
       description:
-        "Directed graph with branching logic — built visually, executed deterministically. Data nodes, document nodes, model nodes, tool nodes, write-back nodes and adaptive Agent nodes.",
+        "Directed graph with branching logic, built visually and executed deterministically. Data nodes, document nodes, model nodes, tool nodes, write-back nodes and adaptive Agent nodes.",
     },
     {
       title: "Structured Output",
       description:
-        "Every Flow ends with a schema-validated JSON output — making Flows a production-grade backend that powers dashboards, applications and downstream automations.",
+        "Every Flow ends with a schema-validated JSON output, making Flows a production-grade backend that powers dashboards, applications and downstream automations.",
     },
     {
       title: "Run Trace & Versioning",
@@ -41,9 +41,10 @@ export const flowsData = {
     {
       title: "Assisted Authoring",
       description:
-        "Build manually with explicit prompts, SQL queries and parameters — or use Assisted Authoring: describe what you want, and the system generates the node configuration.",
+        "Build manually with explicit prompts, SQL queries and parameters, or use Assisted Authoring: describe what you want, and the system generates the node configuration.",
     },
   ] as const,
+  videoSrc: "/videos/flows.mp4",
   caseStudies: [
     {
       client: "ALDAR",
@@ -63,5 +64,5 @@ export const flowsData = {
     },
   ] as const,
   ctaLabel: "See it in Action",
-  ctaHref: "/contact",
+  ctaHref: "/pricing",
 } as const satisfies SolutionPageData;
