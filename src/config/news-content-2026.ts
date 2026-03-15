@@ -1,0 +1,71 @@
+export const newsContent2026: Record<string, string[]> = {
+  "qasr-aleria-a-vision-for-sovereign-ai": [
+    "In the age of artificial intelligence, sovereignty is not optional — it is foundational.",
+    "As AI becomes critical national infrastructure, countries must make a defining choice: will they merely consume intelligence developed elsewhere, or will they operate it themselves?",
+    "**Qasr Aleria** represents the UAE's answer.",
+    "## A National Vision, Powered by Global Excellence",
+    "Built with world-class technology from NVIDIA, Qasr Aleria is deployed fully on-premise, without internet connectivity, and governed locally. This is more than a technical configuration — it is a strategic statement.",
+    "The vision is clear: ensure that AI serving institutions, enterprises, and citizens remains aligned with the UAE's values, regulations, and long-term vision.",
+    "## Operating Intelligence, Not Just Using It",
+    "By investing in sovereign AI infrastructure, the United Arab Emirates strengthens its competitive advantage, accelerates research, drives productivity, and reinforces its position in the global economy.",
+    "Qasr Aleria symbolizes a future where intelligence is not outsourced — it is operated, governed, and advanced from within.",
+    "Adopting the best global technology is essential. Operating it with the national vision is decisive.",
+  ],
+
+  "strategic-dialogue-on-sovereign-ai": [
+    "Aleria had the pleasure of welcoming senior leaders from **NVIDIA** and **DDN (DataDirect Networks)**, alongside distinguished guests and partners, for a strategic exchange on the future of sovereign AI and large-scale data infrastructure.",
+    "The discussions centred on the development of AI and big data factories, long-term infrastructure requirements, and the governance frameworks needed to deploy AI responsibly at scale.",
+    "The session was led by **Eric Leandri**, CEO of Aleria, with contributions from **Jérôme Freani**, CPO, and **Dr. Mohammad Khaled**.",
+    "Joining the discussion were senior leaders from NVIDIA including **Marc Hamilton**, Global Head of Solutions Architecture & Engineering, **Maximilian Baust**, Director of Solutions Architecture EMEA, **Marc Domenech**, Senior Regional Director Enterprise, and **Yasmeen Al Ghussain**, Regional Business Lead. DDN was represented by **Ankur Arora**, Regional Sales Director.",
+    "The dialogue also included H.E. Mana Al Shamsi, reflecting growing institutional engagement in sovereign AI and large-scale data infrastructure initiatives.",
+    "Bringing together NVIDIA's and DDN's leadership with Aleria's executive team reinforces Aleria's commitment to collaboration that moves beyond experimentation and into execution.",
+  ],
+
+  "ai-sustainability-at-scale-davos": [
+    "**Wednesday, 21 January 2026 | Davos, Switzerland** — During the World Economic Forum, Aleria convened a panel discussion at IHC House to examine the relationship between AI infrastructure and sustainability at institutional scale.",
+    "The panel featured **Eric Leandri**, CEO of Aleria; **Benjamin Versluijs**, SVP at Northern Trust; **Moustafa Rashad**, CEO of EHC Investment; and **Esteban van Goor**, CEO of Xange. Moderated by McKinsey & Company.",
+    "As AI infrastructure scales globally, sustainability is increasingly recognised as an infrastructure challenge rather than a reporting exercise. Environmental performance, energy efficiency, and governance are inseparable from operational reliability.",
+    "The next generation of data centres is fundamentally different. Liquid cooling, complex energy systems, advanced electrical design, and specialised engineering capabilities are now baseline requirements.",
+    "From an institutional perspective, sustainability must be embedded into infrastructure from the outset. Energy performance, carbon measurement, and governance frameworks are no longer peripheral considerations.",
+    "AI plays a critical role in enabling this shift. By applying large-scale data analysis to infrastructure operations, sustainability becomes measurable, auditable, and enforceable.",
+    "The discussion reinforced a shared view that sustainable AI infrastructure depends on trust across the full value chain — from capital deployment and energy systems to governance and jurisdictional integrity.",
+    "For Aleria, linking AI and sustainability is not an abstract objective. It is a structural requirement for building resilient, sovereign, and institutionally aligned AI infrastructure.",
+  ],
+
+  "ifza-aleria-ai-digital-capabilities": [
+    "**Davos, Switzerland | January 20, 2026** — The International Free Zone Authority (IFZA) has entered into a strategic collaboration with Aleria to advance the application of artificial intelligence across IFZA's operating model and digital services.",
+    "The collaboration was formalised at IHC House in Davos during the World Economic Forum Annual Meeting 2026. With more than 80,000 registered companies, IFZA is one of the largest free zone authorities globally.",
+    "## Applying AI as Operating Infrastructure",
+    "Aleria will support IFZA in deploying its AI operating system and intelligence layer across selected digital services and internal workflows, enabling structured data use, real-time insight generation, and decision support.",
+    "## IFZA AI Super App and Digital Services",
+    "IFZA will explore the development of an AI-enabled digital platform providing unified access to services, communications, and operational intelligence. Powered by Aleria's platform, the initiative supports automation, predictive analytics, and responsive service delivery.",
+    "## Governance, Sovereignty, and Data Control",
+    "A core principle of the collaboration is sovereignty. IFZA will retain control over its data and digital infrastructure, ensuring AI systems operate within defined governance and compliance boundaries.",
+    "## Executive Intelligence and Decision Support",
+    "IFZA will deploy executive-level intelligence tools designed to provide near real-time visibility into operational performance, trends, and strategic indicators.",
+    "This collaboration represents a step toward building long-term digital capability rather than short-term experimentation.",
+  ],
+
+  "beyond-the-hype-ai-intelligence-factory": [
+    "**Tuesday, 20 January 2026 | Davos, Switzerland** — Aleria convened an executive panel at IHC House titled Beyond the Hype: Delivering the AI Intelligence Factory.",
+    "The panel featured **Eric Leandri**, CEO of Aleria, **Marc Domenech**, Senior Regional Director Enterprise at NVIDIA, and **Paul Bloch**, President and Co-Founder of DDN. Moderated by McKinsey & Company.",
+    "The dialogue focused on a core challenge: while AI investment accelerates, many initiatives remain confined to pilots. The gap between ambition and production remains significant.",
+    "The Intelligence Factory framework addresses this gap by positioning AI as infrastructure rather than application — requiring tightly integrated compute, data architecture, orchestration, and governance.",
+    "From an infrastructure perspective, high-density compute environments, advanced cooling, data throughput, and operational resilience are now foundational requirements.",
+    "Aleria's perspective centred on execution and control. Delivering AI at scale requires sovereign architecture that allows governments and enterprises to retain jurisdiction over data and long-term deployment.",
+    "The next phase of AI adoption will be defined by disciplined execution rather than experimentation.",
+    "For Aleria, delivering the AI Intelligence Factory means moving beyond hype and into production reality.",
+  ],
+
+  "cyber-run-and-ride-2026": [
+    "Aleria participated in **Cyber Run and Ride 2026**, a large-scale initiative led by the Cyber Security Council and Abu Dhabi Sports Council, bringing together more than **20,000 participants** in Abu Dhabi.",
+    "Hosted across **Abu Dhabi Corniche and Al Wathba**, the initiative reinforced collective responsibility in an increasingly connected society.",
+    "## Community Engagement as a Digital Catalyst",
+    "Cyber Run and Ride translated national digital priorities into accessible, community-driven participation, anchoring digital awareness within everyday life.",
+    "## Intelligence as Foundational Infrastructure",
+    "Aleria approaches AI as core infrastructure for modern institutions, helping organizations structure data, generate insight, and support informed decision-making.",
+    "## Linking Awareness to Institutional Readiness",
+    "Large-scale public initiatives complement institutional efforts to strengthen digital maturity. Aleria's participation reflects a commitment to an ecosystem-level approach where awareness, intelligence, and governance move in parallel.",
+    "Through its involvement, Aleria contributes to a broader dialogue on how intelligence, responsibility, and participation support sustainable digital transformation at scale.",
+  ],
+};
